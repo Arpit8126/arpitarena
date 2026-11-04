@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, Zap, GraduationCap, Briefcase, ChevronRight, ShieldCheck } from 'lucide-react';
+import { Search, Zap, GraduationCap, Briefcase, ChevronRight, ShieldCheck, Terminal } from 'lucide-react';
 
 export type ActiveTabType = 'hackathons' | 'internships' | 'jobs';
 
@@ -25,6 +25,17 @@ export function Navbar({
   internshipsCount,
   jobsCount,
 }: NavbarProps) {
+  const [isLocalhost, setIsLocalhost] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ) {
+      setIsLocalhost(true);
+    }
+  }, []);
+
   return (
     <header className="sticky top-0 z-40 w-full bg-white border-b border-[#e6e6e6]">
       {/* Top Utility Bar (64px) */}
@@ -46,9 +57,20 @@ export function Navbar({
               </div>
             </Link>
 
-            {/* Mobile Zero Logins badge */}
-            <div className="md:hidden flex items-center gap-1 text-[11px] font-bold tracking-[1px] uppercase text-[#1c69d4] border border-[#1c69d4] px-2 py-0.5 rounded-none">
-              <span>ZERO LOGINS</span>
+            {/* Mobile Local Sync or Zero Logins */}
+            <div className="md:hidden flex items-center gap-2">
+              {isLocalhost && (
+                <Link
+                  href="/admin-sync"
+                  className="flex items-center gap-1 text-[10px] font-bold tracking-[1px] uppercase bg-[#1c69d4] text-white px-2 py-1"
+                >
+                  <Terminal className="w-3 h-3" />
+                  <span>SYNC</span>
+                </Link>
+              )}
+              <div className="flex items-center gap-1 text-[11px] font-bold tracking-[1px] uppercase text-[#1c69d4] border border-[#1c69d4] px-2 py-0.5 rounded-none">
+                <span>ZERO LOGINS</span>
+              </div>
             </div>
           </div>
 
@@ -78,14 +100,25 @@ export function Navbar({
             )}
           </div>
 
-          {/* Desktop Trust Badge */}
-          <div className="hidden lg:flex items-center gap-2 text-xs text-[#6b6b6b] font-light">
-            <span className="w-2 h-2 rounded-full bg-[#22c55e]"></span>
-            <span className="text-[#262626] font-bold">100% Free</span>
-            <span>•</span>
-            <span>Direct Official Links</span>
-            <span>•</span>
-            <span className="text-[#1c69d4] font-bold uppercase tracking-wider">Zero Logins</span>
+          {/* Right Controls: Local Scraper Trigger (Hidden on Production) + Trust Badge */}
+          <div className="hidden lg:flex items-center gap-3">
+            {isLocalhost && (
+              <Link
+                href="/admin-sync"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1c69d4] hover:bg-[#0653b6] text-white text-xs font-bold uppercase tracking-[1px] rounded-none transition-colors shadow-sm"
+                title="Only visible on localhost, completely hidden from production users"
+              >
+                <Terminal className="w-3.5 h-3.5" />
+                <span>SCRAPE &amp; SYNC DB (LOCAL) ›</span>
+              </Link>
+            )}
+
+            <div className="flex items-center gap-2 text-xs text-[#6b6b6b] font-light">
+              <span className="w-2 h-2 rounded-full bg-[#22c55e]"></span>
+              <span className="text-[#262626] font-bold">100% Free</span>
+              <span>•</span>
+              <span className="text-[#1c69d4] font-bold uppercase tracking-wider">Zero Logins</span>
+            </div>
           </div>
         </div>
 

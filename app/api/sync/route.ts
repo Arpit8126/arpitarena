@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
 
   (async () => {
     try {
-      await sendLog('🚀 Starting DevPulse deep synchronization engine...', 'info');
+      await sendLog('🚀 Starting DevPulse local synchronization engine...', 'info');
 
       // Initialize Supabase Admin Client
       let supabaseAdmin: any = null;
@@ -57,6 +57,32 @@ export async function POST(req: NextRequest) {
       } catch (err: unknown) {
         const errorMsg = err instanceof Error ? err.message : String(err);
         await sendLog(`Supabase warning: ${errorMsg}`, 'warn');
+      }
+
+      // Check if schema tables exist in Supabase
+      if (supabaseAdmin) {
+        const { error: testTableErr } = await supabaseAdmin
+          .from('hackathons')
+          .select('id')
+          .limit(1);
+
+        if (testTableErr) {
+          await sendLog(
+            `⚠️ Notice: Table 'hackathons' does not exist in Supabase yet. Please run supabase/schema.sql in your Supabase SQL Editor once so records can be saved!`,
+            'warn'
+          );
+        } else {
+          // Pre-sync redundancy cleanup: mark existing records as inactive
+          await sendLog('Marking existing database records for redundancy cleanup...', 'info');
+          await supabaseAdmin
+            .from('hackathons')
+            .update({ is_active: false })
+            .neq('id', '00000000-0000-0000-0000-000000000000');
+          await supabaseAdmin
+            .from('opportunities')
+            .update({ is_active: false })
+            .neq('id', '00000000-0000-0000-0000-000000000000');
+        }
       }
 
       // 3. Scrape Hackathons (Devfolio + Devpost + Unstop)
@@ -124,7 +150,7 @@ export async function POST(req: NextRequest) {
 
       // Upsert into Supabase if connected
       if (supabaseAdmin) {
-        await sendLog('Upserting hackathons and opportunities into Supabase...', 'info');
+        await sendLog('Upserting fresh records into Supabase...', 'info');
         let hackSuccess = 0;
         for (const hack of allHackathons) {
           const { error } = await supabaseAdmin.from('hackathons').upsert(
@@ -181,13 +207,28 @@ export async function POST(req: NextRequest) {
           if (!error) oppSuccess++;
         }
 
+        // Post-sync redundancy cleanup: permanently delete stale records not in the latest scrape
+        await sendLog('Purging old/stale records from database to eliminate redundancy...', 'info');
+        const { error: delHacksErr } = await supabaseAdmin
+          .from('hackathons')
+          .delete()
+          .eq('is_active', false);
+        const { error: delOppsErr } = await supabaseAdmin
+          .from('opportunities')
+          .delete()
+          .eq('is_active', false);
+
+        if (!delHacksErr && !delOppsErr) {
+          await sendLog('[✓] Redundant stale data purged successfully.', 'success');
+        }
+
         await sendLog(
           `[✓] Upserted ${hackSuccess} hackathons and ${oppSuccess} opportunities into Supabase.`,
           'success'
         );
       }
 
-      await sendLog('🎉 Deep synchronization finished successfully!', 'success');
+      await sendLog('🎉 Deep synchronization finished successfully! All datasets are fresh and redundant data eliminated.', 'success');
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : String(err);
       await sendLog(`Sync error: ${errorMsg}`, 'error');
