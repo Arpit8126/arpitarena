@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     'engineering campus jobs',
     'DevPulse',
   ],
-  authors: [{ name: 'DevPulse Team' }],
+  authors: [{ name: 'Arpit Pandey' }],
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
-  themeColor: '#09090b',
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({
@@ -30,8 +30,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-zinc-950 text-zinc-100 antialiased min-h-screen selection:bg-emerald-500/30 selection:text-emerald-200">
+    <html lang="en">
+      <head>
+        {/* Unregister any rogue Service Worker from previous projects running on localhost */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                  for (var i = 0; i < registrations.length; i++) {
+                    registrations[i].unregister();
+                  }
+                });
+                if ('caches' in window) {
+                  caches.keys().then(function(names) {
+                    for (var j = 0; j < names.length; j++) {
+                      caches.delete(names[j]);
+                    }
+                  });
+                }
+              }
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-white text-[#262626] antialiased min-h-screen selection:bg-[#1c69d4]/20 selection:text-[#1c69d4]">
         {children}
       </body>
     </html>

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { ExternalLink, Instagram, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export function DeveloperBanner() {
