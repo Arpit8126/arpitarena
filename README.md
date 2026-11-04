@@ -86,3 +86,4 @@ Visit [http://localhost:3000](http://localhost:3000) to view the live platform.
   - Only configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in Vercel project settings.
   - Do **NOT** set `SUPABASE_SERVICE_ROLE_KEY` on Vercel.
   - The scraper route `/api/sync` is locked with a 403 guard when deployed.
+

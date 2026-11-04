@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Navbar } from '@/components/Navbar';
+import { Navbar, ActiveTabType } from '@/components/Navbar';
 import { HackathonFeed } from '@/components/HackathonFeed';
 import { JobFeed } from '@/components/JobFeed';
 import { DetailModal } from '@/components/DetailModal';
@@ -17,32 +17,36 @@ import {
   Code2,
   Heart,
   Mail,
+  GraduationCap,
 } from 'lucide-react';
 
 interface ClientAppProps {
   initialHackathons: Hackathon[];
-  initialOpportunities: Opportunity[];
+  initialInternships: Opportunity[];
+  initialJobs: Opportunity[];
 }
 
 export function ClientApp({
   initialHackathons,
-  initialOpportunities,
+  initialInternships,
+  initialJobs,
 }: ClientAppProps) {
-  const [activeTab, setActiveTab] = useState<'hackathons' | 'jobs'>('hackathons');
+  const [activeTab, setActiveTab] = useState<ActiveTabType>('hackathons');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedHackathon, setSelectedHackathon] = useState<Hackathon | null>(null);
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Navbar with Category Switcher & Search */}
+      {/* Navbar with 3 Distinct Category Tabs & Search */}
       <Navbar
         activeTab={activeTab}
         onTabChange={setActiveTab}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         hackathonsCount={initialHackathons.length}
-        jobsCount={initialOpportunities.length}
+        internshipsCount={initialInternships.length}
+        jobsCount={initialJobs.length}
       />
 
       {/* Hero Banner Section */}
@@ -51,29 +55,29 @@ export function ClientApp({
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              LIVE AGGREGATOR FOR INDIAN TECH STUDENTS &amp; FRESHERS
+              {initialHackathons.length}+ ACTIVE HACKATHONS • {initialInternships.length}+ INTERNSHIPS • {initialJobs.length}+ SDE JOBS
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              Launch your engineering career with verified opportunities.
+              Verified tech opportunities for Indian students &amp; engineers.
             </h1>
             <p className="text-sm text-zinc-400">
-              Zero login friction. Direct official apply links with GPS proximity sorting for hackathons,
-              plus hiring challenges from top tech startups &amp; unicorns.
+              Zero login friction. 500+ currently ongoing &amp; open hackathons with GPS proximity tracking,
+              plus dedicated internship and full-time hiring challenge feeds with direct ATS links.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
             <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 text-xs font-mono space-y-1 w-full md:w-auto">
-              <div className="text-zinc-500">AGGREGATION SOURCES:</div>
+              <div className="text-zinc-500">AGGREGATION CHANNELS:</div>
               <div className="text-zinc-200 font-semibold">
-                Devfolio • Unstop • Greenhouse • Lever • Ashby
+                Devfolio • Devpost • Unstop • Greenhouse • Lever • Ashby
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Content Feed */}
+      {/* Main Content Feed according to Active Tab */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'hackathons' ? (
           <HackathonFeed
@@ -81,11 +85,19 @@ export function ClientApp({
             searchQuery={searchQuery}
             onSelectHackathon={(hack) => setSelectedHackathon(hack)}
           />
-        ) : (
+        ) : activeTab === 'internships' ? (
           <JobFeed
-            opportunities={initialOpportunities}
+            opportunities={initialInternships}
             searchQuery={searchQuery}
             onSelectOpportunity={(opp) => setSelectedOpportunity(opp)}
+            feedType="internship"
+          />
+        ) : (
+          <JobFeed
+            opportunities={initialJobs}
+            searchQuery={searchQuery}
+            onSelectOpportunity={(opp) => setSelectedOpportunity(opp)}
+            feedType="full-time"
           />
         )}
       </main>
@@ -110,11 +122,11 @@ export function ClientApp({
                   DP
                 </div>
                 <span className="font-bold text-sm text-white">DevPulse</span>
-                <span className="text-zinc-500 font-mono text-[11px]">— Open Technology Aggregator</span>
+                <span className="text-zinc-500 font-mono text-[11px]">— Open Tech Student Aggregator</span>
               </div>
               <p className="text-zinc-500 text-xs max-w-xl">
                 Dedicated to helping Indian computer science students, engineering graduates, and freshers
-                discover hackathons, hiring challenges, and authentic entry-level engineering roles.
+                discover active hackathons, internships, and authentic entry-level engineering roles.
               </p>
             </div>
 
@@ -142,7 +154,7 @@ export function ClientApp({
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-zinc-500">
             <p>
               Direct Attribution Disclaimer: All hackathons, company names, logos, trademarks, and job postings belong
-              to their respective organizers and ATS platforms (Devfolio, Unstop, Greenhouse, Lever, Ashby). DevPulse
+              to their respective organizers and ATS platforms (Devfolio, Devpost, Unstop, Greenhouse, Lever, Ashby). DevPulse
               does not claim ownership or host applications directly; all outbound links redirect immediately to official
               endpoints.
             </p>

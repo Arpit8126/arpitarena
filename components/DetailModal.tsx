@@ -336,3 +336,4 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
     </div>
   );
 }
+

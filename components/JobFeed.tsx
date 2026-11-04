@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Opportunity, TechRole, CompanyType, OpportunityType } from '@/types';
 import {
   Briefcase,
@@ -19,27 +19,34 @@ interface JobFeedProps {
   opportunities: Opportunity[];
   searchQuery: string;
   onSelectOpportunity: (opportunity: Opportunity) => void;
+  feedType?: 'internship' | 'full-time' | 'all';
 }
 
 export function JobFeed({
   opportunities,
   searchQuery,
   onSelectOpportunity,
+  feedType = 'all',
 }: JobFeedProps) {
   const [selectedCompanyType, setSelectedCompanyType] = useState<string>('all');
-  const [selectedOppType, setSelectedOppType] = useState<string>('all');
+  const [selectedOppType, setSelectedOppType] = useState<string>(feedType === 'internship' ? 'internship' : feedType === 'full-time' ? 'full-time' : 'all');
   const [selectedTechRole, setSelectedTechRole] = useState<string>('all');
   const [selectedBatch, setSelectedBatch] = useState<number | 'all'>('all');
-  const [freshersOnly, setFreshersOnly] = useState<boolean>(false);
+  const [freshersOnly, setFreshersOnly] = useState<boolean>(feedType === 'full-time' ? true : false);
   const [selectedLocationType, setSelectedLocationType] = useState<string>('all');
   const [selectedCity, setSelectedCity] = useState<string>('all');
+
+  useEffect(() => {
+    if (feedType === 'internship') setSelectedOppType('internship');
+    else if (feedType === 'full-time') setSelectedOppType('full-time');
+    else setSelectedOppType('all');
+  }, [feedType]);
 
   // Extract unique cities
   const uniqueCities = useMemo(() => {
     const set = new Set<string>();
     opportunities.forEach((o) => {
       if (o.city && o.city.trim() !== '') {
-        // Clean city string if multiple
         const primary = o.city.split(',')[0].trim();
         set.add(primary);
       }
@@ -50,6 +57,10 @@ export function JobFeed({
   // Filtered Opportunities
   const filteredOpportunities = useMemo(() => {
     return opportunities.filter((item) => {
+      // Feed type override
+      if (feedType === 'internship' && item.opportunity_type !== 'internship') return false;
+      if (feedType === 'full-time' && item.opportunity_type !== 'full-time') return false;
+
       // Search
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
@@ -116,6 +127,7 @@ export function JobFeed({
     freshersOnly,
     selectedLocationType,
     selectedCity,
+    feedType,
   ]);
 
   return (
@@ -144,7 +156,8 @@ export function JobFeed({
             <select
               value={selectedOppType}
               onChange={(e) => setSelectedOppType(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
+              disabled={feedType !== 'all'}
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500 disabled:opacity-70"
             >
               <option value="all">All Types</option>
               <option value="internship">Internship Only</option>
@@ -211,7 +224,7 @@ export function JobFeed({
               className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
             >
               <option value="all">All Cities</option>
-              {uniqueCities.slice(0, 15).map((city) => (
+              {uniqueCities.slice(0, 20).map((city) => (
                 <option key={city} value={city}>
                   {city}
                 </option>
@@ -245,7 +258,7 @@ export function JobFeed({
       {filteredOpportunities.length === 0 ? (
         <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-12 text-center space-y-3">
           <Briefcase className="w-12 h-12 text-zinc-600 mx-auto" />
-          <h3 className="text-lg font-bold text-zinc-200">No opportunities match your filters</h3>
+          <h3 className="text-lg font-bold text-zinc-200">No roles match your filters</h3>
           <p className="text-sm text-zinc-400 max-w-md mx-auto">
             Try resetting your batch, role, or company filters to explore more tech openings.
           </p>
@@ -290,7 +303,7 @@ export function JobFeed({
                       )}
                     </div>
 
-                    <h3 className="font-bold text-base text-white group-hover:text-violet-400 transition-colors line-clamp-1 mt-0.5">
+                    <h3 className="font-bold text-base text-white group-hover:text-emerald-400 transition-colors line-clamp-1 mt-0.5">
                       {opp.title}
                     </h3>
 
@@ -310,8 +323,8 @@ export function JobFeed({
                   <span
                     className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full shrink-0 ${
                       isIntern
-                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
-                        : 'bg-violet-500/10 text-violet-400 border border-violet-500/30'
+                        ? 'bg-blue-500/10 text-blue-400 border border-blue-500/30'
+                        : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
                     }`}
                   >
                     {isIntern ? 'Internship' : 'Full-Time'}
@@ -364,7 +377,7 @@ export function JobFeed({
                       href={opp.apply_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold transition-all flex items-center gap-1 shadow-sm"
+                      className="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold transition-all flex items-center gap-1 shadow-sm"
                     >
                       <span>Apply Direct ↗</span>
                     </a>

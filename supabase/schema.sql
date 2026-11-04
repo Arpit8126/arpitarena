@@ -81,3 +81,4 @@ CREATE INDEX IF NOT EXISTS idx_opportunities_company_type ON opportunities(compa
 CREATE INDEX IF NOT EXISTS idx_opportunities_opportunity_type ON opportunities(opportunity_type);
 CREATE INDEX IF NOT EXISTS idx_hackathons_active ON hackathons(is_active);
 CREATE INDEX IF NOT EXISTS idx_hackathons_deadline ON hackathons(registration_deadline);
+

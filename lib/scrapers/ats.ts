@@ -265,3 +265,4 @@ export async function scrapeATS(
   log?.(`[✓] Extracted total ${allOpportunities.length} jobs & internships from ATS boards`, 'success');
   return allOpportunities;
 }
+

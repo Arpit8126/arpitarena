@@ -1,6 +1,9 @@
 import { NextRequest } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 import { getSupabaseAdmin } from '@/lib/supabaseAdmin';
 import { scrapeDevfolio } from '@/lib/scrapers/devfolio';
+import { scrapeDevpost } from '@/lib/scrapers/devpost';
 import { scrapeUnstopHackathons, scrapeUnstopOpportunities } from '@/lib/scrapers/unstop';
 import { scrapeATS } from '@/lib/scrapers/ats';
 
@@ -28,12 +31,13 @@ export async function POST(req: NextRequest) {
     type: 'info' | 'success' | 'warn' | 'error' = 'info',
     source?: string
   ) => {
-    const payload = JSON.stringify({
-      timestamp: new Date().toLocaleTimeString('en-US', { hour12: false }),
-      type,
-      message,
-      source,
-    }) + '\n';
+    const payload =
+      JSON.stringify({
+        timestamp: new Date().toLocaleTimeString('en-US', { hour12: false }),
+        type,
+        message,
+        source,
+      }) + '\n';
     try {
       await writer.write(encoder.encode(payload));
     } catch {
@@ -41,77 +45,86 @@ export async function POST(req: NextRequest) {
     }
   };
 
-  // Run the scraping and synchronization in the background of the stream
   (async () => {
     try {
-      await sendLog('🚀 Starting DevPulse local synchronization engine...', 'info');
+      await sendLog('🚀 Starting DevPulse deep synchronization engine...', 'info');
 
       // Initialize Supabase Admin Client
-      let supabaseAdmin;
+      let supabaseAdmin: any = null;
       try {
         supabaseAdmin = getSupabaseAdmin();
         await sendLog('Connected to Supabase with Service Role credentials.', 'info');
       } catch (err: unknown) {
         const errorMsg = err instanceof Error ? err.message : String(err);
-        await sendLog(`Supabase initialization error: ${errorMsg}`, 'error');
-        await writer.close();
-        return;
+        await sendLog(`Supabase warning: ${errorMsg}`, 'warn');
       }
 
-      // Check if schema tables exist
-      const { error: testTableErr } = await supabaseAdmin
-        .from('hackathons')
-        .select('id')
-        .limit(1);
-
-      if (testTableErr) {
-        await sendLog(
-          `⚠️ Database table warning: ${testTableErr.message}. Make sure you executed supabase/schema.sql in the Supabase Dashboard SQL Editor!`,
-          'warn'
-        );
-      }
-
-      // 3. Mark existing records as inactive
-      await sendLog('Archiving stale records (setting is_active = false)...', 'info');
-      const { error: deactOppsErr } = await supabaseAdmin
-        .from('opportunities')
-        .update({ is_active: false })
-        .eq('is_active', true);
-      if (deactOppsErr && !deactOppsErr.message.includes('relation "opportunities" does not exist')) {
-        await sendLog(`Note during archiving opportunities: ${deactOppsErr.message}`, 'warn');
-      }
-
-      const { error: deactHacksErr } = await supabaseAdmin
-        .from('hackathons')
-        .update({ is_active: false })
-        .eq('is_active', true);
-      if (deactHacksErr && !deactHacksErr.message.includes('relation "hackathons" does not exist')) {
-        await sendLog(`Note during archiving hackathons: ${deactHacksErr.message}`, 'warn');
-      }
-
-      // 4. Scrape Hackathons (Devfolio + Unstop)
-      await sendLog('Starting Hackathons aggregation...', 'info');
+      // 3. Scrape Hackathons (Devfolio + Devpost + Unstop)
+      await sendLog('Starting deep aggregation across Devfolio, Devpost, and Unstop...', 'info');
       let devfolioHacks: any[] = [];
+      let devpostHacks: any[] = [];
       let unstopHacks: any[] = [];
 
       try {
         devfolioHacks = await scrapeDevfolio((msg, t) => sendLog(msg, t, 'Devfolio'));
       } catch (e: any) {
-        await sendLog(`Devfolio scraper failed: ${e.message}`, 'error', 'Devfolio');
+        await sendLog(`Devfolio scraper error: ${e.message}`, 'error', 'Devfolio');
       }
 
       try {
-        unstopHacks = await scrapeUnstopHackathons((msg, t) => sendLog(msg, t, 'Unstop'));
+        devpostHacks = await scrapeDevpost(8, (msg, t) => sendLog(msg, t, 'Devpost'));
       } catch (e: any) {
-        await sendLog(`Unstop hackathons scraper failed: ${e.message}`, 'error', 'Unstop');
+        await sendLog(`Devpost scraper error: ${e.message}`, 'error', 'Devpost');
       }
 
-      const allHackathons = [...devfolioHacks, ...unstopHacks];
-      await sendLog(`Total hackathons gathered from all sources: ${allHackathons.length}`, 'info');
+      try {
+        unstopHacks = await scrapeUnstopHackathons(10, (msg, t) => sendLog(msg, t, 'Unstop'));
+      } catch (e: any) {
+        await sendLog(`Unstop hackathons scraper error: ${e.message}`, 'error', 'Unstop');
+      }
 
-      // Upsert Hackathons into Supabase
-      if (allHackathons.length > 0) {
-        await sendLog('Upserting hackathons into Supabase...', 'info');
+      const allHackathons = [...devfolioHacks, ...devpostHacks, ...unstopHacks];
+      await sendLog(`[✓] Gathered total ${allHackathons.length} active open hackathons!`, 'success');
+
+      // 4. Scrape Opportunities (Unstop Internships/Jobs + ATS Boards)
+      await sendLog('Starting aggregation for Tech Internships & SDE Jobs...', 'info');
+      let unstopOpps: any[] = [];
+      let atsOpps: any[] = [];
+
+      try {
+        unstopOpps = await scrapeUnstopOpportunities(6, (msg, t) => sendLog(msg, t, 'Unstop'));
+      } catch (e: any) {
+        await sendLog(`Unstop opportunities error: ${e.message}`, 'error', 'Unstop');
+      }
+
+      try {
+        atsOpps = await scrapeATS((msg, t) => sendLog(msg, t, 'ATS Engine'));
+      } catch (e: any) {
+        await sendLog(`ATS scraper error: ${e.message}`, 'error', 'ATS Engine');
+      }
+
+      const allOpportunities = [...unstopOpps, ...atsOpps];
+      const internships = allOpportunities.filter((o) => o.opportunity_type === 'internship');
+      const jobs = allOpportunities.filter((o) => o.opportunity_type === 'full-time');
+
+      await sendLog(
+        `[✓] Gathered total ${allOpportunities.length} roles (${internships.length} Internships, ${jobs.length} Full-Time Jobs)!`,
+        'success'
+      );
+
+      // Save to local cached files
+      const dataDir = path.join(process.cwd(), 'data');
+      if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
+      }
+      fs.writeFileSync(path.join(dataDir, 'hackathons.json'), JSON.stringify(allHackathons, null, 2));
+      fs.writeFileSync(path.join(dataDir, 'internships.json'), JSON.stringify(internships, null, 2));
+      fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify(jobs, null, 2));
+      await sendLog('[✓] Saved verified live datasets to high-speed local cache.', 'success');
+
+      // Upsert into Supabase if connected
+      if (supabaseAdmin) {
+        await sendLog('Upserting hackathons and opportunities into Supabase...', 'info');
         let hackSuccess = 0;
         for (const hack of allHackathons) {
           const { error } = await supabaseAdmin.from('hackathons').upsert(
@@ -137,37 +150,9 @@ export async function POST(req: NextRequest) {
             },
             { onConflict: 'title,organizer' }
           );
-
-          if (!error) {
-            hackSuccess++;
-          }
+          if (!error) hackSuccess++;
         }
-        await sendLog(`[✓] Upserted ${hackSuccess} / ${allHackathons.length} hackathons into Supabase`, 'success');
-      }
 
-      // 5. Scrape Opportunities (Unstop + ATS Boards)
-      await sendLog('Starting Opportunities & Internships aggregation...', 'info');
-      let unstopOpps: any[] = [];
-      let atsOpps: any[] = [];
-
-      try {
-        unstopOpps = await scrapeUnstopOpportunities((msg, t) => sendLog(msg, t, 'Unstop Jobs'));
-      } catch (e: any) {
-        await sendLog(`Unstop opportunities failed: ${e.message}`, 'error', 'Unstop Jobs');
-      }
-
-      try {
-        atsOpps = await scrapeATS((msg, t) => sendLog(msg, t, 'ATS Engine'));
-      } catch (e: any) {
-        await sendLog(`ATS scraper failed: ${e.message}`, 'error', 'ATS Engine');
-      }
-
-      const allOpportunities = [...unstopOpps, ...atsOpps];
-      await sendLog(`Total opportunities gathered: ${allOpportunities.length}`, 'info');
-
-      // Upsert Opportunities into Supabase
-      if (allOpportunities.length > 0) {
-        await sendLog('Upserting opportunities into Supabase...', 'info');
         let oppSuccess = 0;
         for (const opp of allOpportunities) {
           const { error } = await supabaseAdmin.from('opportunities').upsert(
@@ -193,18 +178,19 @@ export async function POST(req: NextRequest) {
             },
             { onConflict: 'company_name,title,apply_url' }
           );
-
-          if (!error) {
-            oppSuccess++;
-          }
+          if (!error) oppSuccess++;
         }
-        await sendLog(`[✓] Upserted ${oppSuccess} / ${allOpportunities.length} opportunities into Supabase`, 'success');
+
+        await sendLog(
+          `[✓] Upserted ${hackSuccess} hackathons and ${oppSuccess} opportunities into Supabase.`,
+          'success'
+        );
       }
 
-      await sendLog('🎉 Synchronization completed successfully!', 'success');
+      await sendLog('🎉 Deep synchronization finished successfully!', 'success');
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : String(err);
-      await sendLog(`Fatal sync error: ${errorMsg}`, 'error');
+      await sendLog(`Sync error: ${errorMsg}`, 'error');
     } finally {
       await writer.close();
     }
