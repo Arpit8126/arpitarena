@@ -125,3 +125,4 @@ export async function scrapeDevpost(
 
   return hackathons;
 }
+

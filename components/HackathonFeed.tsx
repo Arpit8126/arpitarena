@@ -75,7 +75,6 @@ export function HackathonFeed({
         );
       }
 
-      // Calculate days remaining
       const now = new Date().getTime();
       const deadline = new Date(hack.registration_deadline).getTime();
       const diffDays = Math.ceil((deadline - now) / (1000 * 60 * 60 * 24));
@@ -91,7 +90,6 @@ export function HackathonFeed({
   // Filter and Sort
   const filteredHackathons = useMemo(() => {
     let list = enrichedHackathons.filter((h) => {
-      // Search query
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const matchesTitle = h.title.toLowerCase().includes(query);
@@ -103,12 +101,10 @@ export function HackathonFeed({
         }
       }
 
-      // Mode filter
       if (selectedMode !== 'all' && h.mode !== selectedMode) {
         return false;
       }
 
-      // Theme filter
       if (selectedTheme !== 'all') {
         const themeMap: Record<string, string[]> = {
           ai: ['ai', 'genai', 'machine learning', 'ml', 'deep learning'],
@@ -130,7 +126,6 @@ export function HackathonFeed({
       return true;
     });
 
-    // Sort
     if (selectedSort === 'nearest') {
       list.sort((a, b) => {
         if (a.distance_km !== undefined && b.distance_km !== undefined) {
@@ -146,7 +141,6 @@ export function HackathonFeed({
           new Date(a.registration_deadline).getTime() - new Date(b.registration_deadline).getTime()
       );
     } else {
-      // Default: Latest
       list.sort(
         (a, b) => new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime()
       );
@@ -157,22 +151,22 @@ export function HackathonFeed({
 
   return (
     <div className="space-y-6">
-      {/* Filters Toolbar */}
-      <div className="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-4 md:p-5 backdrop-blur-sm space-y-4">
+      {/* BMW Specification Filters Band (Surface Soft #f7f7f7, Hairline #e6e6e6, 0px Radius) */}
+      <div className="bg-[#f7f7f7] border border-[#e6e6e6] p-4 sm:p-6 rounded-none space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          {/* Mode Switcher */}
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs font-mono text-zinc-500 mr-2 flex items-center gap-1">
-              <Filter className="w-3.5 h-3.5" /> Mode:
+          {/* Mode Filter Chips */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold uppercase tracking-[1.5px] text-[#6b6b6b] mr-2">
+              MODE:
             </span>
             {['all', 'online', 'offline', 'hybrid'].map((mode) => (
               <button
                 key={mode}
                 onClick={() => setSelectedMode(mode)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize transition-all ${
+                className={`px-4 py-2 text-xs font-bold uppercase tracking-[1px] transition-colors rounded-none border ${
                   selectedMode === mode
-                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                    : 'bg-zinc-800/60 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800'
+                    ? 'bg-[#262626] text-white border-[#262626]'
+                    : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
                 }`}
               >
                 {mode === 'all' ? 'All Modes' : mode}
@@ -182,14 +176,16 @@ export function HackathonFeed({
 
           {/* Sort Buttons & GPS Trigger */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-mono text-zinc-500 mr-1">Sort:</span>
+            <span className="text-xs font-bold uppercase tracking-[1.5px] text-[#6b6b6b] mr-1">
+              SORT:
+            </span>
 
             <button
               onClick={() => setSelectedSort('latest')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none border ${
                 selectedSort === 'latest'
-                  ? 'bg-zinc-700 text-white border border-zinc-600'
-                  : 'bg-zinc-800/60 text-zinc-400 hover:text-zinc-200'
+                  ? 'bg-[#262626] text-white border-[#262626]'
+                  : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
               }`}
             >
               Latest
@@ -197,35 +193,35 @@ export function HackathonFeed({
 
             <button
               onClick={() => setSelectedSort('deadline')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3.5 py-2 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none border ${
                 selectedSort === 'deadline'
-                  ? 'bg-zinc-700 text-white border border-zinc-600'
-                  : 'bg-zinc-800/60 text-zinc-400 hover:text-zinc-200'
+                  ? 'bg-[#262626] text-white border-[#262626]'
+                  : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
               }`}
             >
               Deadline Soonest
             </button>
 
+            {/* BMW Blue GPS Proximity Button */}
             <button
               onClick={handleFindNearMe}
               disabled={isLocating}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none ${
                 selectedSort === 'nearest'
-                  ? 'bg-emerald-500 text-zinc-950 shadow-md shadow-emerald-500/20 font-bold'
-                  : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20'
+                  ? 'bg-[#1c69d4] text-white'
+                  : 'bg-white border border-[#1c69d4] text-[#1c69d4] hover:bg-[#1c69d4] hover:text-white'
               }`}
-              title="Compute Haversine distance using device GPS"
             >
               <Navigation className={`w-3.5 h-3.5 ${isLocating ? 'animate-spin' : ''}`} />
-              {isLocating ? 'Detecting GPS...' : selectedSort === 'nearest' ? '📍 Nearest (Active)' : '📍 Find Near Me'}
+              <span>{isLocating ? 'Locating...' : selectedSort === 'nearest' ? '📍 Nearest (Active)' : '📍 Find Near Me'}</span>
             </button>
           </div>
         </div>
 
         {/* Themes Filter Row */}
-        <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-zinc-800/60">
-          <span className="text-xs font-mono text-zinc-500 mr-1 flex items-center gap-1">
-            <Layers className="w-3.5 h-3.5" /> Themes:
+        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-[#e6e6e6]">
+          <span className="text-xs font-bold uppercase tracking-[1.5px] text-[#6b6b6b] mr-1">
+            THEMES:
           </span>
           {[
             { id: 'all', label: 'All Themes' },
@@ -238,10 +234,10 @@ export function HackathonFeed({
             <button
               key={theme.id}
               onClick={() => setSelectedTheme(theme.id)}
-              className={`px-2.5 py-1 rounded-md text-xs transition-colors ${
+              className={`px-3 py-1.5 text-xs uppercase tracking-[0.5px] rounded-none border transition-colors ${
                 selectedTheme === theme.id
-                  ? 'bg-zinc-700 text-emerald-300 font-medium'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
+                  ? 'bg-[#262626] text-white border-[#262626] font-bold'
+                  : 'bg-white text-[#3c3c3c] border-[#e6e6e6] hover:border-[#262626]'
               }`}
             >
               {theme.label}
@@ -249,36 +245,35 @@ export function HackathonFeed({
           ))}
         </div>
 
-        {/* Location Error alert if any */}
         {locationError && (
-          <div className="flex items-center gap-2 p-2 bg-red-950/40 border border-red-800/50 rounded-lg text-red-300 text-xs">
+          <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 text-red-700 text-xs">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{locationError}</span>
           </div>
         )}
       </div>
 
-      {/* Hackathons Grid */}
+      {/* Grid: BMW Model Card Architecture (4-up on desktop, 0px radius, white surface, hairline border) */}
       {filteredHackathons.length === 0 ? (
-        <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-12 text-center space-y-3">
-          <Globe className="w-12 h-12 text-zinc-600 mx-auto" />
-          <h3 className="text-lg font-bold text-zinc-200">No hackathons match your filters</h3>
-          <p className="text-sm text-zinc-400 max-w-md mx-auto">
-            Try adjusting your mode, theme, or search term to see more active hackathons.
+        <div className="bg-white border border-[#e6e6e6] p-16 text-center space-y-3">
+          <Globe className="w-12 h-12 text-[#9a9a9a] mx-auto" />
+          <h3 className="text-xl font-bold text-[#262626]">No hackathons match your criteria</h3>
+          <p className="text-sm text-[#6b6b6b] font-light max-w-md mx-auto">
+            Try adjusting your theme or mode filters to explore more active hackathons.
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredHackathons.map((hackathon) => {
             const isDeadlinePassed = (hackathon as any).days_remaining <= 0;
 
             return (
               <div
                 key={hackathon.id}
-                className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl overflow-hidden flex flex-col group transition-all duration-200 hover:shadow-xl hover:shadow-black/50"
+                className="bg-white border border-[#e6e6e6] hover:border-[#262626] flex flex-col justify-between transition-colors duration-150 rounded-none group"
               >
-                {/* 16:9 Banner Image with Fallback */}
-                <div className="relative aspect-video w-full bg-zinc-950 overflow-hidden">
+                {/* 16:10 Photo Plate with #fafafa background */}
+                <div className="relative aspect-[16/10] w-full bg-[#fafafa] overflow-hidden">
                   <img
                     src={hackathon.banner_image_url}
                     alt={hackathon.title}
@@ -286,78 +281,48 @@ export function HackathonFeed({
                       (e.target as HTMLImageElement).src =
                         'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80';
                     }}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
 
-                  {/* Mode Badge */}
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span
-                      className={`text-[11px] font-mono uppercase px-2.5 py-1 rounded-md font-semibold backdrop-blur-md shadow-sm ${
-                        hackathon.mode === 'online'
-                          ? 'bg-blue-950/80 text-blue-300 border border-blue-700/50'
-                          : hackathon.mode === 'offline'
-                          ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-700/50'
-                          : 'bg-violet-950/80 text-violet-300 border border-violet-700/50'
-                      }`}
-                    >
-                      {hackathon.mode === 'offline' ? '🏢 In-Person' : hackathon.mode === 'hybrid' ? '⚡ Hybrid' : '🌐 Online'}
+                  {/* Mode Tag */}
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                    <span className="text-[10px] font-bold uppercase tracking-[1px] px-2 py-0.5 bg-[#262626] text-white">
+                      {hackathon.mode === 'offline' ? 'IN-PERSON' : hackathon.mode === 'hybrid' ? 'HYBRID' : 'ONLINE'}
                     </span>
-
-                    {/* GPS Distance Badge */}
                     {hackathon.distance_km !== undefined && (
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-emerald-500 text-zinc-950 font-bold shadow-md">
-                        📍 {hackathon.distance_km} km away
+                      <span className="text-[10px] font-bold px-2 py-0.5 bg-[#1c69d4] text-white">
+                        📍 {hackathon.distance_km} KM
                       </span>
                     )}
                   </div>
 
-                  {/* Days left badge */}
-                  <div className="absolute top-3 right-3">
-                    <span
-                      className={`text-[11px] font-mono px-2.5 py-1 rounded-md font-semibold backdrop-blur-md flex items-center gap-1 ${
-                        isDeadlinePassed
-                          ? 'bg-red-950/80 text-red-300 border border-red-700/50'
-                          : 'bg-zinc-900/90 text-zinc-200 border border-zinc-700'
-                      }`}
-                    >
-                      <Clock className="w-3 h-3" />
-                      {isDeadlinePassed
-                        ? 'Registration Ended'
-                        : `${(hackathon as any).days_remaining}d left`}
-                    </span>
-                  </div>
-
-                  {/* Platform & Organizer Overlay */}
-                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-xs text-zinc-300">
-                    <span className="font-medium truncate text-zinc-200">
-                      by <strong className="text-white">{hackathon.organizer}</strong>
-                    </span>
-                    <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-zinc-800/80 text-zinc-400 border border-zinc-700">
-                      {hackathon.platform}
+                  {/* Platform & Days Badge */}
+                  <div className="absolute top-2.5 right-2.5">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.5px] px-2 py-0.5 bg-white text-[#262626] border border-[#e6e6e6]">
+                      {isDeadlinePassed ? 'CLOSED' : `${(hackathon as any).days_remaining}D LEFT`}
                     </span>
                   </div>
                 </div>
 
-                {/* Card Body */}
-                <div className="p-4 md:p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2.5">
-                    <h3 className="font-bold text-base md:text-lg text-white group-hover:text-emerald-400 transition-colors line-clamp-2">
+                {/* Card Content (BMW Typography: 700 Headline vs 300 Light Body) */}
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#1c69d4]">
+                      {hackathon.organizer}
+                    </div>
+
+                    <h3 className="font-bold text-base text-[#262626] group-hover:text-[#1c69d4] transition-colors line-clamp-2 leading-snug">
                       {hackathon.title}
                     </h3>
 
-                    {/* Location & Dates */}
-                    <div className="space-y-1.5 text-xs text-zinc-400">
-                      <div className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-                        <span className="truncate">
-                          {hackathon.venue_city ? `${hackathon.venue_city}, India` : 'Online Nationwide'}
-                        </span>
+                    <div className="space-y-1 text-xs text-[#6b6b6b] font-light pt-1">
+                      <div className="flex items-center gap-1.5 truncate">
+                        <MapPin className="w-3.5 h-3.5 text-[#9a9a9a] shrink-0" />
+                        <span>{hackathon.venue_city || 'Online'}</span>
                       </div>
-
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
+                        <Calendar className="w-3.5 h-3.5 text-[#9a9a9a] shrink-0" />
                         <span>
                           Deadline: {new Date(hackathon.registration_deadline).toLocaleDateString('en-IN', {
                             day: 'numeric',
@@ -368,41 +333,35 @@ export function HackathonFeed({
                       </div>
                     </div>
 
-                    {/* Themes Badges */}
-                    <div className="flex flex-wrap gap-1.5 pt-1">
+                    {/* Themes Tags */}
+                    <div className="flex flex-wrap gap-1 pt-1.5">
                       {hackathon.themes.slice(0, 3).map((theme, i) => (
                         <span
                           key={i}
-                          className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60"
+                          className="text-[10px] font-medium uppercase px-1.5 py-0.5 bg-[#f7f7f7] text-[#6b6b6b] border border-[#e6e6e6]"
                         >
-                          #{theme}
+                          {theme}
                         </span>
                       ))}
-                      {hackathon.themes.length > 3 && (
-                        <span className="text-[11px] font-mono px-1.5 py-0.5 text-zinc-500">
-                          +{hackathon.themes.length - 3} more
-                        </span>
-                      )}
                     </div>
                   </div>
 
-                  {/* Actions */}
-                  <div className="pt-2 border-t border-zinc-800/80 flex items-center gap-2">
+                  {/* Action Buttons: Button Secondary (Details) & Button Primary (Apply) */}
+                  <div className="pt-3 border-t border-[#f0f0f0] grid grid-cols-2 gap-2">
                     <button
                       onClick={() => onSelectHackathon(hackathon)}
-                      className="flex-1 py-2 px-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1"
+                      className="py-2.5 px-2 text-center bg-white border border-[#cccccc] hover:border-[#262626] text-[#262626] text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
                     >
-                      <span>Problem & Rounds</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-zinc-400" />
+                      DETAILS ›
                     </button>
 
                     <a
                       href={hackathon.apply_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-2 px-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold transition-all flex items-center justify-center gap-1 shadow-sm"
+                      className="py-2.5 px-2 text-center bg-[#1c69d4] hover:bg-[#0653b6] text-white text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
                     >
-                      <span>Register ↗</span>
+                      REGISTER ›
                     </a>
                   </div>
                 </div>
@@ -414,4 +373,3 @@ export function HackathonFeed({
     </div>
   );
 }
-

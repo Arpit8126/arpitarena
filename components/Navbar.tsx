@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Briefcase, Zap, ShieldCheck, GraduationCap } from 'lucide-react';
+import { Search, Zap, GraduationCap, Briefcase, ChevronRight, ShieldCheck } from 'lucide-react';
 
 export type ActiveTabType = 'hackathons' | 'internships' | 'jobs';
 
@@ -26,55 +26,52 @@ export function Navbar({
   jobsCount,
 }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full bg-white border-b border-[#e6e6e6]">
+      {/* Top Utility Bar (64px) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-3 md:py-4">
-          {/* Logo & Trust Badge */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-3 md:py-0 md:h-16">
+          {/* BMW Circular Inspired Brand Mark + Logo */}
           <div className="flex items-center justify-between w-full md:w-auto">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 group-hover:scale-105 transition-all">
-                <Sparkles className="w-5 h-5 fill-emerald-400/20 text-emerald-400" />
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-9 h-9 rounded-full bg-[#1c69d4] flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                DP
               </div>
               <div>
-                <span className="font-extrabold text-xl tracking-tight text-white flex items-center gap-1.5">
+                <span className="font-bold text-lg tracking-tight text-[#262626] uppercase">
                   DevPulse
-                  <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
-                    IN
-                  </span>
                 </span>
-                <span className="text-[11px] text-zinc-400 block -mt-0.5">
-                  Live Aggregator for Indian Tech Students &amp; Freshers
+                <span className="text-[11px] text-[#6b6b6b] block font-light -mt-0.5 tracking-wide">
+                  Official Technology Aggregator
                 </span>
               </div>
             </Link>
 
-            {/* Mobile Trust badge */}
-            <div className="md:hidden flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-800/50 px-2 py-0.5 rounded-full">
-              <ShieldCheck className="w-3 h-3" />
-              <span>Zero Logins</span>
+            {/* Mobile Zero Logins badge */}
+            <div className="md:hidden flex items-center gap-1 text-[11px] font-bold tracking-[1px] uppercase text-[#1c69d4] border border-[#1c69d4] px-2 py-0.5 rounded-none">
+              <span>ZERO LOGINS</span>
             </div>
           </div>
 
-          {/* Search Bar */}
+          {/* BMW Precision Search Input (48px height, 0px radius) */}
           <div className="w-full md:max-w-md relative">
-            <Search className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-[#6b6b6b] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder={
                 activeTab === 'hackathons'
-                  ? 'Search 600+ hackathons by title, theme, city, organizer...'
+                  ? 'Search 600+ open hackathons...'
                   : activeTab === 'internships'
-                  ? 'Search 200+ internships by role, company, batch, stipend...'
-                  : 'Search 200+ entry-level & fresher SDE jobs...'
+                  ? 'Search 200+ student internships...'
+                  : 'Search 200+ SDE entry-level roles...'
               }
-              className="w-full bg-zinc-900/90 border border-zinc-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-full pl-10 pr-4 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-all"
+              className="w-full bg-white border border-[#e6e6e6] focus:border-[#262626] rounded-none pl-10 pr-8 py-2.5 text-sm text-[#262626] placeholder:text-[#9a9a9a] focus:outline-none transition-colors"
             />
             {searchQuery && (
               <button
                 onClick={() => onSearchChange('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 text-xs px-1"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b6b6b] hover:text-[#262626] text-xs px-1"
               >
                 ✕
               </button>
@@ -82,32 +79,32 @@ export function Navbar({
           </div>
 
           {/* Desktop Trust Badge */}
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>100% Free</span>
-            <span className="text-zinc-600">•</span>
-            <span>Direct Apply</span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-emerald-400 font-semibold">Zero Logins</span>
+          <div className="hidden lg:flex items-center gap-2 text-xs text-[#6b6b6b] font-light">
+            <span className="w-2 h-2 rounded-full bg-[#22c55e]"></span>
+            <span className="text-[#262626] font-bold">100% Free</span>
+            <span>•</span>
+            <span>Direct Official Links</span>
+            <span>•</span>
+            <span className="text-[#1c69d4] font-bold uppercase tracking-wider">Zero Logins</span>
           </div>
         </div>
 
-        {/* Category Switcher Tabs: 3 SEPARATE TABS */}
-        <div className="flex items-center justify-between border-t border-zinc-900 pt-2 pb-2 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-2">
+        {/* Category Tabs (BMW Category Tab Specs: 0px radius, uppercase, 1.5px tracking) */}
+        <div className="flex items-center justify-between border-t border-[#f0f0f0] pt-1 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-1 sm:gap-2">
             {/* Tab 1: Hackathons */}
             <button
               onClick={() => onTabChange('hackathons')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-semibold transition-all shrink-0 ${
+              className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold tracking-[1.5px] uppercase transition-all rounded-none border-b-2 ${
                 activeTab === 'hackathons'
-                  ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
+                  ? 'border-[#1c69d4] text-[#262626]'
+                  : 'border-transparent text-[#6b6b6b] hover:text-[#262626]'
               }`}
             >
-              <Zap className={`w-4 h-4 ${activeTab === 'hackathons' ? 'text-emerald-400 fill-emerald-400/20' : 'text-zinc-500'}`} />
-              <span>⚡ Hackathons</span>
-              <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${
-                activeTab === 'hackathons' ? 'bg-emerald-500/20 text-emerald-300 font-bold' : 'bg-zinc-800 text-zinc-400'
+              <Zap className={`w-3.5 h-3.5 ${activeTab === 'hackathons' ? 'text-[#1c69d4]' : 'text-[#6b6b6b]'}`} />
+              <span>HACKATHONS</span>
+              <span className={`text-[11px] px-1.5 py-0.5 rounded-none font-bold ${
+                activeTab === 'hackathons' ? 'bg-[#1c69d4] text-white' : 'bg-[#ebebeb] text-[#6b6b6b]'
               }`}>
                 {hackathonsCount}
               </span>
@@ -116,16 +113,16 @@ export function Navbar({
             {/* Tab 2: Internships */}
             <button
               onClick={() => onTabChange('internships')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-semibold transition-all shrink-0 ${
+              className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold tracking-[1.5px] uppercase transition-all rounded-none border-b-2 ${
                 activeTab === 'internships'
-                  ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
+                  ? 'border-[#1c69d4] text-[#262626]'
+                  : 'border-transparent text-[#6b6b6b] hover:text-[#262626]'
               }`}
             >
-              <GraduationCap className={`w-4 h-4 ${activeTab === 'internships' ? 'text-blue-400' : 'text-zinc-500'}`} />
-              <span>🎓 Tech Internships</span>
-              <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${
-                activeTab === 'internships' ? 'bg-blue-500/20 text-blue-300 font-bold' : 'bg-zinc-800 text-zinc-400'
+              <GraduationCap className={`w-3.5 h-3.5 ${activeTab === 'internships' ? 'text-[#1c69d4]' : 'text-[#6b6b6b]'}`} />
+              <span>INTERNSHIPS</span>
+              <span className={`text-[11px] px-1.5 py-0.5 rounded-none font-bold ${
+                activeTab === 'internships' ? 'bg-[#1c69d4] text-white' : 'bg-[#ebebeb] text-[#6b6b6b]'
               }`}>
                 {internshipsCount}
               </span>
@@ -134,28 +131,28 @@ export function Navbar({
             {/* Tab 3: Full-Time Jobs */}
             <button
               onClick={() => onTabChange('jobs')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-semibold transition-all shrink-0 ${
+              className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold tracking-[1.5px] uppercase transition-all rounded-none border-b-2 ${
                 activeTab === 'jobs'
-                  ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
+                  ? 'border-[#1c69d4] text-[#262626]'
+                  : 'border-transparent text-[#6b6b6b] hover:text-[#262626]'
               }`}
             >
-              <Briefcase className={`w-4 h-4 ${activeTab === 'jobs' ? 'text-violet-400' : 'text-zinc-500'}`} />
-              <span>💼 Full-Time Jobs</span>
-              <span className={`text-xs px-2 py-0.5 rounded-full font-mono ${
-                activeTab === 'jobs' ? 'bg-violet-500/20 text-violet-300 font-bold' : 'bg-zinc-800 text-zinc-400'
+              <Briefcase className={`w-3.5 h-3.5 ${activeTab === 'jobs' ? 'text-[#1c69d4]' : 'text-[#6b6b6b]'}`} />
+              <span>FULL-TIME JOBS</span>
+              <span className={`text-[11px] px-1.5 py-0.5 rounded-none font-bold ${
+                activeTab === 'jobs' ? 'bg-[#1c69d4] text-white' : 'bg-[#ebebeb] text-[#6b6b6b]'
               }`}>
                 {jobsCount}
               </span>
             </button>
           </div>
 
-          <div className="hidden sm:block text-xs font-mono text-zinc-500 shrink-0">
+          <div className="hidden md:block text-[11px] text-[#6b6b6b] uppercase tracking-[1px]">
             {activeTab === 'hackathons'
               ? 'Devfolio • Devpost • Unstop'
               : activeTab === 'internships'
-              ? 'Campus & Student Internships'
-              : 'SDE & Engineering Roles'}
+              ? 'Campus & Student Stipends'
+              : 'Verified Engineering CTC'}
           </div>
         </div>
       </div>

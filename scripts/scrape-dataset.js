@@ -98,7 +98,7 @@ async function scrapeAll() {
           is_active: true
         });
       }
-    } catch {}
+    } catch { }
   }
   console.log('Devpost fetched:', devpostHacks.length);
 
@@ -150,7 +150,7 @@ async function scrapeAll() {
             is_active: true
           });
         }
-      } catch {}
+      } catch { }
     }
   }
   console.log('Unstop hackathons fetched:', unstopHacks.length);
@@ -214,7 +214,7 @@ async function scrapeAll() {
           is_active: true
         });
       }
-    } catch {}
+    } catch { }
   }
   console.log(`🎉 TOTAL INTERNSHIPS COLLECTED: ${internships.length}`);
   fs.writeFileSync(path.join(dataDir, 'internships.json'), JSON.stringify(internships, null, 2));
@@ -274,7 +274,7 @@ async function scrapeAll() {
           is_active: true
         });
       }
-    } catch {}
+    } catch { }
   }
   console.log(`🎉 TOTAL FULL-TIME JOBS COLLECTED: ${jobs.length}`);
   fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify(jobs, null, 2));
@@ -283,3 +283,4 @@ async function scrapeAll() {
 }
 
 scrapeAll();
+

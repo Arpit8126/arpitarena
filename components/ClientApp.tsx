@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Navbar, ActiveTabType } from '@/components/Navbar';
+import { DeveloperBanner } from '@/components/DeveloperBanner';
 import { HackathonFeed } from '@/components/HackathonFeed';
 import { JobFeed } from '@/components/JobFeed';
 import { DetailModal } from '@/components/DetailModal';
@@ -14,10 +15,9 @@ import {
   ShieldCheck,
   Terminal,
   ExternalLink,
-  Code2,
-  Heart,
   Mail,
   GraduationCap,
+  ChevronRight,
 } from 'lucide-react';
 
 interface ClientAppProps {
@@ -37,8 +37,8 @@ export function ClientApp({
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
-      {/* Navbar with 3 Distinct Category Tabs & Search */}
+    <div className="min-h-screen bg-white text-[#262626] flex flex-col font-sans selection:bg-[#1c69d4]/20 selection:text-[#1c69d4]">
+      {/* 1. BMW Top Navigation Bar */}
       <Navbar
         activeTab={activeTab}
         onTabChange={setActiveTab}
@@ -49,36 +49,48 @@ export function ClientApp({
         jobsCount={initialJobs.length}
       />
 
-      {/* Hero Banner Section */}
-      <div className="border-b border-zinc-900 bg-gradient-to-b from-zinc-900/50 via-zinc-950 to-zinc-950 py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              {initialHackathons.length}+ ACTIVE HACKATHONS • {initialInternships.length}+ INTERNSHIPS • {initialJobs.length}+ SDE JOBS
+      {/* 2. Developer Banner: Arpit Pandey (@arpitcodecraft) with Profile Photo */}
+      <DeveloperBanner />
+
+      {/* 3. BMW Hero Band (#1a2129 Dark Navy, 700 Display vs 300 Light Body) */}
+      <div className="bg-[#1a2129] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#262e38]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div className="space-y-3 max-w-3xl">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[1.5px] text-[#1c69d4]">
+              <span className="w-2 h-2 rounded-full bg-[#1c69d4] animate-pulse"></span>
+              {initialHackathons.length}+ ONGOING HACKATHONS • {initialInternships.length}+ INTERNSHIPS • {initialJobs.length}+ FULL-TIME JOBS
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              Verified tech opportunities for Indian students &amp; engineers.
+
+            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              {activeTab === 'hackathons'
+                ? 'Precision Engineering for Student Innovators.'
+                : activeTab === 'internships'
+                ? 'Launch Your Career with Premier Internships.'
+                : 'Direct Access to Full-Time Tech Roles.'}
             </h1>
-            <p className="text-sm text-zinc-400">
-              Zero login friction. 500+ currently ongoing &amp; open hackathons with GPS proximity tracking,
-              plus dedicated internship and full-time hiring challenge feeds with direct ATS links.
+
+            <p className="text-base sm:text-lg text-[#bbbbbb] font-light leading-relaxed max-w-2xl">
+              100% free, direct official apply links with real-time GPS proximity tracking for hackathons,
+              plus curated engineering challenges across India&apos;s leading technology companies. Zero login friction.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-            <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 text-xs font-mono space-y-1 w-full md:w-auto">
-              <div className="text-zinc-500">AGGREGATION CHANNELS:</div>
-              <div className="text-zinc-200 font-semibold">
-                Devfolio • Devpost • Unstop • Greenhouse • Lever • Ashby
-              </div>
+          <div className="p-6 bg-[#262e38] border border-[#374151] rounded-none text-xs space-y-2 w-full md:w-auto shrink-0">
+            <div className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#9a9a9a]">
+              AGGREGATION CHANNELS:
+            </div>
+            <div className="text-white font-bold text-sm tracking-wide">
+              Devfolio • Devpost • Unstop • ATS Boards
+            </div>
+            <div className="text-[11px] text-[#bbbbbb] font-light">
+              Live automated multi-source synchronization
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Content Feed according to Active Tab */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* 4. Main Feed Content Area */}
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {activeTab === 'hackathons' ? (
           <HackathonFeed
             hackathons={initialHackathons}
@@ -102,7 +114,7 @@ export function ClientApp({
         )}
       </main>
 
-      {/* Detail Modal */}
+      {/* 5. Detail Modal */}
       <DetailModal
         type={selectedHackathon ? 'hackathon' : selectedOpportunity ? 'job' : null}
         item={selectedHackathon || selectedOpportunity}
@@ -112,54 +124,64 @@ export function ClientApp({
         }}
       />
 
-      {/* Footer */}
-      <footer className="border-t border-zinc-800/80 bg-zinc-950 py-10 px-4 sm:px-6 lg:px-8 text-xs text-zinc-400">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-zinc-900">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs">
+      {/* 6. BMW Corporate Footer (#f7f7f7 Surface Soft, 0px Radius) */}
+      <footer className="bg-[#f7f7f7] border-t border-[#e6e6e6] py-16 px-4 sm:px-6 lg:px-8 text-xs text-[#6b6b6b]">
+        <div className="max-w-7xl mx-auto space-y-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-[#e6e6e6]">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#1c69d4] text-white flex items-center justify-center font-bold text-xs">
                   DP
                 </div>
-                <span className="font-bold text-sm text-white">DevPulse</span>
-                <span className="text-zinc-500 font-mono text-[11px]">— Open Tech Student Aggregator</span>
+                <span className="font-bold text-base text-[#262626] uppercase tracking-wide">
+                  DevPulse Platform
+                </span>
               </div>
-              <p className="text-zinc-500 text-xs max-w-xl">
-                Dedicated to helping Indian computer science students, engineering graduates, and freshers
-                discover active hackathons, internships, and authentic entry-level engineering roles.
+              <p className="text-[#6b6b6b] text-xs font-light max-w-xl">
+                Dedicated to empowering Indian engineering students, campus developers, and tech freshers with
+                uncompromised access to verified hackathons, internships, and high-growth engineering roles.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
+            <div className="flex flex-wrap items-center gap-4 text-xs">
+              <a
+                href="https://www.instagram.com/arpitcodecraft/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#262626] hover:text-[#1c69d4] font-bold uppercase tracking-[1px] transition-colors"
+              >
+                Developer: Arpit Pandey (@arpitcodecraft) ›
+              </a>
+
               <a
                 href="mailto:contact@devpulse.local?subject=Takedown%20/%20Listing%20Removal%20Request"
-                className="text-zinc-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+                className="text-[#6b6b6b] hover:text-[#262626] transition-colors flex items-center gap-1"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>Takedown / Removal Request</span>
+                <span>Takedown Request</span>
               </a>
 
               <Link
                 href="/admin-sync"
-                className="text-zinc-500 hover:text-zinc-300 transition-colors flex items-center gap-1"
+                className="text-[#9a9a9a] hover:text-[#262626] transition-colors flex items-center gap-1 font-mono text-[11px]"
                 title="Hidden Local Admin Sync Dashboard"
               >
                 <Terminal className="w-3.5 h-3.5" />
-                <span>Sync Engine (Local)</span>
+                <span>Sync Console</span>
               </Link>
             </div>
           </div>
 
           {/* Attribution & Legal Notice */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-zinc-500">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-[#9a9a9a] font-light">
             <p>
               Direct Attribution Disclaimer: All hackathons, company names, logos, trademarks, and job postings belong
               to their respective organizers and ATS platforms (Devfolio, Devpost, Unstop, Greenhouse, Lever, Ashby). DevPulse
               does not claim ownership or host applications directly; all outbound links redirect immediately to official
               endpoints.
             </p>
-            <div className="shrink-0 flex items-center gap-1 text-zinc-600">
-              Built with Next.js &amp; Supabase
+            <div className="shrink-0 text-[#6b6b6b] font-medium">
+              Engineered by Arpit Pandey
             </div>
           </div>
         </div>

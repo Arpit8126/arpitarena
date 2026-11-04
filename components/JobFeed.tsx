@@ -1,17 +1,13 @@
 'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { Opportunity, TechRole, CompanyType, OpportunityType } from '@/types';
+import { Opportunity } from '@/types';
 import {
   Briefcase,
   MapPin,
   Building,
   GraduationCap,
-  Sparkles,
-  ExternalLink,
   ChevronRight,
-  Filter,
-  DollarSign,
   CheckCircle,
 } from 'lucide-react';
 
@@ -29,10 +25,12 @@ export function JobFeed({
   feedType = 'all',
 }: JobFeedProps) {
   const [selectedCompanyType, setSelectedCompanyType] = useState<string>('all');
-  const [selectedOppType, setSelectedOppType] = useState<string>(feedType === 'internship' ? 'internship' : feedType === 'full-time' ? 'full-time' : 'all');
+  const [selectedOppType, setSelectedOppType] = useState<string>(
+    feedType === 'internship' ? 'internship' : feedType === 'full-time' ? 'full-time' : 'all'
+  );
   const [selectedTechRole, setSelectedTechRole] = useState<string>('all');
   const [selectedBatch, setSelectedBatch] = useState<number | 'all'>('all');
-  const [freshersOnly, setFreshersOnly] = useState<boolean>(feedType === 'full-time' ? true : false);
+  const [freshersOnly, setFreshersOnly] = useState<boolean>(feedType === 'full-time');
   const [selectedLocationType, setSelectedLocationType] = useState<string>('all');
   const [selectedCity, setSelectedCity] = useState<string>('all');
 
@@ -42,7 +40,6 @@ export function JobFeed({
     else setSelectedOppType('all');
   }, [feedType]);
 
-  // Extract unique cities
   const uniqueCities = useMemo(() => {
     const set = new Set<string>();
     opportunities.forEach((o) => {
@@ -54,14 +51,11 @@ export function JobFeed({
     return Array.from(set).sort();
   }, [opportunities]);
 
-  // Filtered Opportunities
   const filteredOpportunities = useMemo(() => {
     return opportunities.filter((item) => {
-      // Feed type override
       if (feedType === 'internship' && item.opportunity_type !== 'internship') return false;
       if (feedType === 'full-time' && item.opportunity_type !== 'full-time') return false;
 
-      // Search
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const matchesTitle = item.title.toLowerCase().includes(query);
@@ -73,42 +67,36 @@ export function JobFeed({
         }
       }
 
-      // Company Type
       if (selectedCompanyType !== 'all') {
         if (selectedCompanyType === 'startup' && item.company_type !== 'startup') return false;
-        if (selectedCompanyType === 'mnc' && item.company_type !== 'mnc' && item.company_type !== 'enterprise') return false;
+        if (selectedCompanyType === 'mnc' && item.company_type !== 'mnc' && item.company_type !== 'enterprise')
+          return false;
       }
 
-      // Opportunity Type
       if (selectedOppType !== 'all' && item.opportunity_type !== selectedOppType) {
         return false;
       }
 
-      // Tech Role
       if (selectedTechRole !== 'all' && item.tech_role !== selectedTechRole) {
         return false;
       }
 
-      // Batch
       if (selectedBatch !== 'all') {
         if (!item.target_batches.includes(selectedBatch as number)) {
           return false;
         }
       }
 
-      // Freshers (0 exp)
       if (freshersOnly) {
         if (!item.is_fresher_eligible && item.min_exp_years > 0.5) {
           return false;
         }
       }
 
-      // Location Type
       if (selectedLocationType !== 'all' && item.location_type !== selectedLocationType) {
         return false;
       }
 
-      // City
       if (selectedCity !== 'all') {
         if (!item.city || !item.city.toLowerCase().includes(selectedCity.toLowerCase())) {
           return false;
@@ -132,17 +120,18 @@ export function JobFeed({
 
   return (
     <div className="space-y-6">
-      {/* Filters Toolbar */}
-      <div className="bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-4 md:p-5 backdrop-blur-sm space-y-4">
-        {/* Row 1: Primary Dropdowns & Toggles */}
+      {/* BMW Configuration Filter Bar (#f7f7f7, hairline #e6e6e6, 0px radius) */}
+      <div className="bg-[#f7f7f7] border border-[#e6e6e6] p-4 sm:p-6 rounded-none space-y-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {/* Company Type */}
           <div>
-            <label className="block text-[11px] font-mono text-zinc-400 mb-1">Company Type</label>
+            <label className="block text-[11px] font-bold uppercase tracking-[1px] text-[#6b6b6b] mb-1">
+              Company
+            </label>
             <select
               value={selectedCompanyType}
               onChange={(e) => setSelectedCompanyType(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-white border border-[#cccccc] focus:border-[#262626] rounded-none px-2.5 py-2 text-xs text-[#262626] focus:outline-none"
             >
               <option value="all">All Companies</option>
               <option value="startup">Startups</option>
@@ -152,12 +141,14 @@ export function JobFeed({
 
           {/* Opportunity Type */}
           <div>
-            <label className="block text-[11px] font-mono text-zinc-400 mb-1">Opportunity</label>
+            <label className="block text-[11px] font-bold uppercase tracking-[1px] text-[#6b6b6b] mb-1">
+              Type
+            </label>
             <select
               value={selectedOppType}
               onChange={(e) => setSelectedOppType(e.target.value)}
               disabled={feedType !== 'all'}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500 disabled:opacity-70"
+              className="w-full bg-white border border-[#cccccc] focus:border-[#262626] rounded-none px-2.5 py-2 text-xs text-[#262626] focus:outline-none disabled:opacity-60"
             >
               <option value="all">All Types</option>
               <option value="internship">Internship Only</option>
@@ -167,11 +158,13 @@ export function JobFeed({
 
           {/* Tech Role */}
           <div>
-            <label className="block text-[11px] font-mono text-zinc-400 mb-1">Tech Role</label>
+            <label className="block text-[11px] font-bold uppercase tracking-[1px] text-[#6b6b6b] mb-1">
+              Tech Role
+            </label>
             <select
               value={selectedTechRole}
               onChange={(e) => setSelectedTechRole(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-white border border-[#cccccc] focus:border-[#262626] rounded-none px-2.5 py-2 text-xs text-[#262626] focus:outline-none"
             >
               <option value="all">All Roles</option>
               <option value="frontend">Frontend</option>
@@ -184,13 +177,15 @@ export function JobFeed({
             </select>
           </div>
 
-          {/* Batch */}
+          {/* Target Batch */}
           <div>
-            <label className="block text-[11px] font-mono text-zinc-400 mb-1">Target Batch</label>
+            <label className="block text-[11px] font-bold uppercase tracking-[1px] text-[#6b6b6b] mb-1">
+              Batch
+            </label>
             <select
               value={selectedBatch}
               onChange={(e) => setSelectedBatch(e.target.value === 'all' ? 'all' : Number(e.target.value))}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-white border border-[#cccccc] focus:border-[#262626] rounded-none px-2.5 py-2 text-xs text-[#262626] focus:outline-none"
             >
               <option value="all">All Batches</option>
               <option value="2025">Batch 2025</option>
@@ -200,13 +195,15 @@ export function JobFeed({
             </select>
           </div>
 
-          {/* Location Type */}
+          {/* Workplace Mode */}
           <div>
-            <label className="block text-[11px] font-mono text-zinc-400 mb-1">Workplace Mode</label>
+            <label className="block text-[11px] font-bold uppercase tracking-[1px] text-[#6b6b6b] mb-1">
+              Workplace
+            </label>
             <select
               value={selectedLocationType}
               onChange={(e) => setSelectedLocationType(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-white border border-[#cccccc] focus:border-[#262626] rounded-none px-2.5 py-2 text-xs text-[#262626] focus:outline-none"
             >
               <option value="all">All Locations</option>
               <option value="remote">Remote Only</option>
@@ -217,11 +214,13 @@ export function JobFeed({
 
           {/* City */}
           <div>
-            <label className="block text-[11px] font-mono text-zinc-400 mb-1">City Filter</label>
+            <label className="block text-[11px] font-bold uppercase tracking-[1px] text-[#6b6b6b] mb-1">
+              City
+            </label>
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-violet-500"
+              className="w-full bg-white border border-[#cccccc] focus:border-[#262626] rounded-none px-2.5 py-2 text-xs text-[#262626] focus:outline-none"
             >
               <option value="all">All Cities</option>
               {uniqueCities.slice(0, 20).map((city) => (
@@ -233,49 +232,50 @@ export function JobFeed({
           </div>
         </div>
 
-        {/* Row 2: Quick Toggles (Freshers 0 Exp, Active count) */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-zinc-800/60">
+        {/* Toggles & Counter */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#e6e6e6]">
           <button
             onClick={() => setFreshersOnly(!freshersOnly)}
-            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.5px] rounded-none border transition-colors ${
               freshersOnly
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/50'
-                : 'bg-zinc-800/80 text-zinc-400 border border-zinc-700/60 hover:text-zinc-200'
+                ? 'bg-[#262626] text-white border-[#262626]'
+                : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
             }`}
           >
             <GraduationCap className="w-3.5 h-3.5" />
             <span>Freshers Eligible (0 Exp Required)</span>
-            {freshersOnly && <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />}
+            {freshersOnly && <CheckCircle className="w-3.5 h-3.5 text-[#22c55e]" />}
           </button>
 
-          <div className="text-xs font-mono text-zinc-500">
-            Showing <span className="text-zinc-200 font-bold">{filteredOpportunities.length}</span> of {opportunities.length} roles
+          <div className="text-xs text-[#6b6b6b] font-light">
+            Showing <strong className="text-[#262626] font-bold">{filteredOpportunities.length}</strong> of{' '}
+            {opportunities.length} positions
           </div>
         </div>
       </div>
 
-      {/* Opportunities List */}
+      {/* Grid: 2-up on desktop, clean white cards with hairline borders */}
       {filteredOpportunities.length === 0 ? (
-        <div className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-12 text-center space-y-3">
-          <Briefcase className="w-12 h-12 text-zinc-600 mx-auto" />
-          <h3 className="text-lg font-bold text-zinc-200">No roles match your filters</h3>
-          <p className="text-sm text-zinc-400 max-w-md mx-auto">
-            Try resetting your batch, role, or company filters to explore more tech openings.
+        <div className="bg-white border border-[#e6e6e6] p-16 text-center space-y-3">
+          <Briefcase className="w-12 h-12 text-[#9a9a9a] mx-auto" />
+          <h3 className="text-xl font-bold text-[#262626]">No roles match your filters</h3>
+          <p className="text-sm text-[#6b6b6b] font-light max-w-md mx-auto">
+            Try adjusting your batch, role, or company filters to explore more engineering opportunities.
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {filteredOpportunities.map((opp) => {
             const isIntern = opp.opportunity_type === 'internship';
 
             return (
               <div
                 key={opp.id}
-                className="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl p-5 flex flex-col justify-between group transition-all duration-200 hover:shadow-xl hover:shadow-black/40 space-y-4"
+                className="bg-white border border-[#e6e6e6] hover:border-[#262626] p-6 flex flex-col justify-between transition-colors duration-150 rounded-none group space-y-4"
               >
-                {/* Header: Company Logo & Details */}
-                <div className="flex items-start gap-3.5">
-                  <div className="w-12 h-12 rounded-xl bg-zinc-800/80 border border-zinc-700/80 flex items-center justify-center shrink-0 overflow-hidden p-1">
+                {/* Header */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#fafafa] border border-[#e6e6e6] flex items-center justify-center shrink-0 p-1 rounded-none">
                     {opp.company_logo_url ? (
                       <img
                         src={opp.company_logo_url}
@@ -287,99 +287,88 @@ export function JobFeed({
                         loading="lazy"
                       />
                     ) : (
-                      <Building className="w-6 h-6 text-zinc-400" />
+                      <Building className="w-6 h-6 text-[#9a9a9a]" />
                     )}
                   </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-xs text-zinc-400 uppercase tracking-wide truncate">
+                      <span className="font-bold text-xs uppercase tracking-[1px] text-[#1c69d4] truncate">
                         {opp.company_name}
                       </span>
                       {opp.company_type && (
-                        <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400 uppercase border border-zinc-700">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.2 bg-[#f7f7f7] text-[#6b6b6b] border border-[#e6e6e6]">
                           {opp.company_type}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="font-bold text-base text-white group-hover:text-emerald-400 transition-colors line-clamp-1 mt-0.5">
+                    <h3 className="font-bold text-base text-[#262626] group-hover:text-[#1c69d4] transition-colors line-clamp-1 mt-0.5">
                       {opp.title}
                     </h3>
 
-                    <div className="flex items-center gap-2 text-xs text-zinc-400 mt-1">
+                    <div className="flex items-center gap-2 text-xs text-[#6b6b6b] font-light mt-1">
                       <span className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-zinc-500" />
+                        <MapPin className="w-3 h-3 text-[#9a9a9a]" />
                         <span className="truncate">{opp.city || 'India'}</span>
                       </span>
-                      <span className="text-zinc-600">•</span>
-                      <span className="capitalize text-zinc-400">
-                        {opp.location_type === 'remote' ? '🌐 Remote' : opp.location_type === 'hybrid' ? '⚡ Hybrid' : '🏢 On-Site'}
+                      <span>•</span>
+                      <span className="capitalize">
+                        {opp.location_type === 'remote' ? 'Remote' : opp.location_type === 'hybrid' ? 'Hybrid' : 'On-Site'}
                       </span>
                     </div>
                   </div>
 
-                  {/* Opp Type Badge */}
                   <span
-                    className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded-full shrink-0 ${
-                      isIntern
-                        ? 'bg-blue-500/10 text-blue-400 border border-blue-500/30'
-                        : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30'
+                    className={`text-[11px] font-bold uppercase tracking-[1px] px-2.5 py-1 shrink-0 ${
+                      isIntern ? 'bg-[#1c69d4] text-white' : 'bg-[#262626] text-white'
                     }`}
                   >
-                    {isIntern ? 'Internship' : 'Full-Time'}
+                    {isIntern ? 'INTERNSHIP' : 'FULL-TIME'}
                   </span>
                 </div>
 
-                {/* Badges: Role, Batches, Salary */}
+                {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2 text-xs">
-                  {/* Tech Role Badge */}
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">
-                    Role: {opp.tech_role}
+                  <span className="text-[11px] font-medium uppercase px-2 py-0.5 bg-[#f7f7f7] text-[#262626] border border-[#e6e6e6]">
+                    ROLE: {opp.tech_role}
                   </span>
-
-                  {/* Target Batches */}
-                  <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700">
-                    Batches: {opp.target_batches.join(', ')}
+                  <span className="text-[11px] font-medium uppercase px-2 py-0.5 bg-[#f7f7f7] text-[#6b6b6b] border border-[#e6e6e6]">
+                    BATCHES: {opp.target_batches.join(', ')}
                   </span>
-
-                  {/* Stipend/Salary */}
                   {opp.stipend_or_salary && (
-                    <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-emerald-950/40 text-emerald-300 border border-emerald-800/50 flex items-center gap-1">
-                      <span>💰</span> {opp.stipend_or_salary}
+                    <span className="text-[11px] font-bold px-2 py-0.5 bg-green-50 text-green-700 border border-green-200">
+                      💰 {opp.stipend_or_salary}
                     </span>
                   )}
-
-                  {/* Fresher Badge */}
                   {opp.is_fresher_eligible && (
-                    <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-blue-950/40 text-blue-300 border border-blue-800/50">
-                      Freshers OK
+                    <span className="text-[11px] font-bold px-2 py-0.5 bg-blue-50 text-[#1c69d4] border border-blue-200">
+                      FRESHERS OK
                     </span>
                   )}
                 </div>
 
-                {/* Footer Buttons */}
-                <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between gap-3">
-                  <div className="text-[11px] font-mono text-zinc-500 truncate">
-                    via <span className="text-zinc-400">{opp.source_platform}</span>
+                {/* Actions */}
+                <div className="pt-3 border-t border-[#f0f0f0] flex items-center justify-between gap-3">
+                  <div className="text-[11px] text-[#9a9a9a] uppercase tracking-wider font-light truncate">
+                    via <span className="text-[#262626] font-medium">{opp.source_platform}</span>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => onSelectOpportunity(opp)}
-                      className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold transition-colors flex items-center gap-1"
+                      className="py-2 px-3 bg-white border border-[#cccccc] hover:border-[#262626] text-[#262626] text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
                     >
-                      <span>View Full Role</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-zinc-400" />
+                      DETAILS ›
                     </button>
 
                     <a
                       href={opp.apply_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold transition-all flex items-center gap-1 shadow-sm"
+                      className="py-2 px-4 bg-[#1c69d4] hover:bg-[#0653b6] text-white text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
                     >
-                      <span>Apply Direct ↗</span>
+                      APPLY DIRECT ›
                     </a>
                   </div>
                 </div>
