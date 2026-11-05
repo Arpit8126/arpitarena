@@ -6,10 +6,6 @@ import { Search, Zap, GraduationCap, Briefcase, Terminal } from 'lucide-react';
 
 export type ActiveTabType = 'hackathons' | 'internships' | 'jobs';
 
-interface TopHeaderProps {
-  // Optional extra props if needed
-}
-
 export function TopHeader() {
   const [isLocalhost, setIsLocalhost] = useState<boolean>(false);
 
@@ -23,34 +19,34 @@ export function TopHeader() {
   }, []);
 
   return (
-    <div className="w-full bg-white border-b border-[#e6e6e6]">
+    <div className="w-full bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* DevPulse Brand Logo */}
+          {/* Modern Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-full bg-[#1c69d4] flex items-center justify-center text-white font-bold text-sm shadow-sm group-hover:bg-[#0653b6] transition-colors">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#1c69d4] to-[#0ea5e9] flex items-center justify-center text-white font-bold text-sm shadow-md group-hover:scale-105 transition-transform">
               DP
             </div>
             <div>
-              <span className="font-bold text-lg tracking-tight text-[#262626] uppercase">
+              <span className="font-extrabold text-xl tracking-tight text-slate-900 uppercase">
                 DevPulse
               </span>
-              <span className="text-[11px] text-[#6b6b6b] block font-light -mt-0.5 tracking-wide">
-                Official Technology Aggregator
+              <span className="text-[11px] text-slate-500 block font-normal -mt-0.5 tracking-wide">
+                India&apos;s Engineering Opportunities Aggregator
               </span>
             </div>
           </Link>
 
-          {/* Right Controls: Local Scraper Sync (Only visible on localhost) */}
+          {/* Right Controls: Local Scraper Sync */}
           <div className="flex items-center gap-3">
             {isLocalhost && (
               <Link
                 href="/admin-sync"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1c69d4] hover:bg-[#0653b6] text-white text-xs font-bold uppercase tracking-[1px] transition-colors shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold rounded-full border border-slate-300 transition-all shadow-2xs hover:shadow-xs"
                 title="Only visible on localhost for developer DB sync"
               >
-                <Terminal className="w-3.5 h-3.5" />
-                <span>SCRAPE &amp; SYNC DB (LOCAL) ›</span>
+                <Terminal className="w-3.5 h-3.5 text-[#1c69d4]" />
+                <span>SYNC DATABASE ›</span>
               </Link>
             )}
           </div>
@@ -81,31 +77,31 @@ export function StickyNav({
 }: StickyNavProps) {
   const searchPlaceholder =
     activeTab === 'hackathons'
-      ? 'Search hackathons by title, theme, city, organizer...'
+      ? 'Search hackathons by title, theme, organizer, city...'
       : activeTab === 'internships'
       ? 'Search internships by role, company, city, skills...'
       : 'Search full-time roles by title, tech stack, company...';
 
   return (
-    <div className="sticky top-0 z-40 w-full bg-white border-b border-[#e6e6e6] shadow-sm">
+    <div className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 py-2.5">
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 py-3">
+          {/* Category Tabs: Modern Pill Segmented Style */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar p-1 bg-slate-100/80 rounded-2xl border border-slate-200/80 w-fit">
             {/* Tab 1: Hackathons */}
             <button
               onClick={() => onTabChange('hackathons')}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-bold tracking-[1.2px] uppercase transition-all rounded-none border-b-2 whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all rounded-xl whitespace-nowrap ${
                 activeTab === 'hackathons'
-                  ? 'border-[#1c69d4] text-[#1c69d4] bg-[#1c69d4]/5'
-                  : 'border-transparent text-[#6b6b6b] hover:text-[#262626] hover:bg-[#fafafa]'
+                  ? 'bg-white text-[#1c69d4] shadow-sm font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
-              <Zap className={`w-3.5 h-3.5 ${activeTab === 'hackathons' ? 'text-[#1c69d4]' : 'text-[#6b6b6b]'}`} />
-              <span>HACKATHONS</span>
+              <Zap className={`w-4 h-4 ${activeTab === 'hackathons' ? 'text-[#1c69d4]' : 'text-slate-400'}`} />
+              <span>Hackathons</span>
               <span
-                className={`text-[11px] px-1.5 py-0.2 font-bold ${
-                  activeTab === 'hackathons' ? 'bg-[#1c69d4] text-white' : 'bg-[#ebebeb] text-[#6b6b6b]'
+                className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                  activeTab === 'hackathons' ? 'bg-blue-100 text-[#1c69d4]' : 'bg-slate-200/70 text-slate-600'
                 }`}
               >
                 {hackathonsCount}
@@ -115,17 +111,17 @@ export function StickyNav({
             {/* Tab 2: Internships */}
             <button
               onClick={() => onTabChange('internships')}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-bold tracking-[1.2px] uppercase transition-all rounded-none border-b-2 whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all rounded-xl whitespace-nowrap ${
                 activeTab === 'internships'
-                  ? 'border-[#1c69d4] text-[#1c69d4] bg-[#1c69d4]/5'
-                  : 'border-transparent text-[#6b6b6b] hover:text-[#262626] hover:bg-[#fafafa]'
+                  ? 'bg-white text-[#1c69d4] shadow-sm font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
-              <GraduationCap className={`w-3.5 h-3.5 ${activeTab === 'internships' ? 'text-[#1c69d4]' : 'text-[#6b6b6b]'}`} />
-              <span>INTERNSHIPS</span>
+              <GraduationCap className={`w-4 h-4 ${activeTab === 'internships' ? 'text-[#1c69d4]' : 'text-slate-400'}`} />
+              <span>Internships</span>
               <span
-                className={`text-[11px] px-1.5 py-0.2 font-bold ${
-                  activeTab === 'internships' ? 'bg-[#1c69d4] text-white' : 'bg-[#ebebeb] text-[#6b6b6b]'
+                className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                  activeTab === 'internships' ? 'bg-blue-100 text-[#1c69d4]' : 'bg-slate-200/70 text-slate-600'
                 }`}
               >
                 {internshipsCount}
@@ -135,17 +131,17 @@ export function StickyNav({
             {/* Tab 3: Full-Time Jobs */}
             <button
               onClick={() => onTabChange('jobs')}
-              className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-bold tracking-[1.2px] uppercase transition-all rounded-none border-b-2 whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all rounded-xl whitespace-nowrap ${
                 activeTab === 'jobs'
-                  ? 'border-[#1c69d4] text-[#1c69d4] bg-[#1c69d4]/5'
-                  : 'border-transparent text-[#6b6b6b] hover:text-[#262626] hover:bg-[#fafafa]'
+                  ? 'bg-white text-[#1c69d4] shadow-sm font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
-              <Briefcase className={`w-3.5 h-3.5 ${activeTab === 'jobs' ? 'text-[#1c69d4]' : 'text-[#6b6b6b]'}`} />
-              <span>FULL-TIME JOBS</span>
+              <Briefcase className={`w-4 h-4 ${activeTab === 'jobs' ? 'text-[#1c69d4]' : 'text-slate-400'}`} />
+              <span>Full-Time Jobs</span>
               <span
-                className={`text-[11px] px-1.5 py-0.2 font-bold ${
-                  activeTab === 'jobs' ? 'bg-[#1c69d4] text-white' : 'bg-[#ebebeb] text-[#6b6b6b]'
+                className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+                  activeTab === 'jobs' ? 'bg-blue-100 text-[#1c69d4]' : 'bg-slate-200/70 text-slate-600'
                 }`}
               >
                 {jobsCount}
@@ -153,20 +149,20 @@ export function StickyNav({
             </button>
           </div>
 
-          {/* Dedicated In-Menu Search Bar */}
+          {/* Modern Pill Search Bar */}
           <div className="w-full md:max-w-md relative">
-            <Search className="w-4 h-4 text-[#6b6b6b] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder={searchPlaceholder}
-              className="w-full bg-[#fafafa] border border-[#d6d6d6] focus:border-[#1c69d4] focus:bg-white rounded-none pl-10 pr-8 py-2 text-xs sm:text-sm text-[#262626] placeholder:text-[#888888] focus:outline-none transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 focus:border-[#1c69d4] focus:bg-white focus:ring-4 focus:ring-blue-500/10 rounded-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-2xs"
             />
             {searchQuery && (
               <button
                 onClick={() => onSearchChange('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b6b6b] hover:text-[#262626] text-xs px-1"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-600 hover:text-slate-900 text-xs flex items-center justify-center transition-colors"
                 title="Clear search"
               >
                 ✕

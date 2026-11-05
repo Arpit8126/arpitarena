@@ -27,7 +27,7 @@ export function ClientApp({
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
 
   return (
-    <div className="min-h-screen bg-white text-[#262626] flex flex-col font-sans selection:bg-[#1c69d4]/20 selection:text-[#1c69d4]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans selection:bg-blue-500/20 selection:text-[#1c69d4]">
       {/* 1. Top Brand Header (Scrolls naturally with page) */}
       <TopHeader />
 
@@ -70,7 +70,7 @@ export function ClientApp({
         )}
       </main>
 
-      {/* 5. Detail Modal (Spacious Big Card + Body Scroll Lock) */}
+      {/* 5. Detail Modal (Exact Unstop Stages & Timelines Design + Scroll Lock) */}
       <DetailModal
         type={selectedHackathon ? 'hackathon' : selectedOpportunity ? 'job' : null}
         item={selectedHackathon || selectedOpportunity}
@@ -80,20 +80,20 @@ export function ClientApp({
         }}
       />
 
-      {/* 6. Corporate Minimal Footer */}
-      <footer className="bg-[#f7f7f7] border-t border-[#e6e6e6] py-12 px-4 sm:px-6 lg:px-8 text-xs text-[#6b6b6b]">
+      {/* 6. Modern Clean Footer */}
+      <footer className="bg-white border-t border-slate-200 py-12 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 mt-12">
         <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-[#e6e6e6]">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-100">
             <div className="space-y-1">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-[#1c69d4] text-white flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#1c69d4] to-[#0ea5e9] text-white flex items-center justify-center font-bold text-xs shadow-xs">
                   DP
                 </div>
-                <span className="font-bold text-sm text-[#262626] uppercase tracking-wide">
+                <span className="font-extrabold text-sm text-slate-900 uppercase tracking-wide">
                   DevPulse Platform
                 </span>
               </div>
-              <p className="text-[#6b6b6b] text-xs font-light max-w-xl">
+              <p className="text-slate-500 text-xs font-normal max-w-xl">
                 Real-time technology opportunities aggregator connecting Indian student builders with verified hackathons, internships, and engineering careers.
               </p>
             </div>
@@ -103,14 +103,14 @@ export function ClientApp({
                 href="https://www.instagram.com/arpitcodecraft/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#262626] hover:text-[#1c69d4] font-bold uppercase tracking-[0.5px] transition-colors"
+                className="text-slate-800 hover:text-[#1c69d4] font-semibold transition-colors"
               >
                 Developer: Arpit Pandey (@arpitcodecraft) ›
               </a>
 
               <a
                 href="mailto:contact@devpulse.local?subject=Listing%20Inquiry"
-                className="text-[#6b6b6b] hover:text-[#262626] transition-colors flex items-center gap-1"
+                className="text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
               >
                 <Mail className="w-3.5 h-3.5" />
                 <span>Contact / Inquiry</span>
@@ -118,7 +118,7 @@ export function ClientApp({
 
               <Link
                 href="/admin-sync"
-                className="text-[#9a9a9a] hover:text-[#262626] transition-colors flex items-center gap-1 font-mono text-[11px]"
+                className="text-slate-400 hover:text-slate-900 transition-colors flex items-center gap-1 font-mono text-[11px]"
                 title="Hidden Local Admin Sync Dashboard"
               >
                 <Terminal className="w-3.5 h-3.5" />
@@ -127,11 +127,11 @@ export function ClientApp({
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-[#9a9a9a] font-light">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-normal">
             <p>
               Direct Attribution Disclaimer: All hackathons, company names, logos, trademarks, and job postings belong to their respective organizers and platforms (Devfolio, Devpost, Unstop). DevPulse aggregates official public listings and redirects directly to official endpoints.
             </p>
-            <div className="shrink-0 text-[#6b6b6b] font-medium">
+            <div className="shrink-0 text-slate-600 font-medium">
               Engineered by Arpit Pandey
             </div>
           </div>
