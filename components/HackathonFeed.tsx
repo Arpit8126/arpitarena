@@ -10,11 +10,9 @@ import {
   ExternalLink,
   Navigation,
   Globe,
-  Radio,
-  Layers,
   ChevronRight,
-  Filter,
   AlertCircle,
+  Building,
 } from 'lucide-react';
 
 interface HackathonFeedProps {
@@ -151,8 +149,8 @@ export function HackathonFeed({
 
   return (
     <div className="space-y-6">
-      {/* BMW Specification Filters Band (Surface Soft #f7f7f7, Hairline #e6e6e6, 0px Radius) */}
-      <div className="bg-[#f7f7f7] border border-[#e6e6e6] p-4 sm:p-6 rounded-none space-y-4">
+      {/* Filters Band */}
+      <div className="bg-[#f7f7f7] border border-[#e6e6e6] p-4 sm:p-5 rounded-none space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           {/* Mode Filter Chips */}
           <div className="flex flex-wrap items-center gap-2">
@@ -163,9 +161,9 @@ export function HackathonFeed({
               <button
                 key={mode}
                 onClick={() => setSelectedMode(mode)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-[1px] transition-colors rounded-none border ${
+                className={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-[1px] transition-colors rounded-none border ${
                   selectedMode === mode
-                    ? 'bg-[#262626] text-white border-[#262626]'
+                    ? 'bg-[#1c69d4] text-white border-[#1c69d4]'
                     : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
                 }`}
               >
@@ -182,7 +180,7 @@ export function HackathonFeed({
 
             <button
               onClick={() => setSelectedSort('latest')}
-              className={`px-3.5 py-2 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none border ${
+              className={`px-3 py-1.5 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none border ${
                 selectedSort === 'latest'
                   ? 'bg-[#262626] text-white border-[#262626]'
                   : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
@@ -193,7 +191,7 @@ export function HackathonFeed({
 
             <button
               onClick={() => setSelectedSort('deadline')}
-              className={`px-3.5 py-2 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none border ${
+              className={`px-3 py-1.5 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none border ${
                 selectedSort === 'deadline'
                   ? 'bg-[#262626] text-white border-[#262626]'
                   : 'bg-white text-[#262626] border-[#cccccc] hover:border-[#262626]'
@@ -202,11 +200,11 @@ export function HackathonFeed({
               Deadline Soonest
             </button>
 
-            {/* BMW Blue GPS Proximity Button */}
+            {/* GPS Proximity Button */}
             <button
               onClick={handleFindNearMe}
               disabled={isLocating}
-              className={`inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none ${
                 selectedSort === 'nearest'
                   ? 'bg-[#1c69d4] text-white'
                   : 'bg-white border border-[#1c69d4] text-[#1c69d4] hover:bg-[#1c69d4] hover:text-white'
@@ -234,7 +232,7 @@ export function HackathonFeed({
             <button
               key={theme.id}
               onClick={() => setSelectedTheme(theme.id)}
-              className={`px-3 py-1.5 text-xs uppercase tracking-[0.5px] rounded-none border transition-colors ${
+              className={`px-2.5 py-1 text-xs uppercase tracking-[0.5px] rounded-none border transition-colors ${
                 selectedTheme === theme.id
                   ? 'bg-[#262626] text-white border-[#262626] font-bold'
                   : 'bg-white text-[#3c3c3c] border-[#e6e6e6] hover:border-[#262626]'
@@ -253,7 +251,7 @@ export function HackathonFeed({
         )}
       </div>
 
-      {/* Grid: BMW Model Card Architecture (4-up on desktop, 0px radius, white surface, hairline border) */}
+      {/* Grid: 3-column layout on desktop to eliminate blurry cramped cards */}
       {filteredHackathons.length === 0 ? (
         <div className="bg-white border border-[#e6e6e6] p-16 text-center space-y-3">
           <Globe className="w-12 h-12 text-[#9a9a9a] mx-auto" />
@@ -263,27 +261,47 @@ export function HackathonFeed({
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredHackathons.map((hackathon) => {
             const isDeadlinePassed = (hackathon as any).days_remaining <= 0;
+            const isThumb =
+              hackathon.banner_image_url?.includes('150x150') ||
+              hackathon.banner_image_url?.includes('uploadedManual') ||
+              hackathon.platform === 'unstop';
 
             return (
               <div
                 key={hackathon.id}
-                className="bg-white border border-[#e6e6e6] hover:border-[#262626] flex flex-col justify-between transition-colors duration-150 rounded-none group"
+                className="bg-white border border-[#e6e6e6] hover:border-[#262626] flex flex-col justify-between transition-colors duration-150 rounded-none group shadow-sm hover:shadow-md"
               >
-                {/* 16:10 Photo Plate with #fafafa background */}
-                <div className="relative aspect-[16/10] w-full bg-[#fafafa] overflow-hidden">
-                  <img
-                    src={hackathon.banner_image_url}
-                    alt={hackathon.title}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80';
-                    }}
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
-                    loading="lazy"
-                  />
+                {/* Visual Header: Crisp Banner OR Centered Emblem Plate to completely prevent blurry scaling */}
+                <div className="relative aspect-[16/9] w-full bg-[#161c24] overflow-hidden flex items-center justify-center">
+                  {isThumb ? (
+                    <div className="flex flex-col items-center justify-center p-6 text-center">
+                      <div className="w-20 h-20 bg-white/10 backdrop-blur-md p-2.5 border border-white/20 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                        <img
+                          src={hackathon.banner_image_url}
+                          alt={hackathon.organizer}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="text-[10px] text-white/70 uppercase tracking-widest mt-2 truncate max-w-[220px]">
+                        {hackathon.organizer}
+                      </span>
+                    </div>
+                  ) : (
+                    <img
+                      src={hackathon.banner_image_url}
+                      alt={hackathon.title}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80';
+                      }}
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  )}
 
                   {/* Mode Tag */}
                   <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
@@ -298,17 +316,17 @@ export function HackathonFeed({
                   </div>
 
                   {/* Platform & Days Badge */}
-                  <div className="absolute top-2.5 right-2.5">
+                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1">
                     <span className="text-[10px] font-bold uppercase tracking-[0.5px] px-2 py-0.5 bg-white text-[#262626] border border-[#e6e6e6]">
                       {isDeadlinePassed ? 'CLOSED' : `${(hackathon as any).days_remaining}D LEFT`}
                     </span>
                   </div>
                 </div>
 
-                {/* Card Content (BMW Typography: 700 Headline vs 300 Light Body) */}
+                {/* Card Content */}
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
-                    <div className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#1c69d4]">
+                    <div className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#1c69d4] truncate">
                       {hackathon.organizer}
                     </div>
 
@@ -335,7 +353,7 @@ export function HackathonFeed({
 
                     {/* Themes Tags */}
                     <div className="flex flex-wrap gap-1 pt-1.5">
-                      {hackathon.themes.slice(0, 3).map((theme, i) => (
+                      {hackathon.themes && hackathon.themes.slice(0, 3).map((theme, i) => (
                         <span
                           key={i}
                           className="text-[10px] font-medium uppercase px-1.5 py-0.5 bg-[#f7f7f7] text-[#6b6b6b] border border-[#e6e6e6]"
@@ -346,11 +364,11 @@ export function HackathonFeed({
                     </div>
                   </div>
 
-                  {/* Action Buttons: Button Secondary (Details) & Button Primary (Apply) */}
+                  {/* Action Buttons */}
                   <div className="pt-3 border-t border-[#f0f0f0] grid grid-cols-2 gap-2">
                     <button
                       onClick={() => onSelectHackathon(hackathon)}
-                      className="py-2.5 px-2 text-center bg-white border border-[#cccccc] hover:border-[#262626] text-[#262626] text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
+                      className="py-2 px-2 text-center bg-white border border-[#cccccc] hover:border-[#262626] text-[#262626] text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
                     >
                       DETAILS ›
                     </button>
@@ -359,7 +377,7 @@ export function HackathonFeed({
                       href={hackathon.apply_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-2.5 px-2 text-center bg-[#1c69d4] hover:bg-[#0653b6] text-white text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
+                      className="py-2 px-2 text-center bg-[#1c69d4] hover:bg-[#0653b6] text-white text-xs font-bold uppercase tracking-[0.5px] transition-colors rounded-none"
                     >
                       REGISTER ›
                     </a>

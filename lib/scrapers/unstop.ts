@@ -215,20 +215,45 @@ export async function scrapeUnstopOpportunities(
           const title = item.title || 'Software Development Engineer';
           const titleLower = title.toLowerCase();
 
-          // Infer tech role
+          // Skip pure non-tech positions
+          if (/\b(sales|telecaller|bpo|customer support|tele-sales|graphic design|video edit|content writer|content creator|hr recruitment|human resources|accountant|accounting|finance intern|business development|campus ambassador)\b/i.test(titleLower)) {
+            continue;
+          }
+
+          // Infer tech role accurately
           let techRole = 'fullstack';
-          if (titleLower.includes('front')) techRole = 'frontend';
-          else if (titleLower.includes('back')) techRole = 'backend';
-          else if (titleLower.includes('ai') || titleLower.includes('machine learning') || titleLower.includes('ml')) techRole = 'ai-ml';
-          else if (titleLower.includes('data') || titleLower.includes('analyst')) techRole = 'data-science';
-          else if (titleLower.includes('cloud') || titleLower.includes('devops')) techRole = 'devops';
-          else if (titleLower.includes('mobile') || titleLower.includes('android') || titleLower.includes('ios')) techRole = 'mobile';
+          if (/\b(front[\s-]?end|react|vue|angular|ui developer|web developer|next\.js)\b/i.test(titleLower)) techRole = 'frontend';
+          else if (/\b(back[\s-]?end|node|express|django|fastapi|spring|java|golang|python developer|c\+\+|dotnet|\.net)\b/i.test(titleLower)) techRole = 'backend';
+          else if (/\b(ai|artificial intelligence|ml|machine learning|deep learning|llm|nlp|genai)\b/i.test(titleLower)) techRole = 'ai-ml';
+          else if (/\b(data scientist|data science|data analyst|data engineer|analytics|sql)\b/i.test(titleLower)) techRole = 'data-science';
+          else if (/\b(devops|cloud|aws|azure|gcp|sre|site reliability|kubernetes|docker)\b/i.test(titleLower)) techRole = 'devops';
+          else if (/\b(mobile|android|ios|flutter|react native|swift|kotlin)\b/i.test(titleLower)) techRole = 'mobile';
 
           const company = item.organisation?.name || 'Tech Innovator';
           const logo = item.organisation?.logoUrl2 || item.logoUrl2 || null;
           const city = item.address_with_country_logo?.city || 'Bengaluru';
           const regionLower = (item.region || '').toLowerCase();
-          const locType = regionLower.includes('remote') ? 'remote' : regionLower.includes('hybrid') ? 'hybrid' : 'on-site';
+          const locType = regionLower.includes('remote') || regionLower.includes('wfh') ? 'remote' : regionLower.includes('hybrid') ? 'hybrid' : 'on-site';
+
+          // Extract realistic or authentic stipend/salary
+          let stipendOrSalary = target.oppType === 'internship' ? 'Disclosed on Application' : 'Competitive CTC';
+          const jd = (item as any).jobDetail;
+          if (jd) {
+            if (jd.paid_unpaid === 'unpaid') {
+              stipendOrSalary = 'Unpaid (Certificate & LOR)';
+            } else if (jd.min_salary || jd.max_salary) {
+              const min = jd.min_salary;
+              const max = jd.max_salary;
+              const payIn = (jd.pay_in || '').toLowerCase();
+              if (payIn === 'monthly' || (min && min < 100000 && target.oppType === 'internship')) {
+                stipendOrSalary = min && max && min !== max ? `₹${min.toLocaleString('en-IN')} - ₹${max.toLocaleString('en-IN')} / mo` : `₹${(min || max).toLocaleString('en-IN')} / mo`;
+              } else if (payIn === 'annually' || (min && min >= 100000) || target.oppType === 'full-time') {
+                const minLpa = min ? (min >= 100000 ? (min / 100000).toFixed(1) : (min * 12 / 100000).toFixed(1)) : null;
+                const maxLpa = max ? (max >= 100000 ? (max / 100000).toFixed(1) : (max * 12 / 100000).toFixed(1)) : null;
+                stipendOrSalary = minLpa && maxLpa && minLpa !== maxLpa ? `₹${minLpa} - ₹${maxLpa} LPA` : `₹${minLpa || maxLpa} LPA`;
+              }
+            }
+          }
 
           const applyUrl =
             item.seo_url ||
@@ -254,7 +279,7 @@ export async function scrapeUnstopOpportunities(
               'Experience with modern web / application frameworks',
               'Strong problem solving and team collaboration skills',
             ],
-            stipend_or_salary: target.oppType === 'internship' ? '₹25,000 - ₹50,000 / month' : '₹6 - 18 LPA',
+            stipend_or_salary: stipendOrSalary,
             apply_url: applyUrl,
             source_platform: 'Unstop',
             posted_at: new Date().toISOString(),

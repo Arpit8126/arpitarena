@@ -7,6 +7,63 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
+// Tech Role Classifier
+function classifyTechRole(title = '') {
+  const t = title.toLowerCase();
+  if (/\b(front[\s-]?end|react|vue|angular|ui developer|web developer|next\.js|html|css)\b/i.test(t)) return 'frontend';
+  if (/\b(back[\s-]?end|node|express|django|fastapi|spring|java|golang|python developer|c\+\+|dotnet|\.net|rust)\b/i.test(t)) return 'backend';
+  if (/\b(ai|artificial intelligence|ml|machine learning|deep learning|llm|nlp|genai|computer vision)\b/i.test(t)) return 'ai-ml';
+  if (/\b(data scientist|data science|data analyst|data engineer|analytics|bi developer|sql)\b/i.test(t)) return 'data-science';
+  if (/\b(devops|cloud|aws|azure|gcp|sre|site reliability|kubernetes|docker|infrastructure|linux)\b/i.test(t)) return 'devops';
+  if (/\b(mobile|android|ios|flutter|react native|swift|kotlin)\b/i.test(t)) return 'mobile';
+  return 'fullstack';
+}
+
+// Pure non-tech filter
+function isNonTechRole(title = '') {
+  const t = title.toLowerCase();
+  return /\b(sales|telecaller|bpo|customer support|tele-sales|graphic design|video edit|content writer|content creator|hr recruitment|human resources|accountant|accounting|finance intern|business development|campus ambassador|field work|event manager|pr intern)\b/i.test(t);
+}
+
+// Real Stipend / Salary Extractor from Unstop jobDetail
+function extractStipendOrSalary(item, oppType) {
+  const jd = item.jobDetail;
+  if (jd) {
+    if (jd.paid_unpaid === 'unpaid') {
+      return 'Unpaid (Certificate & LOR)';
+    }
+
+    const min = jd.min_salary;
+    const max = jd.max_salary;
+    const payIn = (jd.pay_in || '').toLowerCase();
+
+    if (min || max) {
+      if (payIn === 'monthly' || (min && min < 100000 && oppType === 'internship')) {
+        if (min && max && min !== max) {
+          return `₹${min.toLocaleString('en-IN')} - ₹${max.toLocaleString('en-IN')} / mo`;
+        }
+        const val = min || max;
+        return `₹${val.toLocaleString('en-IN')} / mo`;
+      } else if (payIn === 'annually' || (min && min >= 100000) || oppType === 'full-time') {
+        const minLpa = min ? (min >= 100000 ? (min / 100000).toFixed(1) : (min * 12 / 100000).toFixed(1)) : null;
+        const maxLpa = max ? (max >= 100000 ? (max / 100000).toFixed(1) : (max * 12 / 100000).toFixed(1)) : null;
+        if (minLpa && maxLpa && minLpa !== maxLpa) {
+          return `₹${minLpa} - ₹${maxLpa} LPA`;
+        }
+        const val = minLpa || maxLpa;
+        return `₹${val} LPA`;
+      }
+    }
+  }
+
+  // Realistic fallback when not disclosed
+  if (oppType === 'internship') {
+    return 'Disclosed on Application';
+  } else {
+    return 'Competitive CTC';
+  }
+}
+
 async function scrapeAll() {
   console.log('--- 1. Fetching Devfolio Hackathons ---');
   let devfolioHacks = [];
@@ -159,128 +216,132 @@ async function scrapeAll() {
   console.log(`\n🎉 TOTAL OPEN HACKATHONS COLLECTED: ${totalHackathons.length}`);
   fs.writeFileSync(path.join(dataDir, 'hackathons.json'), JSON.stringify(totalHackathons, null, 2));
 
-  console.log('\n--- 4. Fetching Unstop Internships ---');
+  console.log('\n--- 4. Fetching Unstop Tech Internships ---');
   let internships = [];
   const seenInterns = new Set();
-  for (let p = 1; p <= 5; p++) {
-    try {
-      const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=internships&oppstatus=open&per_page=50&page=${p}`;
-      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-      if (!res.ok) break;
-      const d = await res.json();
-      const items = d.data?.data || [];
-      if (items.length === 0) break;
-      for (const item of items) {
-        if (seenInterns.has(item.id)) continue;
-        seenInterns.add(item.id);
-        const title = item.title || 'Software Engineering Intern';
-        const titleLower = title.toLowerCase();
-        let techRole = 'fullstack';
-        if (titleLower.includes('front')) techRole = 'frontend';
-        else if (titleLower.includes('back')) techRole = 'backend';
-        else if (titleLower.includes('ai') || titleLower.includes('ml')) techRole = 'ai-ml';
-        else if (titleLower.includes('data')) techRole = 'data-science';
-        else if (titleLower.includes('cloud') || titleLower.includes('devops')) techRole = 'devops';
-        else if (titleLower.includes('mobile')) techRole = 'mobile';
+  const internSearchTerms = ['developer', 'software', 'frontend', 'backend', 'engineer', 'ai', 'data', 'intern'];
 
-        const region = (item.region || '').toLowerCase();
-        const locType = region.includes('remote') ? 'remote' : region.includes('hybrid') ? 'hybrid' : 'on-site';
-        const applyUrl = item.seo_url || (item.public_url ? `https://unstop.com/${item.public_url}` : `https://unstop.com/o/${item.id}`);
+  for (const term of internSearchTerms) {
+    for (let p = 1; p <= 3; p++) {
+      try {
+        const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=internships&oppstatus=open&searchTerm=${term}&per_page=50&page=${p}`;
+        const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+        if (!res.ok) break;
+        const d = await res.json();
+        const items = d.data?.data || [];
+        if (items.length === 0) break;
+        for (const item of items) {
+          if (seenInterns.has(item.id)) continue;
+          seenInterns.add(item.id);
 
-        internships.push({
-          id: `intern-${item.id}`,
-          title,
-          company_name: item.organisation?.name || 'Tech Organization',
-          company_type: 'startup',
-          company_logo_url: item.organisation?.logoUrl2 || item.logoUrl2 || null,
-          opportunity_type: 'internship',
-          tech_role: techRole,
-          target_batches: [2025, 2026, 2027, 2028],
-          is_fresher_eligible: true,
-          min_exp_years: 0.0,
-          location_type: locType,
-          city: item.address_with_country_logo?.city || 'Bengaluru',
-          country: 'India',
-          full_description_html: item.details || `<p>${title} at ${item.organisation?.name || 'Company'}.</p>`,
-          requirements_bullets: [
-            'Foundations in Data Structures and Algorithms',
-            'Familiarity with modern software tech stack',
-            'Eagerness to learn and build scalable projects'
-          ],
-          stipend_or_salary: '₹25,000 - ₹60,000 / month',
-          apply_url: applyUrl,
-          source_platform: 'Unstop',
-          posted_at: new Date().toISOString(),
-          is_active: true
-        });
-      }
-    } catch { }
+          const title = item.title || 'Software Engineering Intern';
+          // Skip pure non-tech positions
+          if (isNonTechRole(title)) continue;
+
+          const techRole = classifyTechRole(title);
+          const stipend = extractStipendOrSalary(item, 'internship');
+          const region = (item.region || '').toLowerCase();
+          const locType = region.includes('remote') || region.includes('wfh') ? 'remote' : region.includes('hybrid') ? 'hybrid' : 'on-site';
+          const applyUrl = item.seo_url || (item.public_url ? `https://unstop.com/${item.public_url}` : `https://unstop.com/o/${item.id}`);
+
+          internships.push({
+            id: `intern-${item.id}`,
+            title,
+            company_name: item.organisation?.name || 'Tech Innovator',
+            company_type: 'startup',
+            company_logo_url: item.organisation?.logoUrl2 || item.logoUrl2 || null,
+            opportunity_type: 'internship',
+            tech_role: techRole,
+            target_batches: [2025, 2026, 2027, 2028],
+            is_fresher_eligible: true,
+            min_exp_years: 0.0,
+            location_type: locType,
+            city: item.address_with_country_logo?.city || (locType === 'remote' ? 'Remote' : 'Bengaluru'),
+            country: 'India',
+            full_description_html: item.details || `<p>${title} opportunity at ${item.organisation?.name || 'Company'}. Gain practical experience with hands-on codebase contributions, code reviews, and mentorship.</p>`,
+            requirements_bullets: [
+              'Hands-on experience with modern programming languages and frameworks',
+              'Understanding of clean code practices, Git version control, and APIs',
+              'Strong analytical aptitude and curiosity to solve real-world problems'
+            ],
+            stipend_or_salary: stipend,
+            apply_url: applyUrl,
+            source_platform: 'Unstop',
+            posted_at: new Date().toISOString(),
+            is_active: true
+          });
+        }
+      } catch { }
+    }
   }
-  console.log(`🎉 TOTAL INTERNSHIPS COLLECTED: ${internships.length}`);
+  console.log(`🎉 TOTAL TECH INTERNSHIPS COLLECTED: ${internships.length}`);
   fs.writeFileSync(path.join(dataDir, 'internships.json'), JSON.stringify(internships, null, 2));
 
-  console.log('\n--- 5. Fetching Unstop Full-Time Jobs ---');
+  console.log('\n--- 5. Fetching Unstop Full-Time Tech Jobs ---');
   let jobs = [];
   const seenJobs = new Set();
-  for (let p = 1; p <= 5; p++) {
-    try {
-      const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=jobs&oppstatus=open&per_page=50&page=${p}`;
-      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-      if (!res.ok) break;
-      const d = await res.json();
-      const items = d.data?.data || [];
-      if (items.length === 0) break;
-      for (const item of items) {
-        if (seenJobs.has(item.id)) continue;
-        seenJobs.add(item.id);
-        const title = item.title || 'Software Development Engineer (SDE)';
-        const titleLower = title.toLowerCase();
-        let techRole = 'fullstack';
-        if (titleLower.includes('front')) techRole = 'frontend';
-        else if (titleLower.includes('back')) techRole = 'backend';
-        else if (titleLower.includes('ai') || titleLower.includes('ml')) techRole = 'ai-ml';
-        else if (titleLower.includes('data')) techRole = 'data-science';
-        else if (titleLower.includes('cloud') || titleLower.includes('devops')) techRole = 'devops';
-        else if (titleLower.includes('mobile')) techRole = 'mobile';
+  const jobSearchTerms = ['software', 'developer', 'engineer', 'frontend', 'backend', 'data', 'cloud', 'sde'];
 
-        const region = (item.region || '').toLowerCase();
-        const locType = region.includes('remote') ? 'remote' : region.includes('hybrid') ? 'hybrid' : 'on-site';
-        const applyUrl = item.seo_url || (item.public_url ? `https://unstop.com/${item.public_url}` : `https://unstop.com/o/${item.id}`);
+  for (const term of jobSearchTerms) {
+    for (let p = 1; p <= 3; p++) {
+      try {
+        const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=jobs&oppstatus=open&searchTerm=${term}&per_page=50&page=${p}`;
+        const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+        if (!res.ok) break;
+        const d = await res.json();
+        const items = d.data?.data || [];
+        if (items.length === 0) break;
+        for (const item of items) {
+          if (seenJobs.has(item.id)) continue;
+          seenJobs.add(item.id);
 
-        jobs.push({
-          id: `job-${item.id}`,
-          title,
-          company_name: item.organisation?.name || 'Tech Company',
-          company_type: 'startup',
-          company_logo_url: item.organisation?.logoUrl2 || item.logoUrl2 || null,
-          opportunity_type: 'full-time',
-          tech_role: techRole,
-          target_batches: [2024, 2025, 2026],
-          is_fresher_eligible: true,
-          min_exp_years: 0.0,
-          location_type: locType,
-          city: item.address_with_country_logo?.city || 'Bengaluru',
-          country: 'India',
-          full_description_html: item.details || `<p>${title} at ${item.organisation?.name || 'Company'}.</p>`,
-          requirements_bullets: [
-            'Solid understanding of Computer Science fundamentals',
-            'Proficiency in building backend/frontend microservices',
-            'Experience with databases, Git, and automated testing'
-          ],
-          stipend_or_salary: '₹8 - 22 LPA',
-          apply_url: applyUrl,
-          source_platform: 'Unstop',
-          posted_at: new Date().toISOString(),
-          is_active: true
-        });
-      }
-    } catch { }
+          const title = item.title || 'Software Development Engineer';
+          if (isNonTechRole(title)) continue;
+
+          const techRole = classifyTechRole(title);
+          const salary = extractStipendOrSalary(item, 'full-time');
+          const region = (item.region || '').toLowerCase();
+          const locType = region.includes('remote') || region.includes('wfh') ? 'remote' : region.includes('hybrid') ? 'hybrid' : 'on-site';
+          const applyUrl = item.seo_url || (item.public_url ? `https://unstop.com/${item.public_url}` : `https://unstop.com/o/${item.id}`);
+
+          // Company type inference
+          const orgName = (item.organisation?.name || '').toLowerCase();
+          const isMNC = /motorola|mastercard|qualcomm|siemens|wolters|accenture|microsoft|google|amazon|tcs|infosys|wipro|cognizant|ibm|cisco|oracle/i.test(orgName);
+
+          jobs.push({
+            id: `job-${item.id}`,
+            title,
+            company_name: item.organisation?.name || 'Tech Company',
+            company_type: isMNC ? 'mnc' : 'startup',
+            company_logo_url: item.organisation?.logoUrl2 || item.logoUrl2 || null,
+            opportunity_type: 'full-time',
+            tech_role: techRole,
+            target_batches: [2024, 2025, 2026],
+            is_fresher_eligible: true,
+            min_exp_years: 0.0,
+            location_type: locType,
+            city: item.address_with_country_logo?.city || (locType === 'remote' ? 'Remote' : 'Bengaluru'),
+            country: 'India',
+            full_description_html: item.details || `<p>${title} at ${item.organisation?.name || 'Company'}. Join the engineering team building resilient distributed systems and digital experiences.</p>`,
+            requirements_bullets: [
+              'Solid grounding in computer science fundamentals (DSA, OOP, OS)',
+              'Demonstrated expertise in modern backend, frontend, or cloud architecture',
+              'Experience writing unit tests, debugging, and continuous delivery'
+            ],
+            stipend_or_salary: salary,
+            apply_url: applyUrl,
+            source_platform: 'Unstop',
+            posted_at: new Date().toISOString(),
+            is_active: true
+          });
+        }
+      } catch { }
+    }
   }
-  console.log(`🎉 TOTAL FULL-TIME JOBS COLLECTED: ${jobs.length}`);
+  console.log(`🎉 TOTAL FULL-TIME TECH JOBS COLLECTED: ${jobs.length}`);
   fs.writeFileSync(path.join(dataDir, 'jobs.json'), JSON.stringify(jobs, null, 2));
 
-  console.log('\nAll datasets successfully updated on disk!');
+  console.log('\nAll datasets successfully updated on disk with authentic salaries and tech role classification!');
 }
 
 scrapeAll();
-
