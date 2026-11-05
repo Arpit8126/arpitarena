@@ -168,18 +168,7 @@ async function scrapeAll() {
       ];
       for (const item of raw) {
         if (!item.name || !item.slug) continue;
-        let banner = item.settings?.featured_cover_img || item.settings?.cover_img;
-        if (!banner) {
-          try {
-            const subRes = await fetch(`https://${item.slug}.devfolio.co`, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-            if (subRes.ok) {
-              const subHtml = await subRes.text();
-              const sub$ = cheerio.load(subHtml);
-              banner = sub$('meta[property="og:image"]').attr('content') || sub$('meta[name="twitter:image"]').attr('content');
-            }
-          } catch { }
-        }
-        if (!banner) banner = `https://assets.devfolio.co/hackathons/${item.uuid}/assets/cover/968.jpeg`;
+        const banner = item.settings?.featured_cover_img || 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80';
         devfolioHacks.push({
           id: `devfolio-${item.slug}`,
           title: item.name,
@@ -221,7 +210,7 @@ async function scrapeAll() {
       const list = data.hackathons || [];
       if (list.length === 0) break;
       for (const item of list) {
-        let banner = item.thumbnail_url || 'https://assets.devpost.com/assets/shared/misc/generic-hackathon-thumbnail.png';
+        let banner = item.thumbnail_url || 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80';
         if (banner.startsWith('//')) banner = 'https:' + banner;
         const locationStr = item.displayed_location?.location || 'Online';
         const isOffline = locationStr.toLowerCase().includes('in-person') || (!locationStr.toLowerCase().includes('online') && locationStr.length > 2);
@@ -256,10 +245,10 @@ async function scrapeAll() {
   }
   console.log('Devpost fetched:', devpostHacks.length);
 
-  console.log('\n--- 3. Fetching Unstop Open Hackathons & Competitions ---');
+  console.log('\n--- 3. Fetching Unstop Open Hackathons ---');
   let unstopHacks = [];
   const seenIds = new Set();
-  const unstopCats = ['hackathons', 'competitions'];
+  const unstopCats = ['hackathons'];
   for (const cat of unstopCats) {
     for (let p = 1; p <= 12; p++) {
       try {
@@ -277,7 +266,7 @@ async function scrapeAll() {
           const cityRaw = item.address_with_country_logo?.city || (mode === 'offline' ? 'Bengaluru' : 'India');
           const geo = geocodeLocation(cityRaw);
           // Preserve the authentic scraped image from Unstop!
-          const banner = item.logoUrl2 || item.thumb || item.organisation?.logoUrl2 || 'https://d8it4huxumps7.cloudfront.net/images/unstop-logo-icon.png';
+          const banner = item.logoUrl2 || item.thumb || item.organisation?.logoUrl2 || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80';
           const deadline = item.regnRequirements?.end_regn_dt || item.end_date || new Date(Date.now() + 21 * 86400000).toISOString();
           const applyUrl = item.seo_url || (item.public_url ? `https://unstop.com/${item.public_url}` : `https://unstop.com/hackathons/${item.id}`);
 

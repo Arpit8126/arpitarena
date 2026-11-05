@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { TopHeader, StickyNav, ActiveTabType } from '@/components/Navbar';
-import { DeveloperBanner } from '@/components/DeveloperBanner';
 import { HackathonFeed } from '@/components/HackathonFeed';
 import { JobFeed } from '@/components/JobFeed';
 import { DetailModal } from '@/components/DetailModal';
@@ -28,13 +27,10 @@ export function ClientApp({
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-800">
-      {/* 1. Top Brand Header (Scrolls naturally with page) */}
+      {/* 1. Top Brand Header with Integrated Developer Profile (Scrolls naturally with page) */}
       <TopHeader />
 
-      {/* 2. Developer Banner: Arpit Pandey (@arpitcodecraft) (Scrolls naturally with page) */}
-      <DeveloperBanner />
-
-      {/* 3. Sticky Category Navigation & Dedicated Search Bar (Pins to top-0 on scroll) */}
+      {/* 2. Sticky Category Navigation & Dedicated Search Bar (Pins to top-0 on scroll) */}
       <StickyNav
         activeTab={activeTab}
         onTabChange={setActiveTab}

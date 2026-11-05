@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, Zap, GraduationCap, Briefcase, Terminal } from 'lucide-react';
+import { Search, Zap, GraduationCap, Briefcase, Terminal, Instagram } from 'lucide-react';
 
 export type ActiveTabType = 'hackathons' | 'internships' | 'jobs';
 
@@ -19,41 +19,84 @@ export function TopHeader() {
   }, []);
 
   return (
-    <div className="w-full bg-white border-b border-slate-200 text-slate-900">
+    <header className="w-full bg-white border-b border-slate-200 text-slate-900 sticky top-0 md:static z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 sm:h-18 gap-3">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#0073e6] to-[#00a3ff] flex items-center justify-center text-white font-extrabold text-sm shadow-xs group-hover:scale-105 transition-transform">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-[#0073e6] to-[#00a3ff] flex items-center justify-center text-white font-extrabold text-xs sm:text-sm shadow-xs group-hover:scale-105 transition-transform">
               DP
             </div>
             <div>
-              <span className="font-extrabold text-xl tracking-tight text-slate-900 uppercase flex items-center gap-1.5">
+              <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 uppercase flex items-center gap-1.5">
                 DevPulse
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               </span>
-              <span className="text-[11px] text-slate-500 block font-normal -mt-0.5 tracking-wide">
+              <span className="text-[10px] sm:text-[11px] text-slate-500 hidden sm:block font-normal -mt-0.5 tracking-wide">
                 India&apos;s Engineering Opportunities Aggregator
               </span>
             </div>
           </Link>
 
-          {/* Right Controls: Local Scraper Sync */}
-          <div className="flex items-center gap-3">
+          {/* Right Controls: Integrated Developer Profile & Instagram Button (No separate card!) */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            {/* Arpit Pandey Profile Picture & Identity */}
+            <div className="flex items-center gap-2 sm:gap-2.5">
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden shrink-0 ring-2 ring-[#0073e6] shadow-2xs bg-white">
+                <img
+                  src="/arpit-pandey.jpg"
+                  alt="Arpit Pandey"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              <div className="hidden sm:block text-left">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-bold text-slate-900 tracking-tight leading-tight">
+                    Developed by Arpit Pandey
+                  </span>
+                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-blue-50 text-[#0073e6] border border-blue-200">
+                    Creator
+                  </span>
+                </div>
+                <a
+                  href="https://www.instagram.com/arpitcodecraft/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] text-[#0073e6] hover:underline font-semibold block leading-tight"
+                >
+                  @arpitcodecraft
+                </a>
+              </div>
+            </div>
+
+            {/* Visit Instagram Button */}
+            <a
+              href="https://www.instagram.com/arpitcodecraft/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#0073e6] hover:bg-[#005bb5] text-white text-[11px] sm:text-xs font-bold tracking-wide transition-all rounded-full shadow-xs active:scale-98"
+            >
+              <Instagram className="w-3.5 h-3.5 shrink-0" />
+              <span className="hidden xs:inline sm:inline">VISIT INSTAGRAM ›</span>
+              <span className="xs:hidden sm:hidden">Instagram</span>
+            </a>
+
+            {/* Local Scraper Sync (Only visible on localhost) */}
             {isLocalhost && (
               <Link
                 href="/admin-sync"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-full border border-slate-300 transition-all shadow-2xs"
+                className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-full border border-slate-300 transition-all shadow-2xs"
                 title="Only visible on localhost for developer DB sync"
               >
                 <Terminal className="w-3.5 h-3.5 text-[#0073e6]" />
-                <span>SYNC DATABASE ›</span>
+                <span>SYNC DB</span>
               </Link>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
@@ -84,7 +127,7 @@ export function StickyNav({
       : 'Search full-time roles by title, tech stack, company...';
 
   return (
-    <div className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div className="sticky top-0 md:top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 py-3">
           {/* Category Tabs: Mobile Responsive Segmented Pills */}

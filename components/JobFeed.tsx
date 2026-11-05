@@ -10,7 +10,9 @@ import {
   ChevronRight,
   CheckCircle,
   ExternalLink,
-  Search,
+  SlidersHorizontal,
+  RotateCcw,
+  X,
 } from 'lucide-react';
 
 interface JobFeedProps {
@@ -32,15 +34,46 @@ export function JobFeed({
   );
   const [selectedTechRole, setSelectedTechRole] = useState<string>('all');
   const [selectedBatch, setSelectedBatch] = useState<number | 'all'>('all');
-  const [freshersOnly, setFreshersOnly] = useState<boolean>(feedType === 'full-time');
+  const [freshersOnly, setFreshersOnly] = useState<boolean>(false);
   const [selectedLocationType, setSelectedLocationType] = useState<string>('all');
   const [selectedCity, setSelectedCity] = useState<string>('all');
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (feedType === 'internship') setSelectedOppType('internship');
     else if (feedType === 'full-time') setSelectedOppType('full-time');
     else setSelectedOppType('all');
   }, [feedType]);
+
+  // Reset all filters to default
+  const handleResetFilters = () => {
+    setSelectedCompany('all');
+    setSelectedCity('all');
+    setSelectedTechRole('all');
+    setSelectedBatch('all');
+    setSelectedLocationType('all');
+    setFreshersOnly(false);
+    if (feedType === 'all') setSelectedOppType('all');
+  };
+
+  // Count active non-default filters
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (selectedCompany !== 'all') count++;
+    if (selectedCity !== 'all') count++;
+    if (selectedTechRole !== 'all') count++;
+    if (selectedBatch !== 'all') count++;
+    if (selectedLocationType !== 'all') count++;
+    if (freshersOnly) count++;
+    return count;
+  }, [
+    selectedCompany,
+    selectedCity,
+    selectedTechRole,
+    selectedBatch,
+    selectedLocationType,
+    freshersOnly,
+  ]);
 
   // Extract all unique Indian cities
   const uniqueCities = useMemo(() => {
@@ -87,7 +120,6 @@ export function JobFeed({
         }
       }
 
-      // Filter by specific company
       if (selectedCompany !== 'all') {
         if (item.company_name.toLowerCase() !== selectedCompany.toLowerCase()) {
           return false;
@@ -103,19 +135,25 @@ export function JobFeed({
       }
 
       if (selectedBatch !== 'all') {
-        if (!item.target_batches.includes(selectedBatch as number)) {
+        if (!item.target_batches || !item.target_batches.includes(selectedBatch as number)) {
           return false;
         }
       }
 
-      if (freshersOnly) {
-        if (!item.is_fresher_eligible && item.min_exp_years > 0.5) {
-          return false;
-        }
-      }
-
-      if (selectedLocationType !== 'all' && item.location_type !== selectedLocationType) {
+      if (freshersOnly && !item.is_fresher_eligible) {
         return false;
+      }
+
+      if (selectedLocationType !== 'all') {
+        if (selectedLocationType === 'remote' && item.location_type !== 'remote') {
+          return false;
+        }
+        if (selectedLocationType === 'hybrid' && item.location_type !== 'hybrid') {
+          return false;
+        }
+        if (selectedLocationType === 'on-site' && item.location_type !== 'on-site') {
+          return false;
+        }
       }
 
       if (selectedCity !== 'all') {
@@ -141,10 +179,203 @@ export function JobFeed({
 
   return (
     <div className="space-y-6">
-      {/* Clean Modern Filter Panel */}
-      <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
+      {/* ============================================================== */}
+      {/* 1. MOBILE COMPACT FILTER TOOLBAR (Visible on mobile only)      */}
+      {/* ============================================================== */}
+      <div className="flex md:hidden items-center justify-between gap-2 bg-white border border-slate-200/90 rounded-2xl p-2.5 shadow-xs">
+        {/* Filter Trigger Button */}
+        <button
+          onClick={() => setIsMobileFilterOpen(true)}
+          className="flex-1 flex items-center justify-center gap-2 py-2 px-3.5 bg-[#0073e6] hover:bg-[#005bb5] text-white text-xs font-bold rounded-xl shadow-xs transition-all active:scale-98"
+        >
+          <SlidersHorizontal className="w-3.5 h-3.5" />
+          <span>Filters</span>
+          {activeFilterCount > 0 && (
+            <span className="w-5 h-5 rounded-full bg-white text-[#0073e6] text-[10px] font-extrabold flex items-center justify-center">
+              {activeFilterCount}
+            </span>
+          )}
+        </button>
+
+        {/* Beside Filter: Default / Reset Button */}
+        <button
+          onClick={handleResetFilters}
+          title="Reset all filters to default"
+          className="py-2 px-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-all active:scale-98"
+        >
+          <RotateCcw className="w-3.5 h-3.5 text-slate-500" />
+          <span>Reset</span>
+        </button>
+
+        <div className="text-[11px] text-slate-500 font-medium px-2">
+          <strong>{filteredOpportunities.length}</strong> roles
+        </div>
+      </div>
+
+      {/* ============================================================== */}
+      {/* 2. FULL-SCREEN MOBILE FILTER MODAL                             */}
+      {/* ============================================================== */}
+      {isMobileFilterOpen && (
+        <div className="fixed inset-0 z-50 bg-white flex flex-col md:hidden animate-in fade-in duration-200">
+          {/* Modal Header */}
+          <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200 bg-white">
+            <div>
+              <h2 className="text-base font-extrabold text-slate-900 tracking-tight">
+                Filter Opportunities
+              </h2>
+              <p className="text-xs text-slate-500">
+                {filteredOpportunities.length} matching positions found
+              </p>
+            </div>
+            <button
+              onClick={() => setIsMobileFilterOpen(false)}
+              className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Modal Scrollable Filter Body */}
+          <div className="flex-1 overflow-y-auto p-5 space-y-5 bg-[#f8fafc]">
+            {/* Filter by Company */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Company Name
+              </label>
+              <select
+                value={selectedCompany}
+                onChange={(e) => setSelectedCompany(e.target.value)}
+                className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium shadow-2xs"
+              >
+                <option value="all">All Companies ({uniqueCompanies.length})</option>
+                {uniqueCompanies.map((comp) => (
+                  <option key={comp} value={comp}>
+                    {comp}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Indian City */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Indian City
+              </label>
+              <select
+                value={selectedCity}
+                onChange={(e) => setSelectedCity(e.target.value)}
+                className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium shadow-2xs"
+              >
+                <option value="all">All Indian Cities</option>
+                {uniqueCities.map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Tech Role */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Tech Role
+              </label>
+              <select
+                value={selectedTechRole}
+                onChange={(e) => setSelectedTechRole(e.target.value)}
+                className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium shadow-2xs"
+              >
+                <option value="all">All Roles</option>
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="fullstack">Full-Stack</option>
+                <option value="ai-ml">AI / ML</option>
+                <option value="data-science">Data Science</option>
+                <option value="devops">DevOps / Cloud</option>
+                <option value="mobile">Mobile (iOS/Android)</option>
+              </select>
+            </div>
+
+            {/* Target Batch */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Target Batch
+              </label>
+              <select
+                value={selectedBatch}
+                onChange={(e) =>
+                  setSelectedBatch(e.target.value === 'all' ? 'all' : Number(e.target.value))
+                }
+                className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium shadow-2xs"
+              >
+                <option value="all">All Batches</option>
+                <option value="2025">Batch 2025</option>
+                <option value="2026">Batch 2026</option>
+                <option value="2027">Batch 2027</option>
+                <option value="2028">Batch 2028</option>
+              </select>
+            </div>
+
+            {/* Workplace Mode */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Workplace Mode
+              </label>
+              <select
+                value={selectedLocationType}
+                onChange={(e) => setSelectedLocationType(e.target.value)}
+                className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2.5 text-xs text-slate-800 font-medium shadow-2xs"
+              >
+                <option value="all">All Modes</option>
+                <option value="remote">Remote (Work From Home)</option>
+                <option value="hybrid">Hybrid</option>
+                <option value="on-site">On-Site</option>
+              </select>
+            </div>
+
+            {/* Freshers Eligible Toggle */}
+            <div className="pt-2">
+              <button
+                onClick={() => setFreshersOnly(!freshersOnly)}
+                className={`w-full py-3 px-4 rounded-xl text-xs font-semibold border flex items-center justify-between transition-all ${
+                  freshersOnly
+                    ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-300'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <GraduationCap className="w-4 h-4" />
+                  <span>Freshers Eligible (0 Exp Required)</span>
+                </span>
+                {freshersOnly && <CheckCircle className="w-4 h-4 text-white" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Sticky Modal Bottom Action Bar */}
+          <div className="p-4 border-t border-slate-200 bg-white flex items-center gap-3">
+            <button
+              onClick={handleResetFilters}
+              className="w-1/3 py-3 px-4 border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl text-center transition-all active:scale-98"
+            >
+              Reset All
+            </button>
+            <button
+              onClick={() => setIsMobileFilterOpen(false)}
+              className="w-2/3 py-3 px-4 bg-[#0073e6] hover:bg-[#005bb5] text-white text-xs font-bold rounded-xl shadow-md text-center transition-all active:scale-98"
+            >
+              Apply Filters ({filteredOpportunities.length})
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================== */}
+      {/* 3. DESKTOP MODERN FILTER CARD (Hidden on mobile)               */}
+      {/* ============================================================== */}
+      <div className="hidden md:block bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {/* 1. Filter by Company (Actual Companies List) */}
+          {/* 1. Filter by Company */}
           <div>
             <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
               Company
@@ -210,7 +441,9 @@ export function JobFeed({
             </label>
             <select
               value={selectedBatch}
-              onChange={(e) => setSelectedBatch(e.target.value === 'all' ? 'all' : Number(e.target.value))}
+              onChange={(e) =>
+                setSelectedBatch(e.target.value === 'all' ? 'all' : Number(e.target.value))
+              }
               className="w-full bg-slate-50 border border-slate-300 focus:border-[#0073e6] focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-xl px-3 py-2 text-xs text-slate-800 font-medium focus:outline-none transition-all"
             >
               <option value="all">All Batches</option>
@@ -286,18 +519,30 @@ export function JobFeed({
 
         {/* Filter Toggles & Counter */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100">
-          <button
-            onClick={() => setFreshersOnly(!freshersOnly)}
-            className={`inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold rounded-full border transition-all ${
-              freshersOnly
-                ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
-                : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
-            }`}
-          >
-            <GraduationCap className="w-4 h-4" />
-            <span>Freshers Eligible (0 Exp Required)</span>
-            {freshersOnly && <CheckCircle className="w-3.5 h-3.5 text-white" />}
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setFreshersOnly(!freshersOnly)}
+              className={`inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold rounded-full border transition-all ${
+                freshersOnly
+                  ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
+                  : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+              }`}
+            >
+              <GraduationCap className="w-4 h-4" />
+              <span>Freshers Eligible (0 Exp Required)</span>
+              {freshersOnly && <CheckCircle className="w-3.5 h-3.5 text-white" />}
+            </button>
+
+            {/* Desktop Reset Button */}
+            <button
+              onClick={handleResetFilters}
+              title="Reset all filters to default"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Reset Filters</span>
+            </button>
+          </div>
 
           <div className="text-xs text-slate-500 font-normal">
             Showing <strong className="text-slate-900 font-bold">{filteredOpportunities.length}</strong> of{' '}
@@ -306,7 +551,9 @@ export function JobFeed({
         </div>
       </div>
 
-      {/* Grid: 2-column Modern Clean Cards */}
+      {/* ============================================================== */}
+      {/* 4. OPPORTUNITIES GRID                                          */}
+      {/* ============================================================== */}
       {filteredOpportunities.length === 0 ? (
         <div className="bg-white border border-slate-200 rounded-2xl p-16 text-center space-y-3 shadow-xs">
           <Briefcase className="w-12 h-12 text-slate-300 mx-auto" />
@@ -314,6 +561,13 @@ export function JobFeed({
           <p className="text-sm text-slate-500 font-normal max-w-md mx-auto">
             Try adjusting your batch, company, or city filters to explore more engineering opportunities.
           </p>
+          <button
+            onClick={handleResetFilters}
+            className="mt-2 inline-flex items-center gap-1.5 px-4 py-2 bg-[#0073e6] text-white text-xs font-bold rounded-xl shadow-xs"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset All Filters</span>
+          </button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -350,50 +604,48 @@ export function JobFeed({
                         {opp.company_name}
                       </span>
                       {opp.company_type && (
-                        <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200/60">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.2 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
                           {opp.company_type}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#0073e6] transition-colors line-clamp-1 mt-0.5">
+                    <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#0073e6] transition-colors leading-snug line-clamp-1 mt-0.5">
                       {opp.title}
                     </h3>
 
                     <div className="flex items-center gap-2 text-xs text-slate-500 font-normal mt-1">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                        <span className="truncate">{opp.city || 'India'}</span>
-                      </span>
+                      <div className="flex items-center gap-1 truncate">
+                        <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <span>{opp.city || 'India'}</span>
+                      </div>
                       <span>•</span>
-                      <span className="capitalize font-medium text-slate-700">
-                        {opp.location_type === 'remote' ? 'Remote' : opp.location_type === 'hybrid' ? 'Hybrid' : 'On-Site'}
-                      </span>
+                      <span className="capitalize text-slate-600 font-medium">{opp.location_type}</span>
                     </div>
                   </div>
 
-                  <span
-                    className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shrink-0 shadow-2xs ${
-                      isIntern ? 'bg-blue-50 text-[#0073e6] border border-blue-200' : 'bg-slate-900 text-white'
-                    }`}
-                  >
-                    {isIntern ? 'Internship' : 'Full-Time'}
-                  </span>
+                  <div className="shrink-0">
+                    <span
+                      className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
+                        isIntern
+                          ? 'bg-blue-50 text-[#0073e6] border border-blue-200'
+                          : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      }`}
+                    >
+                      {opp.opportunity_type}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Compensation Banner */}
-                <div className="flex items-center justify-between bg-slate-50/80 border border-slate-200/80 rounded-xl px-4 py-2.5">
-                  <div className="text-xs">
+                {/* Compensation & Experience Row */}
+                <div className="bg-slate-50/90 rounded-xl p-3 border border-slate-100 flex items-center justify-between text-xs">
+                  <div>
                     <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
-                      Stipend / CTC:
+                      {isIntern ? 'Stipend:' : 'Salary / CTC:'}
                     </span>
                     <span
                       className={`font-bold text-xs sm:text-sm ${
-                        isUnpaid
-                          ? 'text-amber-700'
-                          : opp.stipend_or_salary?.includes('₹')
-                          ? 'text-emerald-700'
-                          : 'text-slate-800'
+                        isUnpaid ? 'text-slate-500' : 'text-emerald-700'
                       }`}
                     >
                       {opp.stipend_or_salary || 'Disclosed on Application'}
@@ -416,7 +668,7 @@ export function JobFeed({
                     Role: {opp.tech_role}
                   </span>
                   <span className="text-[11px] font-medium uppercase px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200/60">
-                    Batches: {opp.target_batches.join(', ')}
+                    Batches: {(opp.target_batches || []).join(', ')}
                   </span>
                 </div>
 
