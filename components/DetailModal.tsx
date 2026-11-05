@@ -93,7 +93,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               onClick={() => setActiveTab('timeline')}
               className={`px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all ${
                 activeTab === 'timeline'
-                  ? 'bg-[#0073e6] text-white font-bold shadow-xs'
+                  ? 'bg-slate-900 text-white font-bold shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
@@ -103,7 +103,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               onClick={() => setActiveTab('details')}
               className={`px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all ${
                 activeTab === 'details'
-                  ? 'bg-[#0073e6] text-white font-bold shadow-xs'
+                  ? 'bg-slate-900 text-white font-bold shadow-xs'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
@@ -114,7 +114,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                 onClick={() => setActiveTab('prizes')}
                 className={`px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all ${
                   activeTab === 'prizes'
-                    ? 'bg-[#0073e6] text-white font-bold shadow-xs'
+                    ? 'bg-slate-900 text-white font-bold shadow-xs'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
@@ -149,7 +149,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                     className="relative w-full h-full object-contain max-h-[300px]"
                   />
                 ) : (
-                  <div className="w-20 h-20 rounded-2xl bg-blue-50 text-[#0073e6] border border-blue-100 flex items-center justify-center font-bold text-2xl">
+                  <div className="w-20 h-20 rounded-2xl bg-slate-100 text-slate-700 border border-slate-200 flex items-center justify-center font-bold text-2xl">
                     {hackathon.organizer.slice(0, 2).toUpperCase()}
                   </div>
                 )}
@@ -164,10 +164,10 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               {/* Title & Organization Header */}
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#0073e6]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     Organized by {hackathon.organizer}
                   </span>
-                  <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-blue-50 text-[#0073e6] border border-blue-200">
+                  <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                     Verified
                   </span>
                 </div>
@@ -183,7 +183,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                       Mode / Venue
                     </span>
                     <span className="text-slate-900 font-bold text-sm sm:text-base flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-[#0073e6]" />
+                      <MapPin className="w-4 h-4 text-slate-700" />
                       {hackathon.venue_city || 'Online'}
                     </span>
                   </div>
@@ -193,7 +193,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                       Registration Deadline
                     </span>
                     <span className="text-slate-900 font-bold text-sm sm:text-base flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-[#0073e6]" />
+                      <Clock className="w-4 h-4 text-slate-700" />
                       {new Date(hackathon.registration_deadline).toLocaleDateString('en-IN', {
                         day: 'numeric',
                         month: 'short',
@@ -219,7 +219,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               {(activeTab === 'timeline' || activeTab === 'details') && (
                 <div className="space-y-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-1.5 h-6 bg-[#0073e6] rounded-full" />
+                    <div className="w-1.5 h-6 bg-slate-900 rounded-full" />
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
                       Stages and Timelines
                     </h2>
@@ -231,10 +231,10 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                         <div key={idx} className="relative space-y-2">
                           {/* Timeline Date Pill Indicator */}
                           <div className="flex items-center gap-2">
-                            <div className="absolute -left-6 sm:-left-8 w-6 h-6 rounded-full bg-[#0073e6] text-white flex items-center justify-center text-[10px] font-bold shadow-xs">
+                            <div className="absolute -left-6 sm:-left-8 w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold shadow-xs">
                               {round.round_num}
                             </div>
-                            <span className="text-xs font-semibold text-[#0073e6] bg-blue-50 px-3 py-1 rounded-full border border-blue-200 shadow-2xs">
+                            <span className="text-xs font-semibold text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200 shadow-2xs">
                               Stage {round.round_num}: {round.date}
                             </span>
                           </div>
@@ -245,7 +245,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                               <h3 className="text-base font-bold text-slate-900">
                                 {round.name}
                               </h3>
-                              <span className="w-6 h-6 rounded-full bg-blue-50 text-[#0073e6] flex items-center justify-center text-xs font-bold border border-blue-200">
+                              <span className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-xs font-bold border border-emerald-200">
                                 ✓
                               </span>
                             </div>
@@ -268,7 +268,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               {(activeTab === 'details' || activeTab === 'timeline') && (
                 <div className="space-y-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-1.5 h-6 bg-[#0073e6] rounded-full" />
+                    <div className="w-1.5 h-6 bg-slate-900 rounded-full" />
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
                       Overview &amp; Problem Statement
                     </h2>
@@ -329,7 +329,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0073e6]">
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-600">
                       {job.company_name}
                     </span>
                     {job.company_type && (
@@ -344,7 +344,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                   </h1>
 
                   <div className="flex flex-wrap items-center gap-2 text-xs text-slate-600 font-normal mt-3">
-                    <span className="px-3 py-1 rounded-full bg-blue-50 text-[#0073e6] border border-blue-200 font-semibold uppercase">
+                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 font-semibold uppercase">
                       Role: {job.tech_role}
                     </span>
                     <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
@@ -399,7 +399,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               {job.requirements_bullets && job.requirements_bullets.length > 0 && (
                 <div className="space-y-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-1.5 h-6 bg-[#0073e6] rounded-full" />
+                    <div className="w-1.5 h-6 bg-slate-900 rounded-full" />
                     <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
                       Key Requirements &amp; Capabilities
                     </h2>
@@ -408,7 +408,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
                   <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-xs space-y-3">
                     {job.requirements_bullets.map((req, i) => (
                       <div key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-[#0073e6] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span>{req}</span>
                       </div>
                     ))}
@@ -419,7 +419,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
               {/* Full Description */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-1.5 h-6 bg-[#0073e6] rounded-full" />
+                  <div className="w-1.5 h-6 bg-slate-900 rounded-full" />
                   <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
                     Position Description
                   </h2>
@@ -441,7 +441,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
         {/* Modal Bottom CTA Bar */}
         <div className="px-6 sm:px-8 py-4 border-t border-slate-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-slate-500 font-normal flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#0073e6]" />
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Direct application link • Zero login friction • 100% Free</span>
           </div>
 
@@ -449,7 +449,7 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
             href={isHackathon ? hackathon?.apply_url : job?.apply_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-3.5 bg-[#0073e6] hover:bg-[#005bb5] text-white text-sm font-bold tracking-wide transition-all rounded-xl shadow-xs hover:shadow active:scale-98 text-center flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold tracking-wide transition-all rounded-xl shadow-xs hover:shadow active:scale-98 text-center flex items-center justify-center gap-2"
           >
             <span>{isHackathon ? 'Register on Official Portal' : 'Apply on Official Site'}</span>
             <ExternalLink className="w-4 h-4" />

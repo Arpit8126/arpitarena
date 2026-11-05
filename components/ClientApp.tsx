@@ -26,7 +26,7 @@ export function ClientApp({
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-800">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans selection:bg-slate-200 selection:text-slate-900">
       {/* 1. Top Brand Header with Integrated Developer Profile (Scrolls naturally with page) */}
       <TopHeader />
 
@@ -82,7 +82,7 @@ export function ClientApp({
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
             <div className="space-y-1">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0073e6] to-[#00a3ff] text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                <div className="w-8 h-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-xs">
                   DP
                 </div>
                 <span className="font-extrabold text-sm text-slate-900 uppercase tracking-wide">
@@ -107,7 +107,7 @@ export function ClientApp({
                 href="https://www.instagram.com/arpitcodecraft/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#0073e6] transition-colors"
+                className="hover:text-slate-900 transition-colors"
               >
                 @arpitcodecraft
               </a>

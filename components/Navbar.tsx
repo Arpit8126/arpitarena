@@ -24,7 +24,7 @@ export function TopHeader() {
         <div className="flex items-center justify-between h-16 sm:h-18 gap-3">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-[#0073e6] to-[#00a3ff] flex items-center justify-center text-white font-extrabold text-xs sm:text-sm shadow-xs group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white font-extrabold text-xs sm:text-sm shadow-xs group-hover:bg-slate-800 transition-colors">
               DP
             </div>
             <div>
@@ -38,11 +38,11 @@ export function TopHeader() {
             </div>
           </Link>
 
-          {/* Right Controls: Integrated Developer Profile & Instagram Button (No separate card!) */}
+          {/* Right Controls: Integrated Developer Profile & Instagram Button */}
           <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
             {/* Arpit Pandey Profile Picture & Identity */}
             <div className="flex items-center gap-2 sm:gap-2.5">
-              <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden shrink-0 ring-2 ring-[#0073e6] shadow-2xs bg-white">
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden shrink-0 ring-2 ring-slate-200 shadow-2xs bg-white">
                 <img
                   src="/arpit-pandey.jpg"
                   alt="Arpit Pandey"
@@ -55,7 +55,7 @@ export function TopHeader() {
                   <span className="text-xs font-bold text-slate-900 tracking-tight leading-tight">
                     Developed by Arpit Pandey
                   </span>
-                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-blue-50 text-[#0073e6] border border-blue-200">
+                  <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                     Creator
                   </span>
                 </div>
@@ -63,7 +63,7 @@ export function TopHeader() {
                   href="https://www.instagram.com/arpitcodecraft/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] text-[#0073e6] hover:underline font-semibold block leading-tight"
+                  className="text-[11px] text-slate-600 hover:text-slate-900 hover:underline font-semibold block leading-tight"
                 >
                   @arpitcodecraft
                 </a>
@@ -75,7 +75,7 @@ export function TopHeader() {
               href="https://www.instagram.com/arpitcodecraft/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-[#0073e6] hover:bg-[#005bb5] text-white text-[11px] sm:text-xs font-bold tracking-wide transition-all rounded-full shadow-xs active:scale-98"
+              className="inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 bg-slate-900 hover:bg-slate-800 text-white text-[11px] sm:text-xs font-bold tracking-wide transition-all rounded-full shadow-xs active:scale-98"
             >
               <Instagram className="w-3.5 h-3.5 shrink-0" />
               <span className="hidden xs:inline sm:inline">VISIT INSTAGRAM ›</span>
@@ -89,7 +89,7 @@ export function TopHeader() {
                 className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-full border border-slate-300 transition-all shadow-2xs"
                 title="Only visible on localhost for developer DB sync"
               >
-                <Terminal className="w-3.5 h-3.5 text-[#0073e6]" />
+                <Terminal className="w-3.5 h-3.5 text-slate-700" />
                 <span>SYNC DB</span>
               </Link>
             )}
@@ -130,18 +130,18 @@ export function StickyNav({
     <div className="sticky top-0 md:top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 py-3">
-          {/* Category Tabs: Mobile Responsive Segmented Pills */}
+          {/* Category Tabs: Clean Dark Neutral Segmented Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar p-1 bg-slate-100/90 rounded-2xl border border-slate-200/80 max-w-full">
             {/* Tab 1: Hackathons */}
             <button
               onClick={() => onTabChange('hackathons')}
               className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all rounded-xl whitespace-nowrap ${
                 activeTab === 'hackathons'
-                  ? 'bg-[#0073e6] text-white shadow-xs font-bold'
+                  ? 'bg-slate-900 text-white shadow-xs font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
               }`}
             >
-              <Zap className={`w-4 h-4 ${activeTab === 'hackathons' ? 'text-white' : 'text-slate-400'}`} />
+              <Zap className={`w-4 h-4 ${activeTab === 'hackathons' ? 'text-amber-400' : 'text-slate-400'}`} />
               <span>Hackathons</span>
               <span
                 className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
@@ -157,11 +157,11 @@ export function StickyNav({
               onClick={() => onTabChange('internships')}
               className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all rounded-xl whitespace-nowrap ${
                 activeTab === 'internships'
-                  ? 'bg-[#0073e6] text-white shadow-xs font-bold'
+                  ? 'bg-slate-900 text-white shadow-xs font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
               }`}
             >
-              <GraduationCap className={`w-4 h-4 ${activeTab === 'internships' ? 'text-white' : 'text-slate-400'}`} />
+              <GraduationCap className={`w-4 h-4 ${activeTab === 'internships' ? 'text-emerald-400' : 'text-slate-400'}`} />
               <span>Internships</span>
               <span
                 className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
@@ -177,11 +177,11 @@ export function StickyNav({
               onClick={() => onTabChange('jobs')}
               className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide transition-all rounded-xl whitespace-nowrap ${
                 activeTab === 'jobs'
-                  ? 'bg-[#0073e6] text-white shadow-xs font-bold'
+                  ? 'bg-slate-900 text-white shadow-xs font-bold'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-white/80'
               }`}
             >
-              <Briefcase className={`w-4 h-4 ${activeTab === 'jobs' ? 'text-white' : 'text-slate-400'}`} />
+              <Briefcase className={`w-4 h-4 ${activeTab === 'jobs' ? 'text-blue-400' : 'text-slate-400'}`} />
               <span>Full-Time Jobs</span>
               <span
                 className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
@@ -201,7 +201,7 @@ export function StickyNav({
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder={searchPlaceholder}
-              className="w-full bg-slate-50 border border-slate-200 focus:border-[#0073e6] focus:bg-white focus:ring-4 focus:ring-blue-100 rounded-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-2xs"
+              className="w-full bg-slate-50 border border-slate-200 focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-100 rounded-full pl-11 pr-10 py-2.5 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all shadow-2xs"
             />
             {searchQuery && (
               <button

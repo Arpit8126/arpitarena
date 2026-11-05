@@ -11917,53 +11917,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1774652",
-    "title": "Ideathon 8.0: International Business Plan Competition 2026",
-    "organizer": "Asian School of Business (ASB), Noida",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6adc4aa82b48f_asb_logo.jpg",
-    "mode": "hybrid",
-    "venue_city": "Noida",
-    "venue_address": "Asian School of Business, A2, Sector 125 Noida, Uttar Pradesh- 201303",
-    "latitude": 28.5355,
-    "longitude": 77.391,
-    "themes": [
-      "business planning",
-      "market research methods",
-      "ideation",
-      "marketing planning",
-      "financial planning"
-    ],
-    "start_date": "2026-11-05T08:34:56.740Z",
-    "end_date": "2026-11-15T00:00:00+05:30",
-    "registration_deadline": "2026-11-15T00:00:00+05:30",
-    "problem_statement": "<p><strong>iDEATHON 8.0 &ndash; International Business Plan Competition 2026</strong></p>\n<ul>\n<li>Your Idea Could Be the Beginning of Something Extraordinary!</li>\n<li>Asian School of Business, through its Entrepreneurship Development and Incubation Centre (EDIC) and Institution&rsquo;s Innovation Council (IIC Cell), proudly presents iDEATHON 8.0 &ndash; International Business Plan Competition 2026.</li>\n<li>IDEATE &bull; INNOVATE &bull; PITCH &bull; IMPACT</li>\n<li>Are you ready to transform your ideas into impactful business solutions?</li>\n<li>iDEATHON 8.0 invites undergraduate and postgraduate students from India and abroad to showcase their entrepreneurial spirit, develop innovative business plans, validate their ideas, and receive valuable feedback from industry experts and mentors.</li>\n</ul>\n<p><strong>What awaits you?</strong></p>\n<ul>\n<li>A platform to showcase your entrepreneurial ideas.</li>\n<li>Expert mentoring and industry interaction.</li>\n<li>Real-world business planning experience.</li>\n<li>An opportunity for mentorship and incubation support.</li>\n<li>Recognition for promising and innovative business plans.</li>\n</ul>\n<p><strong>Dates:</strong> 20&ndash;21 November 2026.</p>\n<p><strong>Mode:</strong> Hybrid.</p>\n<p><strong>Team Size:</strong> 1&ndash;3 members.</p>\n<p><strong>Eligibility:</strong> Undergraduate and postgraduate students across any discipline from recognised institutions in India and abroad.</p>\n<p><strong>Opportunity:</strong></p>\n<ul>\n<li>Whether you have a groundbreaking startup idea or a business solution to a real-world problem, this is your opportunity to take the next step!</li>\n</ul>\n<p><strong>For Queries:</strong> <a href=\"mailto:edic@asb.edu.in\">edic@asb.edu.in</a></p>\n<p><strong>Evaluation Criteria:</strong></p>\n<ul>\n<li>Innovation, Originality &amp; Unique Value Proposition.</li>\n<li>Market Research &amp; Opportunity Analysis.</li>\n<li>Business Model &amp; Marketing Strategy.</li>\n<li>Feasibility &amp; Management Capability.</li>\n<li>Financial Planning.</li>\n<li>Scalability, Risk Management &amp; Sustainability.</li>\n</ul>\n<p><strong>Prizes &amp; Recognition:</strong></p>\n<ul>\n<li>Certificates for all participants.</li>\n<li>Exciting cash prize of Rs. 50,000/-!</li>\n</ul>\n<p>Let your ideas create impact. Let innovation lead the way!</p>\n<p>Join us at iDEATHON 8.0 and turn your vision into a viable business opportunity.</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/ideathon-80-international-business-plan-competition-2026-asian-school-of-business-asb-noida-1774652",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:56.740Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1789050",
     "title": "NITI Manthan 2.0: Policy Drafting Competition",
     "organizer": "Atma Ram Sanatan Dharma College (ARSD), University of Delhi (DU), New Delhi",
@@ -12581,53 +12534,6 @@
     "apply_url": "https://unstop.com/competitions/astropixel-bits-1792222",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:56.740Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1791316",
-    "title": "Hypecraft- AI Marketing Competition",
-    "organizer": "Sri Guru Gobind Singh College of Commerce (SGGSCC), New Delhi",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6aeab8e4199c1_images.jpeg",
-    "mode": "offline",
-    "venue_city": "New Delhi",
-    "venue_address": "Sri Guru Gobind Singh College of Commerce",
-    "latitude": 28.6139,
-    "longitude": 77.209,
-    "themes": [
-      "marketing campaign planning",
-      "artificial intelligence (ai)",
-      "marketing campaign optimization",
-      "target audience analysis",
-      "marketing analytics"
-    ],
-    "start_date": "2026-11-05T08:34:57.393Z",
-    "end_date": "2026-11-17T12:00:00+05:30",
-    "registration_deadline": "2026-11-12T23:59:33+05:30",
-    "problem_statement": "<p id=\"event-structure\" data-lfile-container=\"5041b7a2-e643-49f5-a766-afc88004eac6\" data-pm-slice=\"1 3 []\"><strong>Event Structure</strong></p>\n<ul>\n<li><strong>Round 1 (Online on Unstop):</strong> All teams receive the same common product brief and must submit a storyboard and a PPT about the product within 72 hours.</li>\n<li><strong>Round 2 (Offline on campus):</strong> Finalists receive a product revealed on the spot and have 90 minutes to build a campaign.</li>\n</ul>\n<ul>\n<li>Round 1: 12<sup>th</sup> November 2026 (12:00 am) - 14<sup>th</sup> November 2026 (11:59 pm)</li>\n<li>Round 2: 17<sup>th</sup> November 2026, on Campus</li>\n</ul>\n<p><strong>Rules and Guidelines</strong></p>\n<ul>\n<li>\n<p>Participants may use AI tools and platforms permitted by the organisers.</p>\n</li>\n<li>\n<p>All submissions must be relevant to the assigned product and target audience.</p>\n</li>\n<li>\n<p>Teams must submit both deliverables before the deadline.</p>\n</li>\n<li>\n<p>Plagiarism or copying another team's work may lead to disqualification.</p>\n</li>\n<li>\n<p>Participants must bring their own laptops and ensure access to the required tools and accounts.</p>\n</li>\n<li>Late submissions are not allowed in either round.</li>\n<li>Judges can reject and disqualify any content that violates the content rule.</li>\n<li>The judges' decision will be final.</li>\n</ul>\n<p><strong>Event Format and Process</strong></p>\n<ul>\n<li>\n<p><strong>Mode:</strong> Offline</p>\n</li>\n<li>\n<p><strong>Venue:</strong> Sri Guru Gobind Singh College of Commerce, University of Delhi</p>\n</li>\n<li>\n<p><strong>Team Size:</strong> 4 members</p>\n</li>\n<li>\n<p><strong>Duration:</strong> 90 minutes</p>\n</li>\n</ul>\n<p><strong>Competition Structure</strong></p>\n<ul>\n<li>\n<p><strong>Product Allocation:</strong> Teams receive their assigned product at the venue.</p>\n</li>\n<li>\n<p><strong>Campaign Planning:</strong> Teams identify the target audience, campaign concept, and marketing message.</p>\n</li>\n<li>\n<p><strong>Final Submission:</strong> All deliverables must be submitted within 90 minutes for evaluation by the judges.</p>\n</li>\n</ul>\n<p><strong>Judging Criteria</strong></p>\n<ul>\n<li>\n<p><strong>Creativity and Originality:</strong> Uniqueness of the campaign concept.</p>\n</li>\n<li>\n<p><strong>Effective Use of AI:</strong> Practical and innovative use of AI tools.</p>\n</li>\n<li>\n<p><strong>Marketing Strategy:</strong> Relevance to the target audience and effectiveness of the promotional message.</p>\n</li>\n<li>\n<p><strong>Video Quality:</strong> Storytelling, engagement, editing, and visual appeal.</p>\n</li>\n<li>\n<p><strong>Poster Design:</strong> Layout, typography, visuals, and communication.</p>\n</li>\n<li>\n<p><strong>Branding and Consistency:</strong> Consistent messaging across both deliverables.</p>\n</li>\n</ul>\n<p id=\"judging\" data-lfile-container=\"5041b7a2-e643-49f5-a766-afc88004eac6\" data-pm-slice=\"1 3 []\"><strong>Judging</strong></p>\n<ul>\n<li>Round 1 is judged online.</li>\n<li>The top 10 teams in Round 1 advance to Round 2.</li>\n</ul>\n<p><strong>Important Instructions</strong></p>\n<ul>\n<li>\n<p>Participants must bring their own laptops and ensure access to the required AI tools and accounts.</p>\n</li>\n<li>\n<p>Teams should ensure their devices are charged and ready for use.</p>\n</li>\n<li>\n<p>Internet availability will depend on venue facilities.</p>\n</li>\n<li>\n<p>Participants must report to the venue at the time communicated by the organisers.</p>\n</li>\n<li>\n<p>The organisers reserve the right to make necessary changes to the event schedule or guidelines, with due communication to participants.</p>\n</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/hypecraft-ai-marketing-competition-techtonics-sri-guru-gobind-singh-college-of-commerce-sggscc-new-delhi-1791316",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.393Z",
     "is_active": true
   },
   {
@@ -13262,53 +13168,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1792089",
-    "title": "Avartan D-Street - Finance Case Challenge",
-    "organizer": "Indian Institute of Management (IIM), Mumbai",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6aea169c0c584_SCIE__IIM_Mumbai_IIMM_Standard_1.png",
-    "mode": "offline",
-    "venue_city": "Mumbai",
-    "venue_address": "Indian Institute of Management (IIM), Mumbai",
-    "latitude": 19.076,
-    "longitude": 72.8777,
-    "themes": [
-      "financial analysis",
-      "financial markets knowledge",
-      "investment strategies (value investing)",
-      "financial modeling (excel)",
-      "public speaking and presentation skills"
-    ],
-    "start_date": "2026-11-05T08:34:57.394Z",
-    "end_date": "2026-12-02T13:00:00+05:30",
-    "registration_deadline": "2026-11-17T12:00:00+05:30",
-    "problem_statement": "<p><strong>Avartan - D-Street: Finance Case Competition</strong></p>\n<ul>\n<li>Under the Avartan banner, a galaxy of three distinct case study competitions is designed to challenge the brightest minds of the country with real-time business cases.</li>\n<li>The competition spans three verticals:\n<ul>\n<li>Factory &ndash; SCM Case Study Contest</li>\n<li>D-Street &ndash; Finance Case Study Contest</li>\n<li>Bazaar &ndash; Marketing Case Study Contest</li>\n</ul>\n</li>\n<li>As part of the <strong>D-Street vertical</strong>, the Finance Case Competition challenges participants to navigate financial management issues, investment strategies, and market dynamics.</li>\n<li>Participants will interpret economic trends, craft optimal financial solutions, and showcase their analytical expertise in real-world financial scenarios.</li>\n<li>This is an excellent platform for finance enthusiasts to demonstrate problem-solving abilities and gain insights into the evolving financial ecosystem.</li>\n</ul>\n<p><strong>Annual Corporate Confluence - IIM Mumbai:</strong></p>\n<ul>\n<li>The Annual Corporate Confluence of IIM Mumbai will be organized from<strong> 1st December to 4th December 2026</strong>.</li>\n</ul>\n<p><strong>General Guidelines:</strong></p>\n<ul>\n<li>Students from both 1st year and 2nd year MBA programs can participate.</li>\n<li>Teams must consist of <strong>2 to 3 students</strong> from the same institution.</li>\n<li>A student can be part of only one team; teams may consist of any mix of 1st or 2nd-year students.</li>\n<li>No limit on the number of teams from an institute.</li>\n<li>Decisions of the contest organizers are final and binding.</li>\n<li>All qualifying teams must adhere to submission guidelines and virtual platform requirements.</li>\n<li>Deadlines for Round II submissions must be strictly followed; <strong>no extensions</strong> will be provided.</li>\n</ul>\n<p><strong>Round 1: Quiz</strong></p>\n<ul>\n<li>The quiz consists of <strong>20 questions</strong> to be answered in <strong>20&nbsp;minutes</strong>.</li>\n<li>Shortlisting is based on accuracy and time taken.</li>\n<li>Quiz is accessible only during the scheduled time slot.</li>\n<li>Only the <strong>Team Leader</strong> can access the quiz.</li>\n<li>Screen sharing is disabled; switching tabs/windows is not allowed.</li>\n</ul>\n<p><strong>Round 2: Case Submission</strong></p>\n<ul>\n<li>Submit a PPT with a <strong>maximum of 5 slides</strong> (excluding title slide).</li>\n<li>Required Excel files must be uploaded via the additional field on Unstop.</li>\n<li>All final submissions must be uploaded <strong>before the deadline</strong> on Unstop.</li>\n<li>File name format: <strong>Case_CollegeName_TeamName</strong> (max size: 20 MB).</li>\n<li>Use the primary data provided; any secondary data must be properly referenced.</li>\n<li>Evaluation criteria: <strong>novelty, comprehensiveness, and feasibility</strong> of the solution.</li>\n</ul>\n<p><strong>Round 3:</strong> The <strong>Top 5 teams </strong>will present their solutions in the <strong>National Finale at IIM Mumbai</strong> before the jury</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/avartan-d-street-finance-case-challenge-avartan-2026-iim-mumbai-1792089",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.394Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1791842",
     "title": "OJAC - On the Job Achievers’ Contest 2026, Supply Chain & Operations Track",
     "organizer": "Indian Institute of Management (IIM), Mumbai",
@@ -13351,100 +13210,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/ojac-on-the-job-achievers-contest-2026-supply-chain-operations-track-avartan-2026-iim-mumbai-1791842",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.394Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1792085",
-    "title": "Avartan Factory - Supply Chain Management Case Challenge",
-    "organizer": "Indian Institute of Management (IIM), Mumbai",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6aea17425b26e_SCIE__IIM_Mumbai_IIMM_Standard_1.png",
-    "mode": "offline",
-    "venue_city": "Mumbai",
-    "venue_address": "Indian Institute of Management Mumbai (IIM), Mumbai",
-    "latitude": 19.076,
-    "longitude": 72.8777,
-    "themes": [
-      "logistics management",
-      "data analysis (excel)",
-      "strategic thinking",
-      "decision making",
-      "technical presentations"
-    ],
-    "start_date": "2026-11-05T08:34:57.394Z",
-    "end_date": "2026-12-01T14:00:00+05:30",
-    "registration_deadline": "2026-11-16T12:00:00+05:30",
-    "problem_statement": "<h2 class=\"blue_un-border-before hdng mock-title\"><strong style=\"color: #000000;\">Avartan - Factory: Supply Chain Management Case Competition</strong></h2>\n<div class=\"position-relative\">\n<div class=\"blue_un-border-before comp-detail un_editor_text_live expanded\">\n<ul>\n<li>Under the Avartan banner, a galaxy of three distinct case study competitions is designed to challenge the brightest minds of the country with real-time business cases.</li>\n<li>The competition spans three verticals:\n<ul>\n<li>Factory - SCM Case Study Contest</li>\n<li>D-Street - Finance Case Study Contest</li>\n<li>Bazaar - Marketing Case Study Contest</li>\n</ul>\n</li>\n<li>As part of the<strong> Factory vertical</strong>, the Supply Chain Case Competition offers participants a chance to tackle real-world supply chain challenges faced by leading industries.</li>\n<li>Participants will delve into intricate supply chain processes, develop innovative solutions, and showcase their strategic and operational acumen.</li>\n<li>With cases designed to test analytical skills, decision-making, and practical implementation, this contest is a must for supply chain enthusiasts aspiring to make a mark in the field.</li>\n</ul>\n<p><strong>Annual Corporate Confluence - IIM Mumbai:</strong></p>\n<ul>\n<li>The Annual Corporate Confluence of IIM Mumbai will be organized from<strong> 1st December to 4th December 2026</strong>.</li>\n</ul>\n<p><strong>General Guidelines:</strong></p>\n<ul>\n<li>Students from both 1st year and 2nd year MBA programs can participate.</li>\n<li>Teams must consist of <strong>2 to 3 students</strong> from the same institution.</li>\n<li>A student can be part of only one team; teams may consist of any mix of 1st or 2nd-year students.</li>\n<li>No limit on the number of teams from an institute.</li>\n<li>Decisions of the contest organizers are final and binding.</li>\n<li>All qualifying teams must adhere to submission guidelines and virtual platform requirements.</li>\n<li>Deadlines for Round II submissions must be strictly followed; <strong>no extensions</strong> will be provided.</li>\n</ul>\n<p><strong>Round 1: Quiz</strong></p>\n<ul>\n<li>The quiz consists of <strong>20 questions</strong> to be answered in <strong>20&nbsp;minutes</strong>.</li>\n<li>Shortlisting is based on accuracy and time taken.</li>\n<li>Quiz is accessible only during the scheduled time slot.</li>\n<li>Only the <strong>Team Leader</strong> can access the quiz.</li>\n<li>Screen sharing is disabled; switching tabs/windows is not allowed.</li>\n</ul>\n<p><strong>Round 2: Case Submission</strong></p>\n<ul>\n<li>Submit a PPT with a <strong>maximum of 5 slides</strong> (excluding title slide).</li>\n<li>Required Excel files must be uploaded via the additional field on Unstop.</li>\n<li>All final submissions must be uploaded <strong>before the deadline</strong> on Unstop.</li>\n<li>File name format: <strong>Case_CollegeName_TeamName</strong> (max size: 20 MB).</li>\n<li>Use the primary data provided; any secondary data must be properly referenced.</li>\n<li>Evaluation criteria: <strong>novelty, comprehensiveness, and feasibility</strong> of the solution.</li>\n</ul>\n<p><strong>Round 3:</strong> The <strong>Top 5 teams </strong>will present their solutions in the <strong>National Finale at IIM Mumbai</strong> before the jury</p>\n</div>\n</div>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/avartan-factory-supply-chain-management-case-challenge-avartan-2026-iim-mumbai-1792085",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.394Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1792079",
-    "title": "Avartan Bazaar - Marketing Case Challenge",
-    "organizer": "Indian Institute of Management (IIM), Mumbai",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6aea210ed35ca_SCIE__IIM_Mumbai_IIMM_Standard_1.png",
-    "mode": "offline",
-    "venue_city": "Mumbai",
-    "venue_address": "Indian Institute of Management (IIM), Mumbai",
-    "latitude": 19.076,
-    "longitude": 72.8777,
-    "themes": [
-      "brand strategy",
-      "consumer behavior analysis",
-      "marketing analytics",
-      "product positioning",
-      "market trend analysis"
-    ],
-    "start_date": "2026-11-05T08:34:57.394Z",
-    "end_date": "2026-12-04T13:00:00+05:30",
-    "registration_deadline": "2026-11-19T12:00:00+05:30",
-    "problem_statement": "<h2 class=\"blue_un-border-before hdng mock-title\"><strong style=\"color: #000000;\">Avartan - Bazaar: Marketing Case Competition</strong></h2>\n<div class=\"position-relative\">\n<div class=\"blue_un-border-before comp-detail un_editor_text_live expanded\">\n<ul>\n<li>Under the Avartan banner, a galaxy of three distinct case study competitions is designed to challenge the brightest minds of the country with real-time business cases.</li>\n<li>The competition spans three verticals:\n<ul>\n<li>Factory - SCM Case Study Contest</li>\n<li>D-Street - Finance Case Study Contest</li>\n<li>Bazaar - Marketing Case Study Contest</li>\n</ul>\n</li>\n</ul>\n</div>\n</div>\n<ul>\n<li>As part of the <strong>Bazaar vertical</strong>, the Marketing Case Competition invites participants to deep-dive into the dynamic world of consumer behaviour, brand strategy, and market competitiveness.</li>\n<li>From crafting compelling positioning strategies to designing data-driven campaigns, participants will be challenged to solve real-world marketing dilemmas faced by leading brands.</li>\n<li>This competition tests creativity, strategic thinking, and the ability to decode evolving market trends. It is a unique opportunity for marketing enthusiasts to showcase their ingenuity and gain valuable insights into the fast-paced and ever-evolving marketing landscape.</li>\n</ul>\n<div>\n<p><strong>Annual Corporate Confluence - IIM Mumbai:</strong></p>\n<ul>\n<li>The Annual Corporate Confluence of IIM Mumbai will be organized from<strong> 1st December to 4th December 2026</strong>.</li>\n</ul>\n<p><strong>General Guidelines:</strong></p>\n<ul>\n<li>Participants are requested to form a team of 2 to 3 students from the same college/institute.</li>\n<li>A student can be part of only one team; a team can be of 1st-year or 2nd-year or a mix of both.</li>\n<li>Any number of teams can participate from one institute.</li>\n<li>The decisions of the contest organizers will be final and binding on all the participants.</li>\n<li>All the qualifying teams have to strictly adhere to the guidelines given by the organizing team in terms of submission format and virtual platform usage.</li>\n<li>Teams have to stick to the deadlines and no extension will be given for submission in Round II.</li>\n</ul>\n<p><strong>Round 1: Quiz</strong></p>\n<ul>\n<li>The quiz consists of 20 questions to be answered in 20 minutes.</li>\n<li>Teams shall be shortlisted based on the correctness of each response and the time taken to complete the quiz.</li>\n<li>The quiz can be accessed only during the stipulated time interval. Participating teams are requested to plan their strategy accordingly.</li>\n<li>Only the Team Leader can access the quiz.</li>\n</ul>\n<p>Screen sharing will be disabled during the quiz. Teams are not supposed to switch tabs/windows during the quiz.</p>\n<p><strong>Round 2: Case Submission</strong></p>\n<ul>\n<li>Submit the solution in PPT format with a maximum of 5 slides (excluding the title slide).</li>\n<li>Any required Excel files shall be uploaded in the additional field in the Unstop platform.</li>\n<li>The final submissions should be uploaded to the Unstop platform on or before the deadline. No submissions will be entertained after the deadline.</li>\n<li>The file name should be Case_CollegeName_Team Name &amp; The maximum file size allowed is 20 MB.</li>\n<li>Participants are encouraged to make maximum use of the primary data given in the case and any secondary resource presented in the final submission shall be suitably referenced.</li>\n<li>The presentation will be evaluated based on novelty, comprehensiveness, and the feasibility of the idea/ solution.</li>\n</ul>\n<p><strong>Round 3</strong></p>\n<ul>\n<li style=\"list-style-type: none;\">\n<ul>\n<li><strong>Top 5 teams</strong> will present the solution in the <strong>National Finale at IIM Mumbai</strong>&nbsp;before the jury.</li>\n</ul>\n</li>\n</ul>\n</div>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/avartan-marketing-case-challenge-avartan-2026-iim-mumbai-1792079",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:57.394Z",
     "is_active": true
@@ -14123,100 +13888,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1790059",
-    "title": "Yugantar - The Marketing Event",
-    "organizer": "Xavier Business School (XBS), St. Xavier's University, Kolkata",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ae780b034f73_xaviesta_logo_jpg.jpeg",
-    "mode": "hybrid",
-    "venue_city": "Kolkata",
-    "venue_address": "St. Xavier's University, Kolkata Plot No. III - B/1, Action Area III B Newtown, Kolkata - 700160",
-    "latitude": 22.5726,
-    "longitude": 88.3639,
-    "themes": [
-      "brand strategy",
-      "strategic thinking",
-      "consumer behavior analysis",
-      "crisis management",
-      "budget management"
-    ],
-    "start_date": "2026-11-05T08:34:57.799Z",
-    "end_date": "2027-01-08T17:00:00+05:30",
-    "registration_deadline": "2026-12-18T23:59:00+05:30",
-    "problem_statement": "<p><strong>Overview</strong></p>\n<p>YUGANTAR, presented by FINNOVATION as part of XAVIESTA 5.0, is an immersive marketing strategy competition that challenges participants to rewrite the destiny of a fictional Indian footwear brand. Through three interconnected rounds, teams will investigate the brand's history, uncover the strategic decision behind its downfall, rewrite a defining moment in its journey, and navigate the consequences of their choices. From analysing fragmented evidence and developing revised marketing strategies to tackling real-time marketing crises, participants must demonstrate their consumer understanding, analytical thinking, creativity and strategic decision-making. Here, every decision shapes the future, and every consequence tells a story.</p>\n<p><strong>Round 1 &ndash; The Archive</strong></p>\n<p><strong>Decode the Brand</strong></p>\n<p>Teams will receive a fragmented case archive containing old advertisements, consumer reviews, sales data, competitor movements, internal memos and market research relating to Kadam Footwear, a fictional Indian footwear brand.</p>\n<p>Participants must reconstruct the brand's timeline, identify the single strategic decision that changed its destiny and support their conclusions with evidence from the provided documents.</p>\n<p><strong>Round Details:</strong></p>\n<ul>\n<li>Team Size: 4 Members</li>\n<li>Mode: Online on Unstop</li>\n<li>Format: Fragmented Evidence Reconstruction + Written Hypothesis Brief</li>\n<li>Submission: One PDF containing:\n<ul>\n<li>Reconstructed timeline of 8&ndash;12 events in chronological order.</li>\n<li>Hypothesis brief of maximum 500 words.</li>\n<li>Supporting evidence with document references.</li>\n</ul>\n</li>\n<li>Qualification: Top 12 Teams</li>\n<li>Evaluation: Timeline accuracy, identification of the turning-point decision, evidence-based analysis and critical thinking.</li>\n</ul>\n<p><strong>Round 2 &ndash; The Butterfly Effect</strong></p>\n<p><strong>Rewrite the Past</strong></p>\n<p>The qualifying teams will get an opportunity to change one defining decision from Kadam Footwear's history. They must analyse how this single intervention could have altered the brand's journey, considering its impact on brand equity, market share, profit margins, competitive positioning and consumer perception.</p>\n<p>Based on their revised historical scenario, teams must develop a coherent marketing strategy and justify the consequences of their chosen intervention.</p>\n<p><strong>Round Details:</strong></p>\n<ul>\n<li>Team Size: 4 Members</li>\n<li>Mode: Offline</li>\n<li>Format: Single-Decision Rewrite + Revised Strategy Brief</li>\n<li>Challenge: Rewriting one historical decision and analysing its consequences.</li>\n<li>Submission: Revised strategy brief.</li>\n<li>Qualification: Top 6 Teams</li>\n<li>Evaluation: Strategic coherence, consequence analysis, marketing strategy, positioning and decision-making.</li>\n</ul>\n<p><strong>Round 3 &ndash; The Present Break &amp; Break the Chakra</strong></p>\n<p><strong>Survive 2027, Then Choose the Future</strong></p>\n<p>The final round brings the consequences of each team's revised decision into the present. Each finalist will face a team-specific marketing crisis shaped by the changes introduced in Round 2.</p>\n<p>Teams must allocate a limited marketing budget across digital marketing, influencers, product, retail, partnerships and consumer research to respond to the crisis. They will then face a CEO-level dilemma, choosing whether to Accept, Alter or Reset the brand's future direction.</p>\n<p>The challenge concludes with a live boardroom presentation and jury cross-examination, where teams must defend their strategy and decisions.</p>\n<p><strong>Round Details:</strong></p>\n<ul>\n<li>Team Size: 4 Members</li>\n<li>Mode: Offline &ndash; Live Defence</li>\n<li>Format: Crisis Budget Allocation + CEO Dilemma + Jury Presentation &amp; Cross-Examination</li>\n<li>Challenge: Team-specific marketing crisis and strategic decision-making.</li>\n<li>Finalists: Top 6 Teams from Round 2</li>\n<li>Evaluation: Crisis management, resource allocation, consumer understanding, creativity, brand vision and strategic defence.</li>\n</ul>\n<p><strong>Overall Rules &amp; Regulations</strong></p>\n<ul>\n<li>Each team must consist of exactly <strong>4 members</strong> across all three rounds.</li>\n<li>No substitutions or changes in team composition will be permitted once registration is completed.</li>\n<li>The competition is open to all college students. Valid College ID cards are mandatory for offline rounds.</li>\n<li>The competition will follow three stages: Round 1 (Online), Round 2 (Offline) and Round 3 (Offline Grand Finale).</li>\n<li>The top 12 teams from Round 1 will qualify for Round 2, and the top 6 teams from Round 2 will advance to Round 3.</li>\n<li>The decisions and interventions made in earlier rounds will determine the scenarios and challenges faced in subsequent rounds. Teams must maintain continuity throughout the competition.</li>\n<li>Round 1 analysis must be based exclusively on the archive and materials provided. AI tools may be used only for language polishing and not for generating the analysis itself.</li>\n<li>No external data or internet research is permitted for the case analysis. Participants must rely on the provided materials.</li>\n<li>During Rounds 2 and 3, decisions must be based solely on the materials and information provided by the organising committee. External market data is not permitted.</li>\n<li>One laptop per team is permitted for submissions and offline work. Mobile phones are strictly prohibited during offline rounds.</li>\n<li>All submissions must follow the prescribed format and be submitted through the official channel within the stipulated deadline.</li>\n<li>Late submissions and resubmissions will not be accepted.</li>\n<li>No communication, file-sharing or collaboration between competing teams is permitted during any round. Violation will result in disqualification.</li>\n<li>The decisions of the judges and organising committee will be final and binding at every stage.</li>\n<li>The organising committee reserves the right to amend the rules, timelines or competition format if required, with prior notice to participants.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/yugantar-the-marketing-event-xaviesta-50-kaalchakra-xavier-business-school-xbs-st-xaviers-university-kolkat-1790059",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.799Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1790038",
-    "title": "Arthchakra - The Finance Event Of Xaviesta 5.0",
-    "organizer": "Xavier Business School (XBS), St. Xavier's University, Kolkata",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ae7774ad8129_whatsapp_image_2026-09-12_at_10_23_07_pm.jpeg",
-    "mode": "hybrid",
-    "venue_city": "Kolkata",
-    "venue_address": "St. Xavier's University, Kolkata Plot No. III - B/1, Action Area III B Newtown, Kolkata - 700160",
-    "latitude": 22.5726,
-    "longitude": 88.3639,
-    "themes": [
-      "portfolio construction",
-      "risk assessment",
-      "portfolio rebalancing",
-      "financial modeling (excel)",
-      "financial markets knowledge"
-    ],
-    "start_date": "2026-11-05T08:34:57.799Z",
-    "end_date": "2027-01-08T17:00:00+05:30",
-    "registration_deadline": "2026-12-18T23:59:00+05:30",
-    "problem_statement": "<p><strong>Overview</strong></p>\n<p>Step into the dynamic world of financial markets with ARTHCHAKRA, a flagship competition at XAVIESTA, presented by FINNOVATION &ndash; The Finance Club of Xavier Business School. Designed to test financial acumen, analytical thinking and strategic decision-making, the competition takes participants through three exciting stages: managing a virtual equity portfolio, crafting investment strategies tailored to real-world client objectives, and navigating unexpected market disruptions. With each round bringing a new challenge, participants must analyse, strategise, adapt and defend their investment decisions. Gather your team of four and embark on a journey where market knowledge meets strategic brilliance!</p>\n<p><strong>Round 1 &ndash; Mock Stock Market</strong></p>\n<p><strong>Virtual Capital. Real Decisions.</strong></p>\n<p>The first round is an online stock market simulation where teams receive virtual capital of ₹1,00,000 to build and manage an equity portfolio comprising NSE-listed stocks.</p>\n<p>Teams will be evaluated based on the final market value of their portfolios at the end of the designated trading period. The <strong>Top 15 performing teams</strong> will qualify for Round 2.</p>\n<p><strong>Round Details:</strong></p>\n<ul>\n<li>Team Size: 4 Members</li>\n<li>Virtual Capital: ₹1,00,000 per team</li>\n<li>Platform: National Stock Exchange (NSE)</li>\n<li>Investment: NSE-listed equity stocks only</li>\n<li>Maximum Stocks: 20 different stocks</li>\n<li>Format: Online</li>\n<li>Qualification: Top 15 Teams</li>\n</ul>\n<p><strong>Round 2 &ndash; The Client Mandate</strong></p>\n<p><strong>Analyse. Allocate. Advise.</strong></p>\n<p>Teams will receive a Client Investment Policy Statement (IPS) and a Market Assumptions Sheet. Based on the client's objectives and constraints, participants must construct a suitable investment portfolio while considering risk, return, liquidity and diversification.</p>\n<p>Teams must submit their portfolio allocation along with a written rationale explaining their investment decisions. The <strong>Top 10 teams</strong> will advance to the final round.</p>\n<p><strong>Round Details:</strong></p>\n<ul>\n<li>Team Size: 4 Members</li>\n<li>Format: Offline, Proctored</li>\n<li>Challenge: Client-Based Portfolio Construction</li>\n<li>Submission: Excel Portfolio, Written Rationale (250&ndash;350 words) and AI Usage Log</li>\n<li>Qualification: Top 10 Teams</li>\n</ul>\n<p><strong>Round 3 &ndash; The Curveball</strong></p>\n<p><strong>Adapt. Rebalance. Defend.</strong></p>\n<p>The final round introduces a sudden market shock along with a private client-specific twist. Teams must reassess their existing portfolios, evaluate the impact of changing market conditions and decide whether to retain or rebalance their investments.</p>\n<p>The round concludes with a live presentation and defence before a panel of judges, where teams must justify their investment strategies and decisions.</p>\n<p><strong>Round Details:</strong></p>\n<ul>\n<li>Team Size: 4 Members</li>\n<li>Format: Live Defence (Presentation &amp; Q&amp;A)</li>\n<li>Challenge: Market Shock and Client-Specific Twist</li>\n<li>Submission: Updated Excel Portfolio, Written Rationale (250&ndash;350 words) and AI Usage Log</li>\n<li>Evaluation: Strategic Decisions, Risk Assessment, Portfolio Rebalancing and Client Alignment</li>\n</ul>\n<p><strong>Competition Details</strong></p>\n<ul>\n<li><strong>Institution:</strong> Xavier Business School, St. Xavier's University, Kolkata</li>\n<li><strong>Team Size:</strong> 4 Members per Team</li>\n</ul>\n<p><strong>Competition Structure:</strong></p>\n<ul>\n<li>Round 1: Top 15 Teams</li>\n<li>Round 2: Top 10 Teams</li>\n<li>Round 3: Final Round &ndash; Winner Selection</li>\n</ul>\n<p><strong>General Rules &amp; Regulations</strong></p>\n<ul>\n<li>Each team must consist of exactly <strong>4 members</strong>. Cross-college teams are not permitted.</li>\n<li>The competition is open to <strong>college students</strong>. Participants must carry their valid College ID cards during offline rounds.</li>\n<li>No substitutions or changes in team composition will be permitted once registration is completed.</li>\n<li>The competition will consist of three rounds, with eliminations after Rounds 1 and 2.</li>\n<li>The top 15 teams from Round 1 will qualify for Round 2, and the top 10 teams from Round 2 will advance to the final round.</li>\n<li>Participants must maintain discipline and decorum throughout the competition.</li>\n<li>No communication, file-sharing or collaboration between competing teams is permitted during any round. Violations may lead to disqualification.</li>\n<li>The decisions of the judges and organising committee will be final and binding.</li>\n<li>The organising committee reserves the right to modify the rules, schedule or competition format if required.</li>\n</ul>\n<p><strong>Round-Wise Rules &amp; Regulations</strong></p>\n<p><strong>Round 1 &ndash; Mock Stock Market</strong></p>\n<ul>\n<li>Each team will receive virtual capital of ₹1,00,000 to build an equity portfolio.</li>\n<li>Investments are restricted to equity stocks listed on the National Stock Exchange (NSE) only.</li>\n<li>A maximum of 20 different stocks may be included in a portfolio.</li>\n<li>The total portfolio value must not exceed ₹1,00,000, calculated using the prescribed reference closing prices.</li>\n<li>Only NSE ticker symbols must be entered in the ticker column of the prescribed submission sheet.</li>\n<li>Portfolios must be submitted using the prescribed Excel template through the official submission channel within the stipulated deadline.</li>\n<li>AI tools, external advisory and collaboration with other teams are not permitted. All investment decisions must be made independently by the participating team.</li>\n<li>A live leaderboard will be made available to track portfolio performance.</li>\n<li>Teams will be ranked based on the final market value of their portfolios. The top 15 teams will qualify for Round 2.</li>\n<li>Teams failing to qualify will be eliminated from the competition.</li>\n</ul>\n<p><strong>Round 2 &ndash; The Client Mandate</strong></p>\n<ul>\n<li>Each team will receive a Client Investment Policy Statement (IPS) and a Market Assumptions Sheet.</li>\n<li>Portfolio construction must be based exclusively on the information provided in the official client brief. External market data and internet searches are strictly prohibited.</li>\n<li>Teams must comply with all client-specific requirements and restrictions, including return, risk, liquidity and minimum investment conditions.</li>\n<li>The final portfolio allocation must total 100%.</li>\n<li>Teams may use the provided correlation matrix and automated portfolio standard-deviation calculator for portfolio risk calculations.</li>\n<li>Participants must bring their laptops and calculators (preferably scientific calculators). Mobile phones are strictly prohibited.</li>\n<li>Only one laptop per team is permitted.</li>\n<li>Each team must submit one Excel file containing:\n<ul>\n<li>Portfolio allocation table</li>\n<li>Portfolio summary</li>\n<li>Written rationale of 250&ndash;350 words</li>\n<li>AI Usage Log</li>\n</ul>\n</li>\n<li>The rationale must clearly explain and justify the portfolio allocation decisions with reference to the client's requirements.</li>\n<li>Teams must not communicate, share files, screens or work with other teams during the round.</li>\n<li>Once submitted through the official channel, entries will be considered final. No resubmissions will be accepted.</li>\n<li>The top 10 teams will qualify for the final round.</li>\n</ul>\n<p><strong>Round 3 &ndash; The Curveball</strong></p>\n<ul>\n<li>Finalists must continue working with their respective client portfolios from Round 2.</li>\n<li>All teams will face the same market shock to ensure a common basis for comparison.</li>\n<li>Each team will additionally receive a private client-specific twist linked to its assigned client.</li>\n<li>Teams must follow the revised market assumptions and client-specific information provided during the round.</li>\n<li>Participants must recalculate their portfolio's current value and assess the impact of changing market conditions on risk and expected returns.</li>\n<li>Teams may retain their existing allocation or rebalance their portfolios, provided their decisions comply with the original client IPS unless the private twist explicitly overrides a constraint.</li>\n<li>Participants must bring their laptops and scientific calculators. Mobile phones are strictly prohibited.</li>\n<li>Only one laptop per team is permitted.</li>\n<li>Each team must submit one updated Excel file containing:\n<ul>\n<li>Updated portfolio allocation table</li>\n<li>Portfolio summary</li>\n<li>Written rationale of 250&ndash;350 words</li>\n<li>AI Usage Log</li>\n</ul>\n</li>\n<li>Teams must present and justify their strategies before the panel of judges during the live defence and Q&amp;A.</li>\n<li>Participants must not communicate, share files, screens or collaborate with other teams during the round.</li>\n<li>Once submitted through the official channel, entries will be considered final. No resubmissions will be accepted.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/arthchakra-the-finance-event-of-xaviesta-50-xaviesta-50-kaalchakra-xavier-business-school-xbs-st-xaviers-un-1790038",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.799Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1789437",
     "title": "Ignite Summit 2027: India's Next Startups, Live on Stage",
     "organizer": "Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC), Navi Mumbai",
@@ -14449,53 +14120,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/robowars-mahyem-saturnalia-2026-thapar-institute-of-engineering-and-technology-tiet-patiala-1769298",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:57.799Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1768994",
-    "title": "Brand Wars: The Live Rebranding Challenge",
-    "organizer": "Thapar Institute of Engineering and Technology (TIET), Patiala",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6ae729ebdfa2f_Thapar_Institute_of_Engineering_and_Technology_University_logo.png",
-    "mode": "offline",
-    "venue_city": "Patiala",
-    "venue_address": "Thapar Institute of Engineering and Technology, Patiala",
-    "latitude": 20.5937,
-    "longitude": 78.9629,
-    "themes": [
-      "brand strategy",
-      "creative thinking",
-      "design thinking",
-      "storytelling",
-      "social media strategy"
-    ],
-    "start_date": "2026-11-05T08:34:57.799Z",
-    "end_date": "2026-11-19T18:29:00+05:30",
-    "registration_deadline": "2026-11-19T18:29:00+05:30",
-    "problem_statement": "<p><strong>Date of Event: </strong>23rd November 2026<strong><br /><br />Registration Fee: 150 per Participant</strong></p>\n<p><strong>Overview</strong></p>\n<p><span style=\"font-weight: 400;\">Every brand has a story, and some of them ended badly. Brand War hands teams a struggling or failed real-world brand and challenges them to bring it back to life, one round at a time.</span></p>\n<p><span style=\"font-weight: 400;\">Teams rebuild the brand in stages: first the logo and tagline, then the campaign, and finally the social media strategy. After every round, the judges score the work and the lowest-scoring teams are eliminated. Only the strongest five teams reach the final pitch, and the top three of them take the podium.</span></p>\n<p><span style=\"font-weight: 400;\">A surprise Plot Twist at the start of Round 2 changes the situation of the brand and tests how well teams adapt under pressure.</span></p>\n<p><span style=\"font-weight: 400;\">The event brings together design thinking, marketing and storytelling. It rewards the team that understands why the brand failed, finds a fresh idea for it, stays strong round after round, and sells that idea convincingly.</span></p>\n<p><strong>Eligibility:</strong></p>\n<p><span style=\"font-weight: 400;\">Open to all students of any branch and year. Teams of 2-3.</span></p>\n<p><strong>Performance Guidelines:</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Each round is timed, and qualifying teams advance to the next one.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">No electronic devices other than those provided or permitted.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Teams cannot talk to other teams during rounds.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Twist rounds are announced only at the time of the round.</span></li>\n</ul>\n<p><strong>Judging Criteria</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Accuracy of solutions (35%)</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Speed (25%)</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Adaptability in twist rounds (25%)</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Teamwork and approach (15%)</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Ties are broken by total time.</span></li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/brand-wars-the-live-rebranding-challenge-saturnalia-2026-thapar-institute-of-engineering-and-technology-tie-1768994",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:57.799Z",
     "is_active": true
@@ -16287,53 +15911,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1786769",
-    "title": "The Billion Dollar Stock",
-    "organizer": "Indian School Of Business & Finance",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ae5100216140_finlyt_logo.jpeg",
-    "mode": "offline",
-    "venue_city": "New Delhi",
-    "venue_address": "ISBF Campus",
-    "latitude": 28.6139,
-    "longitude": 77.209,
-    "themes": [
-      "financial markets knowledge",
-      "investment principles",
-      "portfolio management",
-      "risk analysis",
-      "securities analysis"
-    ],
-    "start_date": "2026-11-05T08:34:58.193Z",
-    "end_date": "2026-11-20T21:01:00+05:30",
-    "registration_deadline": "2026-11-17T00:00:00+05:30",
-    "problem_statement": "<p data-pm-slice=\"1 3 []\">The market waits for no one. Can you spot the right opportunities, make smart investment decisions, and stay ahead when things don't go as planned?</p>\n<p><strong>THE BILLION DOLLAR STOCK</strong> brings you into the world of stocks and investing, where every decision can make a difference. Put your market knowledge to the test, study the opportunities in front of you, and decide when to make your move.</p>\n<p>It's about more than picking stocks. It's about understanding the market, managing risk, and knowing when to trust your analysis and when to rethink your strategy.</p>\n<p>Whether you're a market enthusiast or someone looking to test your investment instincts, this is your chance to step up and see how you perform under pressure.</p>\n<p>The goal? Make your moves count and prove you have what it takes to play the market.</p>\n<p><strong>THE BILLION DOLLAR STOCK &ndash; Rules &amp; Regulations:</strong></p>\n<ul>\n<li><strong>Registration:</strong> All teams must register before the deadline and report to the venue on time.</li>\n<li><strong>Competition Rounds:</strong> The competition will consist of three rounds:</li>\n<li>Market Intelligence Test</li>\n<li>The Billion-Dollar Portfolio</li>\n<li>The Investment Committee</li>\n<li><strong>Compliance:</strong> Teams must follow the prescribed rules for trading, portfolio management, and submissions.</li>\n<li><strong>Independent Participation:</strong> All investment decisions and submissions must be made by team members without unauthorised external assistance.</li>\n<li><strong>Code of Conduct:</strong> Any form of cheating, collusion, or misconduct will result in disqualification.</li>\n<li><strong>Evaluation Criteria:</strong> Teams will be evaluated based on:</li>\n<li>Market Knowledge</li>\n<li>Investment Strategy</li>\n<li>Portfolio Performance</li>\n<li>Risk Management</li>\n<li>Presentation</li>\n<li><strong>Rule Modifications:</strong> The organisers reserve the right to modify the schedule or rules when necessary.</li>\n<li><strong>Final Decision:</strong> The judges' decisions regarding scores and final rankings will be final and binding.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/the-billion-dollar-stock-the-finlyt-summit-indian-school-of-business-finance-1786769",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.193Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1786029",
     "title": "IgniteCase - 2026",
     "organizer": "Government College Of Engineering, Amravati, Maharashtra",
@@ -16810,53 +16387,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/startup-expo-2027-iit-guwahati-1786688",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.193Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1788810",
-    "title": "Live Project Opportunity: Equity Valuation, Quantitative Finance & Market Research & Analytics Roles",
-    "organizer": "Caplexus Capital",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6ae6e6eebd74a_organisation_image-H8bi4ySzr61166600414czjc52dBNt.png",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "financial modeling",
-      "valuation modeling",
-      "quantitative analysis",
-      "equity research / fixed income research",
-      "portfolio construction"
-    ],
-    "start_date": "2026-11-05T08:34:58.193Z",
-    "end_date": "2026-11-07T17:00:00+05:30",
-    "registration_deadline": "2026-11-07T17:00:00+05:30",
-    "problem_statement": "<p><strong>Chance to Get Live Projects!!</strong></p>\n<p>Caplexus Capital proudly launches its&nbsp;<strong>Live Projects</strong>, crafted exclusively for students aspiring to build strong careers in&nbsp;<strong>Investment Banking, Equity Research, Financial Modeling, and Quantitative Finance</strong>.</p>\n<p>This project blends&nbsp;<strong>hands-on project exposure</strong>&nbsp;with&nbsp;<strong>structured mentorship from industry experts</strong>, enabling participants to apply advanced valuation techniques and quantitative methods to real-world financial challenges.</p>\n<p><strong>Briefing Session:</strong></p>\n<ul>\n<li><strong>Duration:</strong>&nbsp;1-Hour Free Live Briefing Session by an Industry Mentor</li>\n<li><strong>Date &amp; Time of Project Briefing &amp; Onboarding Session:</strong> Friday, 6th Nov, 5:00 PM</li>\n<li><strong>Agenda:</strong>&nbsp;To explain project structure, deliverables &amp; placement outcomes</li>\n<li><strong>Registration Deadline:</strong> 6th Nov, 3:00 PM</li>\n<li><strong>Fee:</strong>&nbsp;Free for the briefing session</li>\n<li><strong>Project Start Date:</strong> <strong>9th Nov&rsquo;26<br /></strong></li>\n<li><strong>Registration Fee:&nbsp;</strong>Nil for project briefing session</li>\n</ul>\n<p><strong>Live Project Roles:</strong></p>\n<ul>\n<li><strong>Equity Research &amp; Valuation Analyst</strong></li>\n<li><strong>Portfolio Manager - Quantitative Finance Analyst</strong>&nbsp;(with Python-based modeling)</li>\n<li><strong>Market Research &amp; Analytics (GenAI-Based)</strong></li>\n</ul>\n<p>Delivery Structure:&nbsp;Two-Phase Live Project</p>\n<p>This Live Project is designed to provide a&nbsp;<strong>deep finance-oriented corporate learning experience</strong>&nbsp;in two distinct phases:</p>\n<p><strong>Phase 1: Corporate Mentorship &amp; Skill Foundation</strong></p>\n<ul>\n<li>Live&nbsp;<strong>workshops with senior corporate mentors</strong>&nbsp;to build foundational and advanced skills</li>\n<li><strong>Hands-on training on industry frameworks</strong>, tools, and techniques used by top investment banks, consulting firms, and asset managers</li>\n<li>Domain-focused learning sessions on:\n<ul>\n<li>Fundamental &amp; Technical Valuation Frameworks</li>\n<li>Equity Valuation (DCF, comparables, precedent transactions)</li>\n<li>Financial Modeling (three-statement model building, forecasting, scenario modeling)</li>\n<li>Pitchbook Preparation &amp; IB Presentation Standards</li>\n<li>Quantitative Finance (portfolio optimization, risk modeling, Monte Carlo simulation basics)</li>\n<li>Time-Series Forecasting &amp; Algorithmic Trading Basics</li>\n<li>Integration of Python with Excel &amp; VBA for Financial Modeling</li>\n<li>Application of Quantitative Frameworks in Real-World Case Studies</li>\n<li>Market Research &amp; Analytics -&nbsp;<strong>GenAI Focused</strong>&nbsp;(primary and secondary research, competitive analysis, TAM/SAM/SOM sizing)</li>\n</ul>\n</li>\n</ul>\n<p><strong>Phase 2: Company Allocation for Project Work:</strong></p>\n<ul>\n<li><strong>Company allocation to students</strong>&nbsp;to work on real-time business challenges under mentor supervision</li>\n<li>Conduct detailed&nbsp;<strong>valuation analysis and prepare financial models</strong>&nbsp;for live companies/startups</li>\n<li>Build&nbsp;<strong>comprehensive industry research reports and investment memos</strong></li>\n<li>Perform&nbsp;<strong>quantitative risk and return analysis</strong>&nbsp;on real financial datasets</li>\n<li>Present your findings and recommendations to the Caplexus Capital mentor panel</li>\n</ul>\n<p>Project Outcomes &amp; Deliverables:</p>\n<p>By the end of the project, you will walk away with:</p>\n<ul>\n<li><strong>Live Project Work Experience Certificate</strong>&nbsp;from Caplexus Capital</li>\n<li><strong>Verified CV Points</strong>&nbsp;to boost your finance and strategy profile</li>\n<li><strong>Industry-grade Financial Models &amp; Equity Research Reports</strong>&nbsp;(Portfolio-ready outputs you can showcase)</li>\n<li><strong>Quantitative Finance dashboards &amp; analysis reports</strong></li>\n<li><strong>Letter of Recommendation</strong>&nbsp;(based on performance)</li>\n<li><strong>Job Referral Opportunities</strong>&nbsp;at firms like JP Morgan, Nomura, Deloitte, EY, PwC, etc.</li>\n<li><strong>Dedicated&nbsp;</strong><strong>Resume-Building Support:</strong>&nbsp;Expert guidance to build an&nbsp;<strong>ATS-friendly resume,</strong> plus&nbsp;<strong>CV templates and placement prep support</strong>&nbsp;(HR prep, technical rounds, guesstimates, case studies, etc.)</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/national-finance-investment-challenge-2026-caplexus-capital-1788810",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:58.193Z",
     "is_active": true
@@ -17588,53 +17118,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1784540",
-    "title": "Godstockss Website Upgrade Challenge",
-    "organizer": "Godstockss",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6ae3862db11d6_organisation_image-zySZulZIN119903956246ryPt6yEYH.png",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "ui/ux design",
-      "user experience (ux) design",
-      "website performance optimization",
-      "usability testing",
-      "creative thinking"
-    ],
-    "start_date": "2026-11-05T08:34:58.754Z",
-    "end_date": "2026-11-29T00:00:00+05:30",
-    "registration_deadline": "2026-11-29T00:00:00+05:30",
-    "problem_statement": "<p><strong><em>GODSTOCKSS Website Upgrade Challenge</em></strong></p>\n<p>GODSTOCKSS invites students, developers, designers, traders, and creative thinkers to participate in the Website Upgrade Challenge and share innovative ideas to improve the GODSTOCKSS website.</p>\n<p><strong><em>Rewards and Recognition</em></strong></p>\n<ul>\n<li><em>1st Prize:</em> ₹5,000 cash prize for the top-performing participant.</li>\n<li><em>Participation Certificate:</em> All eligible participants who participate in the challenge will receive a participation certificate.</li>\n</ul>\n<p><strong><em>Challenge Tasks</em></strong></p>\n<p>Participants must submit at least 5 suggestions to improve the GODSTOCKSS website. Suggestions can cover any relevant area, including:</p>\n<ul>\n<li>Website design, UI/UX, and responsiveness.</li>\n<li>New features and functionality.</li>\n<li>User experience and navigation.</li>\n<li>Website performance and usability.</li>\n<li>Innovative ideas to improve the platform.</li>\n</ul>\n<p><strong><em>Optional Trading Strategy Submission</em></strong></p>\n<p>Participants who have developed a trading strategy may also submit it along with backtesting proof. Supporting evidence can include backtesting reports, screenshots, trade history, and performance statistics.</p>\n<p>Trading strategies are optional. Participants can submit website improvement ideas without having any trading knowledge.</p>\n<p><strong><em>How to Participate</em></strong></p>\n<ul>\n<li>Prepare at least 5 suggestions for improving the GODSTOCKSS website.</li>\n<li>Explain each suggestion clearly and describe its potential benefits.</li>\n<li>Optionally include a trading strategy with supporting backtesting evidence.</li>\n<li>Email your complete submission to <a href=\"mailto:godstockss@gmail.com\"><em>godstockss@gmail.com</em></a>.</li>\n<li>Use the email subject: <em>Website Upgrade Challenge &ndash; Your Name</em>.</li>\n</ul>\n<p><strong><em>Rules and Guidelines</em></strong></p>\n<ul>\n<li>Suggestions must be original, practical, and relevant.</li>\n<li>Participants may submit their answers in any clear written format.</li>\n<li>AI tools may be used for assistance, but participants should understand their submissions.</li>\n<li>Any trading strategy submitted must include genuine backtesting evidence to support its claims.</li>\n<li>Participants should not submit copied work or unauthorized third-party data.</li>\n</ul>\n<p><strong><em>Evaluation Process</em></strong></p>\n<p>The GODSTOCKSS team will evaluate submissions based on originality, creativity, practicality, clarity, and potential impact on the website. Trading strategies, if submitted, will be assessed separately based on the quality of backtesting evidence and methodology.</p>\n<p>The participant with the strongest overall submission will be selected as the winner and awarded ₹5,000.</p>\n<p>Join the GODSTOCKSS Website Upgrade Challenge, showcase your ideas, and get a chance to win ₹5,000!</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/quiz/godstockss-website-upgrade-challenge-godstockss-1784540",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.754Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1784389",
     "title": "LivingLab 2026",
     "organizer": "Indian Institute of Technology (IIT), Bombay",
@@ -17677,100 +17160,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/livinglab-2026-httpswwwecellinesummitlivinglab-iit-bombay-1784389",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.754Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1777919",
-    "title": "REIT NEXT — Finance Challenge 2026",
-    "organizer": "INDIAN REITs ASSOCIATION",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6aeb29187a186_organisation_image-VaHJMf2FNk318558693jfC4dtd8Bi.png",
-    "mode": "hybrid",
-    "venue_city": "Mumbai",
-    "venue_address": "Sydenham Institute of Management Studies, Research and Entrepreneurship Education",
-    "latitude": 19.076,
-    "longitude": 72.8777,
-    "themes": [
-      "financial analysis",
-      "valuation modeling",
-      "capital markets knowledge",
-      "real estate",
-      "public speaking and presentation skills"
-    ],
-    "start_date": "2026-11-05T08:34:58.754Z",
-    "end_date": "2027-01-22T17:00:00+05:30",
-    "registration_deadline": "2026-11-30T17:00:00+05:30",
-    "problem_statement": "<p><strong>REIT NEXT: Case Study Challenge 2026 (Finance Track)</strong></p>\n<p><strong>About the competition</strong><strong><br /></strong><span style=\"font-weight: 400;\"> REIT NEXT is a national-level case study competition organised by the Indian REITs Association (IRA), a non-profit industry body for India&rsquo;s REIT sector. IRA&rsquo;s members are Bagmane Prime Office REIT, Brookfield India Real Estate Trust, Embassy Office Parks REIT, Mindspace Business Parks REIT, Knowledge Realty Trust and Nexus Select Trust. The competition is operationally managed by the Marketing &amp; Media Committee of SIMSREE, the Academic Partner.</span></p>\n<p><strong>About the Finance Track</strong><strong><br /></strong><span style=\"font-weight: 400;\"> Work on a real-world challenge from the Indian REIT sector and apply your finance skills to it. Teams will analyse the case, build a data-backed solution and present recommendations that could offer actionable insights to the industry. This track is for students interested in valuation, capital markets, investment analysis and real estate finance.</span></p>\n<p><strong>What you will gain</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Hands-on exposure to real REIT data and disclosures</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">A chance to present your solution before a jury of senior REIT industry professionals</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Cash prizes and a national-level credential allowed</span></li>\n</ul>\n<p><strong>Eligibility</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Open to all interested undergraduate and postgraduate students across India, from any field of study</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Teams of 2 to 4 members</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Team members can be from different colleges and different disciplines</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Students of <strong>Sydenham Institute of Management Studies, Research and Entrepreneurship Education (SIMSREE)</strong> are<strong> not </strong>eligible to participate</span></li>\n</ul>\n<p><strong>Competition structure</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><strong>Round 1: Online Quiz.</strong><span style=\"font-weight: 400;\"> 30 questions in 30 minutes.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><strong>Round 2: Case Solution.</strong><span style=\"font-weight: 400;\"> Shortlisted teams submit a presentation of up to 10 slides.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><strong>Round 3: National Final.</strong><span style=\"font-weight: 400;\"> The top teams present offline before the jury (10 minutes of presentation and 10 minutes of Q&amp;A).</span></li>\n</ul>\n<p><strong>Prizes</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">1st Prize: <strong>INR 1,00,000</strong></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">2nd Prize:<strong> INR 50,000</strong></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Internship Interview opportunities with Indian REITs</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Certificates for participants and finalists</span></li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/reit-next-finance-challenge-2026-indian-reits-association-1777919",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.754Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1780712",
-    "title": "Stocks Sena AlphaQuest 2026",
-    "organizer": "Stocks Sena",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6ae32b6879cab_organisation_image-UEvySfaOyq1932639928k6a5CAnufi.png",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "financial markets knowledge",
-      "trading strategies",
-      "fundamental analysis",
-      "technical analysis (finance)",
-      "securities analysis"
-    ],
-    "start_date": "2026-11-05T08:34:58.754Z",
-    "end_date": "2026-12-13T23:59:00+05:30",
-    "registration_deadline": "2026-11-30T00:00:00+05:30",
-    "problem_statement": "<p><strong>Overview:</strong></p>\n<p>Are you interested in stock markets, trading strategies, and financial research? Here's your opportunity to put your knowledge to the test!</p>\n<p><strong>Stocks Sena AlphaQuest 2026</strong> is a pan-India competition designed for students passionate about financial markets, trading, and investment research. Organized by Stocks Sena, the competition challenges participants to test their knowledge, explore financial research tools, and experiment with trading strategies.</p>\n<p><strong>About Stocks Sena:</strong></p>\n<p>Stocks Sena is a stock market research platform built to make financial research more accessible and comprehensive. It brings together company financials, market-related news, portfolio tracking, and research tools to help users explore listed companies and financial markets.</p>\n<p><strong>Discover Backtest Lab:</strong></p>\n<p>One of the key features of Stocks Sena is <strong>Backtest Lab</strong>, which allows users to define trading strategy parameters and generate backtest reports showing how those strategies would have performed over a selected historical period.</p>\n<p>Participants can experiment with different parameters, evaluate historical strategy performance, and gain practical exposure to systematic trading strategy analysis.</p>\n<p><strong>Competition Structure:</strong></p>\n<p>The competition consists of three rounds:</p>\n<p><strong>Round 1: Financial Markets Quiz</strong></p>\n<p>Test your understanding of financial markets, fundamental analysis, valuation, technical analysis, and investing concepts.</p>\n<p><strong>Round 2: The Stocks Sena Advantage Challenge</strong></p>\n<p>Explore Stocks Sena's features and demonstrate your understanding of how the platform can support financial research and market analysis.</p>\n<p><strong>Round 3: Backtest Lab Challenge</strong></p>\n<p>Use Stocks Sena's Backtest Lab to test a trading strategy over a specified historical period and submit your results for evaluation.</p>\n<p><strong>Cash Prizes:</strong></p>\n<p>Compete for a total national cash prize pool of ₹15,000.</p>\n<ul data-spread=\"false\">\n<li><strong>All-India Rank 1:</strong> ₹10,000</li>\n<li><strong>All-India Rank 2:</strong> ₹3,000</li>\n<li><strong>All-India Rank 3:</strong> ₹2,000</li>\n</ul>\n<p><strong>Potential Internship Opportunities:</strong></p>\n<p>The competition also offers an opportunity to stand out beyond the leaderboard.</p>\n<p><strong>National podium finishers may be considered for potential internship opportunities with Stocks Sena</strong>, based on their performance, skills, and the company's requirements.</p>\n<p>This is an opportunity to showcase your understanding of financial markets, analytical abilities, and interest in financial research and technology.</p>\n<p><strong>Who Can Participate?</strong></p>\n<p>Students from colleges and universities across India who are interested in stock markets, financial research, investing, or trading strategies are encouraged to participate.</p>\n<p>Whether you're beginning your journey in financial markets or already have experience analyzing companies and trading strategies, AlphaQuest offers an opportunity to learn, experiment, and compete.</p>\n<p><strong>Certificates:</strong></p>\n<p>Participants who meet the competition's participation requirements will receive a digital participation certificate.</p>\n<p><strong>Join the Challenge:</strong></p>\n<p>Explore the markets. Test your strategies. Compete with the best student talent across India.</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/stocks-sena-alphaquest-2026-stocks-sena-1780712",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:58.754Z",
     "is_active": true
@@ -17866,53 +17255,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/antennovate-2026-rf-student-design-contest-vardhaman-college-of-engineering-1783730",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.754Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1783236",
-    "title": "Immuno Case Files",
-    "organizer": "Indian Institute of Technology (IIT), Chennai",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6aea1ec6b4245_shaastra_2027_dice_logo.png",
-    "mode": "hybrid",
-    "venue_city": "Chennai",
-    "venue_address": "IIT Madras",
-    "latitude": 13.0827,
-    "longitude": 80.2707,
-    "themes": [
-      "immunology",
-      "data interpretation",
-      "research methods",
-      "research design",
-      "hypothesis testing"
-    ],
-    "start_date": "2026-11-05T08:34:58.754Z",
-    "end_date": "2027-01-03T12:00:00+05:30",
-    "registration_deadline": "2026-12-06T00:00:00+05:30",
-    "problem_statement": "<p><span style=\"font-weight: 400;\">Immuno Case Files is a case-study-based scientific competition designed to challenge participants to investigate complex immunological mechanisms underlying disease. Focusing on ocular inflammation and autoimmune uveitis, participants will explore the factors contributing to disease progression and analyze scientific datasets to uncover the mechanisms behind disrupted immune regulation. Their task is to interpret the available evidence, formulate research hypotheses, and propose scientifically justified strategies to investigate the underlying causes of ocular inflammation.</span></p>\n<p><strong>Guidelines:</strong></p>\n<ul>\n<li><span style=\"font-weight: 400;\">Open to undergraduate and postgraduate students </span></li>\n<li>Inter-college team members are allowed .</li>\n<li>Inter-specialization team members are allowed.</li>\n<li>Students will be provided with ONE Problem Statement.</li>\n<li>Round 1: Screening round(online)<br />Submission of Case Study Report and 2 minute Video in a 4 day window.</li>\n<li>Round 2: Final Round(Offline)<br /><span style=\"font-weight: 400;\">Shortlisted teams will further develop their research proposals and present their findings before a panel of judges. </span><br />Presentation: 15-20 mins<br />Q&amp;A : 10 mins</li>\n</ul>\n<p><strong>Rules:</strong></p>\n<ul>\n<li>\n<p data-pm-slice=\"1 1 [&quot;list&quot;,{&quot;spread&quot;:false,&quot;start&quot;:453,&quot;end&quot;:811},&quot;regular_list_item&quot;,{&quot;start&quot;:531,&quot;end&quot;:631}]\">Participants must follow the prescribed format, word limit, file format, and submission procedure</p>\n</li>\n<li>\n<p data-pm-slice=\"1 1 [&quot;list&quot;,{&quot;spread&quot;:false,&quot;start&quot;:2262,&quot;end&quot;:2720},&quot;regular_list_item&quot;,{&quot;start&quot;:2516,&quot;end&quot;:2605}]\">The judges' decisions will be final, subject to the competition's announced procedures.</p>\n</li>\n<li><strong>late submissions</strong>&nbsp; are not accepted.</li>\n<li>\n<p><strong>Use of AI Tools:</strong> Participants may use AI for assistance with brainstorming, literature exploration, and understanding scientific concepts. However, AI must not replace their independent scientific reasoning, dataset interpretation, hypothesis development, or research design. Participants must verify AI-generated information, cite relevant sources, and ensure their submissions reflect their own understanding and original thinking. AI use must be disclosed wherever required by the organisers.</p>\n</li>\n<li>Explicitly state that only winner certificates will be provided as hard copies. Participation and finalist certificates will be issued as soft copies only.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/immuno-case-files-indian-institute-of-technology-iit-chennai-1783236",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:58.754Z",
     "is_active": true
@@ -18719,53 +18061,6 @@
     "apply_url": "https://unstop.com/competitions/national-aeromodeling-challenge-iit-bombay-1777401",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:58.754Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1776897",
-    "title": "Treasure Hunt",
-    "organizer": "RV Institute of Technology and Management, Karnataka",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ade3ea6cdd9b_screenshot_2026-10-17_021022.png",
-    "mode": "offline",
-    "venue_city": "Bangalore",
-    "venue_address": "RV Institute Of Technology and Management, Bengaluru",
-    "latitude": 12.9716,
-    "longitude": 77.5946,
-    "themes": [
-      "problem solving",
-      "teamwork and collaboration",
-      "speed",
-      "coordination skills",
-      "situational awareness"
-    ],
-    "start_date": "2026-11-05T08:34:58.755Z",
-    "end_date": "2026-12-09T18:00:00+05:30",
-    "registration_deadline": "2026-12-09T18:00:00+05:30",
-    "problem_statement": "<p><span style=\"font-weight: 400;\">The Treasure Hunt is an adventurous and interactive challenge designed to test participants&rsquo; </span>problem-solving, teamwork, and speed<span style=\"font-weight: 400;\">.</span></p>\n<ul>\n<li><strong>Prize Pool:</strong> Rs. 2500 (Winner: Rs. 1500 + Runner-Up: Rs. 1000)</li>\n<li><strong>Registration Fee:</strong> Rs. 100</li>\n<li><strong>Date:</strong> 10/12/2026</li>\n</ul>\n<p><strong>Event Specific Rules:</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Each team must consist of </span><strong>exactly 3 members</strong><span style=\"font-weight: 400;\">. No external help allowed.</span><span style=\"font-weight: 400;\"><br /></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Only designated areas are part of the hunt. </span><strong>Restricted zones</strong><span style=\"font-weight: 400;\"> must not be entered.</span><span style=\"font-weight: 400;\"><br /></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Interference with other teams or tampering with clues will result in </span><strong>immediate disqualification</strong><span style=\"font-weight: 400;\">.</span><span style=\"font-weight: 400;\"><br /></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Teams may not request hints individually. </span><strong>Hints will be given to all teams simultaneously</strong><span style=\"font-weight: 400;\"> at scheduled times.</span><span style=\"font-weight: 400;\"><br /></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Unsafe behavior (running, pushing, damaging property) is strictly prohibited.</span><span style=\"font-weight: 400;\"><br /></span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Organizers may modify rules at any point; their </span><strong>decision is final</strong><span style=\"font-weight: 400;\">.</span></li>\n</ul>\n<p><strong>Rules:</strong></p>\n<ul>\n<li>Participants must carry their college ID cards.</li>\n<li>Arrive at the venue at least 15 minutes before the event for check-in.</li>\n<li>Late entries or walk-ins will not be entertained, and registration will be canceled.</li>\n<li>Registration fees are non-refundable under any circumstances.</li>\n</ul>\n<p><strong>Event Coordinators:</strong></p>\n<ul>\n<li>Jai : 9025271959</li>\n<li>Saptami : 6361947835</li>\n<li>Rohan: 7226060982</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/treasure-hunt-robofiesta-rv-institute-of-technology-and-management-karnataka-1776897",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:58.755Z",
     "is_active": true
   },
   {
@@ -20096,55 +19391,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1770249",
-    "title": "AdFest 2026 – Inter Collegiate Marketing & Advertising Competition",
-    "organizer": "Symbiosis Institute of Business Management (SIBM), Noida, Uttar Pradesh",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6acfd7d64abc9_whatsapp_image_2026-10-15_at_12_57_34_am.jpeg",
-    "mode": "offline",
-    "venue_city": "Noida",
-    "venue_address": "Symbiosis Institute of Business Management (SIBM)",
-    "latitude": 28.5355,
-    "longitude": 77.391,
-    "themes": [
-      "creativity",
-      "marketing campaign planning",
-      "brand strategy",
-      "powerpoint",
-      "public speaking and presentation skills",
-      "powerpoint",
-      "digital advertising (retargeting)"
-    ],
-    "start_date": "2026-11-05T08:34:59.170Z",
-    "end_date": "2026-11-15T00:00:00+05:30",
-    "registration_deadline": "2026-11-15T00:00:00+05:30",
-    "problem_statement": "<p><strong>About the Competition</strong></p>\n<p>AdFest is an inter-collegiate marketing and advertising competition designed to encourage creativity, strategic thinking, brand building, and advertising skills among students. Participants will transform their ideas into engaging digital advertisements and develop marketing campaigns that communicate a brand's value effectively.</p>\n<p><strong>Competition Format</strong></p>\n<p><strong>Round 1: Digital Advertisement</strong><br />Participants must create a creative digital advertisement for their preferred brand. Entries will be evaluated on creativity, appeal, and tagline.</p>\n<p><strong>Round 2: Campaign Pitch</strong><br />Shortlisted teams will present their marketing campaign to a judging panel using a PowerPoint presentation offline at SIBM Noida. Evaluation will be based on the core campaign idea, brand positioning, channel strategy, and expected campaign impact.</p>\n<p><strong>Eligibility and Participation</strong></p>\n<ul>\n<li>Open to final-year undergraduate students and MBA students.</li>\n<li>Participation is in teams of two members.</li>\n<li>Registration is free.</li>\n<li>The competition will take place at the SIBM Noida campus.</li>\n</ul>\n<p><strong>Important Dates</strong></p>\n<ul>\n<li>Registration opens: 15 October 2026</li>\n<li>Registration closes: 15 November 2026</li>\n<li>Advertisement video and campaign PPT submission deadline: 25 November 2026</li>\n<li>Competition date: 4 December 2026</li>\n</ul>\n<p><strong>Rules and Guidelines</strong></p>\n<ul>\n<li>Each team must consist of two members.</li>\n<li>Participants must follow the two-round competition format.</li>\n<li>The digital advertisement should be creative, engaging, and memorable.</li>\n<li>Shortlisted teams must present their campaign using a PowerPoint presentation.</li>\n<li>Advertisement videos and campaign presentations must be submitted by the specified deadline.</li>\n<li>Further submission instructions will be communicated to registered teams.</li>\n</ul>\n<p><strong>Prizes and Recognition</strong></p>\n<p>Trophies will be awarded to the winner and runner-up teams. All participants will receive participation certificates.</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/adfest-2026-inter-collegiate-marketing-advertising-competition-symbiosis-institute-of-business-management-s-1770249",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:59.170Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1769467",
     "title": "Drone Obstacle Challenge",
     "organizer": "Echelon Institute Of Technology Faridabad",
@@ -20587,53 +19833,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1769749",
-    "title": "Business Plan Competition",
-    "organizer": "Geeta University, Naultha, Panipat",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6acdef0cc1d75_idq15glp70_logos.jpeg",
-    "mode": "offline",
-    "venue_city": "Panipat",
-    "venue_address": "Geeta University",
-    "latitude": 20.5937,
-    "longitude": 78.9629,
-    "themes": [
-      "business planning",
-      "entrepreneurship",
-      "financial modeling",
-      "marketing planning",
-      "public speaking and presentation skills"
-    ],
-    "start_date": "2026-11-05T08:34:59.170Z",
-    "end_date": "2026-12-31T12:17:00+05:30",
-    "registration_deadline": "2026-12-31T00:00:00+05:30",
-    "problem_statement": "<p><strong>Bizz Fiesta 2K26 &ndash; Business Plan Competition</strong></p>\n<p>The Business Plan Competition at Bizz Fiesta 2K26 is your chance to turn your innovative ideas into reality! Present your business concept, showcase your entrepreneurial skills, and impress the judges with your creativity, planning, and problem-solving abilities. Whether you're an aspiring entrepreneur or a future business leader, this is your platform to think big, pitch smart, and compete for exciting cash prizes!</p>\n<p><strong>Guidelines</strong></p>\n<ul>\n<li>Participation is open to both individual participants and teams.</li>\n<li>All participants must register through the official Unstop event page.</li>\n<li>Participants must present an original business idea.</li>\n<li>The business plan should cover the business concept, target market, marketing strategy, revenue model, and financial feasibility.</li>\n<li>Participants should prepare a clear and structured presentation of their business plan.</li>\n<li>Participants must follow the submission instructions and presentation schedule shared by the organisers.</li>\n<li>Participants should be prepared to answer questions from the judging panel.</li>\n</ul>\n<p><strong>Rules and Regulations</strong></p>\n<ul>\n<li>Registration through Unstop is mandatory for participation.</li>\n<li>Participants may compete individually or in teams.</li>\n<li>Plagiarism or presenting another person's work as your own is strictly prohibited.</li>\n<li>Participants must maintain professional conduct throughout the event.</li>\n<li>The decision of the judging panel regarding the results will be final.</li>\n<li>Any violation of the competition rules may result in disqualification.</li>\n<li>Participants must follow all instructions and deadlines communicated by the organisers.</li>\n<li>The organisers reserve the right to make necessary changes to the event schedule or format.</li>\n</ul>\n<p><strong>Who Can Participate?</strong></p>\n<ul>\n<li>Students with innovative business or startup ideas.</li>\n<li>Aspiring entrepreneurs interested in building their own ventures.</li>\n<li>Individuals who want to test their business knowledge and creativity.</li>\n<li>Teams interested in developing and presenting a business plan together.</li>\n</ul>\n<p>Bring your ideas, build your strategy, and prove your business potential. Your next big opportunity starts here!</p>\n<p>Are you ready to pitch your vision?</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/business-plan-competition-geeta-university-naultha-panipat-1769749",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:59.170Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1762198",
     "title": "Revival - Bring Back the dead",
     "organizer": "Plaksha University",
@@ -20725,53 +19924,6 @@
     "apply_url": "https://unstop.com/competitions/the-wolf-of-dalal-street-fitoor-plaksha-university-1762199",
     "platform": "unstop",
     "created_at": "2026-11-05T08:34:59.170Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1762195",
-    "title": "Murder Ballad 3.0 - Murder Mystery Treasure Hunt",
-    "organizer": "Plaksha University",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ab847b86c7f1_untitled_design.png",
-    "mode": "offline",
-    "venue_city": "Mohali",
-    "venue_address": "Plaksha University",
-    "latitude": 20.5937,
-    "longitude": 78.9629,
-    "themes": [
-      "critical thinking",
-      "information gathering",
-      "observation skills",
-      "information synthesis",
-      "creative thinking"
-    ],
-    "start_date": "2026-11-05T08:34:59.808Z",
-    "end_date": "2026-11-11T23:59:00+05:30",
-    "registration_deadline": "2026-11-11T23:59:00+05:30",
-    "problem_statement": "<p><strong>Overview</strong></p>\n<p>Solve a murder mystery through clues hidden in songs, poetry, crime scenes, and campus locations. Investigate evidence, analyse testimonies, uncover motives, and piece together the true narrative. The team that best solves the case will be crowned Murder Balladeers.</p>\n<p><strong>Prize Pool:</strong> 25,000 INR<br /><strong>Registration Fee:</strong> 300 INR<br /><strong>Event type:</strong> Group (Size: 3-5)</p>\n<p><strong>Event Rules:</strong></p>\n<ul>\n<li><strong>Round 1: Discovery of the Crime</strong><br />Teams will report to the &lsquo;Headquarters&rsquo;, where they will be briefed on investigative ethics, procedures, and the code of conduct for handling crime scenes. All preliminary evidence and information regarding the case will be presented to the teams, including a case file, video of witness testimonies and a general brief of the crime.</li>\n<li><strong>Round 2: The Investigation</strong><br />Teams will set out to examine dedicated crime scenes across the campus to follow leads and collect additional evidence for the next few hours. Time is of the essence, my detective friend. Each team will only get access to a location for a fixed period of time. Teams might be required to visit the locations in a specific sequence, to piece together the true narrative.</li>\n<li><strong>Round 3: The Final Verdict</strong><br />After completion of the fieldwork, the detectives will return to the HQ to start composing their song of murder. The teams will be asked to prepare a report or a theory of the crime in the form of a poem or a song. They will be judged for both artistic creativity and for how close they come to the truth.</li>\n</ul>\n<p><strong>Date &amp; Time:</strong> November 15th, 2026 | 10 AM to 6 PM<br /><strong>Registration Fee Payment:</strong> <a id=\"OWA839725fe-581d-8886-085e-d8327941f538\" class=\"x_OWAAutoLink\" title=\"https://rzp.io/rzp/YhJqElz\" href=\"https://rzp.io/rzp/YhJqElz\" target=\"_blank\" rel=\"noopener noreferrer\" data-auth=\"NotApplicable\" data-linkindex=\"1\" data-olk-copy-source=\"MessageBody\">https://rzp.io/rzp/YhJqElz</a><br /><strong>Please Note: After completing your registration, our team will contact you and share the above payment link for the registration fee.</strong></p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/murder-ballad-30-murder-mystery-treasure-hunt-fitoor-plaksha-university-1762195",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:34:59.808Z",
     "is_active": true
   },
   {
@@ -21722,58 +20874,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1781099",
-    "title": "Molequest Case Challenge",
-    "organizer": "Indian Institute of Technology (IIT), Madras",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6aea1d8301b02_shaastra_2027_dice_logo.png",
-    "mode": "hybrid",
-    "venue_city": "Chennai",
-    "venue_address": "IIT Madras",
-    "latitude": 13.0827,
-    "longitude": 80.2707,
-    "themes": [
-      "cognitive flexibility",
-      "scenario analysis",
-      "problem solving",
-      "molecular biology techniques",
-      "critical thinking",
-      "genomics data analysis",
-      "report writing",
-      "public speaking and presentation skills",
-      "analytical skills",
-      "research skills"
-    ],
-    "start_date": "2026-11-05T08:35:00.393Z",
-    "end_date": "2027-01-06T18:00:00+05:30",
-    "registration_deadline": "2026-12-02T00:00:12+05:30",
-    "problem_statement": "<p><span style=\"font-weight: 400;\">MOLEQUEST Case Challenge is a competition for people who love to read, think and connect the dots. Teams (1-4 members) will dive into biological puzzles, work out what&rsquo;s happening at the molecular level, and build solutions that hold up when the evidence takes an unexpected turn. The event is structured in three rounds, each one testing a progressively deeper layer of scientific competence: conceptual knowledge, analytical depth and real-time adaptability. The theme is Epigenetics. So, think like scientists and find what the epigenome is hiding.</span></p>\n<p><strong>Eligibility:</strong></p>\n<p><span style=\"font-weight: 400;\">Open to undergraduate and postgraduate students</span></p>\n<p><strong>Target Audience:</strong></p>\n<p><span style=\"font-weight: 400;\">Students interested in</span></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Epigenetics and Genomics</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Molecular Biology</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Biotechnology</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Biochemistry</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Biomedical Engineering</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Plant and Agricultural biotechnology</span></li>\n</ul>\n<p><strong>Competition Rounds:</strong></p>\n<p><strong>Round 1: Online Quiz</strong></p>\n<p><span style=\"font-weight: 400;\">This quiz will test grasp of basic molecular biology and epigenetics fundamentals, the toolkit you will need to crack the cases ahead. Be prepared to think fast and be sharp to earn your place in the next round.</span></p>\n<p><strong>Round 2: Submission Round</strong></p>\n<p><span style=\"font-weight: 400;\">In this round, teams will be given a set of cases. Teams pick one of the cases, study the data provided, and submit a written report, answering the questions given in the case document.</span></p>\n<p><strong>Finals at IIT Madras: Offline Round</strong></p>\n<p><span style=\"font-weight: 400;\">Teams arrive with a prepared PPT based on their Round 2 work and will be given a sealed envelope revealing new findings. They are then given 1 hour to rework their PPT adding any changes in their reasoning. They should then defend their Round 2 report and explain what changes and doesn&rsquo;t change in their reasoning because of the new information to a panel of judges.</span></p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/molequest-case-challenge-iit-madras-1781099",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:00.393Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1775922",
     "title": "RoboRun 2027",
     "organizer": "Indian Institute of Technology (IIT), Madras",
@@ -21913,53 +21013,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/aetherhack-nit-rourkela-1781204",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:00.393Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1781090",
-    "title": "Mock Stock",
-    "organizer": "Jadavpur University (JU), Kolkata",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ae0cb1307de1_mockstock_dark.jpg",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "securities trading",
-      "trading strategies",
-      "financial markets knowledge",
-      "technical analysis (finance)",
-      "risk analysis"
-    ],
-    "start_date": "2026-11-05T08:35:00.393Z",
-    "end_date": "2026-11-14T23:59:00+05:30",
-    "registration_deadline": "2026-11-14T23:59:00+05:30",
-    "problem_statement": "<p><strong>The Entrepreneurship Cell of Jadavpur University, Kolkata</strong><span style=\"font-weight: 400;\">, presents</span><strong> Mock Stock </strong><span style=\"font-weight: 400;\">&mdash; a live trading simulation as part of </span><strong>E-Summit 2026</strong><span style=\"font-weight: 400;\">.</span></p>\n<p><span style=\"font-weight: 400;\">The stock market thrives on chaos, but true traders find their edge amidst the madness. Mock Stock offers you the chance to do that without real-world risks. Do you have the insight, skill, and nerve to turn unpredictability into profit? Step into a thrilling simulation that pits you against the market&rsquo;s wild swings. Test your strategies, sharpen your instincts, and experience the adrenaline rush of trading in a competitive, risk-free environment.</span></p>\n<p><span style=\"font-weight: 400;\">Whether you&rsquo;re a rookie trader or a seasoned strategist, Mock Stock is your opportunity to learn, adapt, and dominate. Compete with the best from across the country and dive deep into the intricacies of stock trading.</span></p>\n<p><strong>Competition Format:</strong></p>\n<p><span style=\"font-weight: 400;\">As per standard market hours, from</span><strong> 9:15 AM to 3:30 PM</strong><span style=\"font-weight: 400;\"> from </span><strong>16th to 20th November 2026</strong><span style=\"font-weight: 400;\">.</span></p>\n<p><strong>Eligibility Criteria:</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Open to all</span><strong> undergraduate (UG)</strong><span style=\"font-weight: 400;\"> and </span><strong>postgraduate (PG)</strong><span style=\"font-weight: 400;\"> students from any discipline.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Students from any college or university across India are eligible.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">This is an </span><strong>individual event</strong><span style=\"font-weight: 400;\">.</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><span style=\"font-weight: 400;\">Participants must adhere strictly to all competition rules and platform guidelines.</span></li>\n</ul>\n<p><strong>Rewards and Recognition:</strong></p>\n<ul>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><strong>Winner, First Runner-Up, Second Runner-Up:</strong><span style=\"font-weight: 400;\"> Certificate of Achievement</span></li>\n<li style=\"font-weight: 400;\" aria-level=\"1\"><strong>E-Certificates </strong><span style=\"font-weight: 400;\">will be provided to all participants.</span></li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/mock-stock-e-summit26-jadavpur-university-jadavpur-university-kolkata-1781090",
     "platform": "unstop",
     "created_at": "2026-11-05T08:35:00.393Z",
     "is_active": true
@@ -23961,58 +23014,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1773084",
-    "title": "Arithmóstock",
-    "organizer": "Narsee Monjee College of Commerce and Economics, Mumbai",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ad8b9d1a0d74_arithmos_8_0_logo.png",
-    "mode": "offline",
-    "venue_city": "Mumbai",
-    "venue_address": "Shri Bhagubhai Mafatlal Polytechnic Building, Irla, N. R, G Marg, opposite Cooper Hospital, Navpada, Suvarna Nagar, Vile Parle, Mumbai - 400056 Narsee Monjee College of Commerce and Economics, Mumbai, Mumbai, Maharashtra, India",
-    "latitude": 19.07283,
-    "longitude": 72.88261,
-    "themes": [
-      "financial analysis",
-      "decision making",
-      "market analysis",
-      "investment management",
-      "risk management",
-      "securities trading",
-      "financial markets knowledge",
-      "portfolio construction",
-      "technical analysis (finance)",
-      "risk analysis"
-    ],
-    "start_date": "2026-11-05T08:35:01.175Z",
-    "end_date": "2026-12-14T14:48:45+05:30",
-    "registration_deadline": "2026-12-10T21:20:24+05:30",
-    "problem_statement": "<p>&ldquo;The goal of a successful trader is to make the best trades.&rdquo; The bell hasn&rsquo;t rung, but the tension&rsquo;s already rising. Charts flicker, algorithms whisper, and every player&rsquo;s waiting for the first move. Whispers turn to wagers, and every decimal becomes a battleground. The market breathes in chaos, and you&rsquo;re the one shaping its rhythm. Beyond the glow of green ticks and rising graphs, volatility lurks: fake rallies, sudden<br />dips, and trust that&rsquo;s thinner than a margin call. Analyse market trends, take calculated risks, build smartly, invest wisely, and build your portfolio to become the top dog! You&rsquo;re not just trading stocks; you&rsquo;re<br />trading foresight, conviction, and control. Will you decode the Bulls and Bears or watch your empire dissolve before the final bell?</p>\n<ul>\n<li>Podiums:&nbsp;<strong>3</strong></li>\n<li>Level:&nbsp;<strong>Flagship<br /></strong></li>\n<li>Team Size: <strong>2<br /></strong></li>\n<li>Mode:<strong>&nbsp;Offline</strong></li>\n</ul>\n<p><strong>Rules and Regulations:</strong></p>\n<ul>\n<li>Participants are requested not to loiter on the college premises and behave respectfully with the staff present.</li>\n<li>Throughout the online events, the participants&rsquo; cameras must be turned on. Please make sure you have a stable and working internet connection.&nbsp;</li>\n<li>The organizers are not liable for any technical difficulties encountered by participants; however, if any are discovered, the event organizers&rsquo; discretion will be considered final.&nbsp;</li>\n<li>The decisions of the judges and organizers shall be final and binding.&nbsp;</li>\n<li>Any disrespect exhibited by the participants may result in disqualification.&nbsp;</li>\n<li>The organizers have the authority to disqualify a participant or make modifications to the rules and regulations.&nbsp;</li>\n<li>The personal information provided during registration must be accurate; those who fail to do so will be disqualified.&nbsp;</li>\n<li>Any form of coarseness, lewdness, or misbehavior will not be permitted and will result in repercussions at the judge's discretion.&nbsp;</li>\n<li>No team will be allowed to swap players once it qualifies for the semi-finals and finals. No such request will be entertained.&nbsp;</li>\n<li>Participants must not disclose the name of their college at any point during the events. Failing to do so will lead to repercussions decided by the organising committee.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/arithmostock-arithmos-80-the-management-and-strategy-festival-narsee-monjee-college-of-commerce-and-economi-1773084",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.175Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1773066",
     "title": "Case Conclave",
     "organizer": "Narsee Monjee College of Commerce and Economics, Mumbai",
@@ -24544,152 +23545,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1770953",
-    "title": "EconoNations",
-    "organizer": "Shaheed Bhagat Singh Evening College (SBSEC), University of Delhi (DU), New Delhi",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ad4a0c366350_whatsapp_image_2026-10-18_at_16_03_44.jpeg",
-    "mode": "offline",
-    "venue_city": "South Delhi",
-    "venue_address": "Shaheed Bhagat Singh Evening College",
-    "latitude": 28.6139,
-    "longitude": 77.209,
-    "themes": [
-      "macroeconomic analysis",
-      "negotiation",
-      "strategic planning",
-      "resource management",
-      "decision making"
-    ],
-    "start_date": "2026-11-05T08:35:01.710Z",
-    "end_date": "2026-11-17T18:00:00+05:30",
-    "registration_deadline": "2026-11-12T00:50:04+05:30",
-    "problem_statement": "<p><strong>Overview</strong></p>\n<p>Negotiate. Strategise. Shape the Global Economy.</p>\n<p>What if you were responsible for running an entire country's economy? Could you manage scarce resources, navigate global crises, negotiate trade deals, and secure economic growth while protecting your nation's interests?</p>\n<p><strong>EconoNations</strong> is an economics-based simulation competition that places participants in the role of national policymakers navigating an interconnected global economy. Through strategic resource trading, negotiations, and responses to changing global developments, teams must make decisions that shape their country's economic performance and long-term prospects.</p>\n<p>The competition combines economic reasoning, international trade, resource management, geopolitical strategy, and decision-making in a dynamic simulation of the global economy.</p>\n<p><strong>Structure</strong></p>\n<p><strong>Round 1: The Economics Quiz</strong></p>\n<p><strong>Format: Quiz | Elimination Round</strong></p>\n<ul>\n<li>The competition begins with an economics quiz designed to test participants' understanding of economic concepts, international trade, global affairs, and their real-world applications.</li>\n<li>Participants will be assessed on their conceptual clarity, analytical thinking, and awareness of the economic forces shaping the world.</li>\n<li><strong>Objective:</strong> Shortlist the 12 qualifying teams that advance to the next stage.</li>\n</ul>\n<p><strong>Round 2: Nation Allocation and Economic Setup</strong></p>\n<p><strong>Format: Country Allocation | Strategy Formation</strong></p>\n<ul>\n<li>The 12 qualifying teams will be assigned countries through a random allocation process. Each team will represent its assigned nation and receive an initial economic profile consisting of resources, financial capacity, and other economic strengths and limitations.</li>\n<li>Teams must study their country's starting position, identify its comparative advantages and dependencies, and formulate an initial strategy for navigating the global economy.</li>\n</ul>\n<p><strong>Round 3: The Global News Simulation</strong></p>\n<p><strong>Format: Three News Rounds | Negotiation and Resource Trading</strong></p>\n<ul>\n<li>This is the core of EconoNations.</li>\n<li>Across three rounds, teams will respond to changing global developments that influence resource availability, market demand, trade relations, and economic priorities.</li>\n<li>Each round will introduce a new news event or global economic situation. Teams must interpret its implications, identify the resources and economic relationships that become more important, and negotiate with other countries to secure their national interests.</li>\n<li>During each round, teams will have a limited period to negotiate trade deals, exchange resources, manage their financial capacity, and adapt their strategies to the evolving global environment.</li>\n<li>Every decision carries consequences. A resource that seems less valuable today may become essential tomorrow, while excessive dependence on another country could leave a nation vulnerable to sudden disruptions.</li>\n<li><strong>Objective:</strong> Build a resilient and competitive economy through strategic negotiation, efficient resource allocation, and the ability to adapt to changing global conditions.</li>\n</ul>\n<p><strong>Final Round: The Future of Nations</strong></p>\n<p><strong>Format: Strategic Presentation | 4 Minutes per Team</strong></p>\n<ul>\n<li>The final round moves beyond immediate trading decisions and challenges teams to think about the future of their economies.</li>\n<li>Each team will deliver a four-minute presentation outlining its country's future economic strategy, based on the position it has built throughout the simulation.</li>\n<li>Teams should explain how they intend to utilise their available resources, develop economic opportunities, establish strategic international relationships, and strengthen their country's long-term economic prospects.</li>\n<li>The presentation should demonstrate forward-thinking economic reasoning, a clear understanding of resource interdependence, and the ability to connect present decisions with future outcomes.</li>\n<li><strong>Objective:</strong> Evaluate each team's long-term vision, strategic thinking, and understanding of how resource management and international economic relationships can shape national development.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/econonations-shaheed-bhagat-singh-evening-college-sbsec-university-of-delhi-du-new-delhi-1770953",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.710Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1770946",
-    "title": "The State Craft Challenge ",
-    "organizer": "Shaheed Bhagat Singh Evening College (SBSEC), University of Delhi (DU), New Delhi",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ad4a26681038_u.jpeg",
-    "mode": "offline",
-    "venue_city": "South Delhi",
-    "venue_address": "Shaheed Bhagat Singh Evening College",
-    "latitude": 28.6139,
-    "longitude": 77.209,
-    "themes": [
-      "strategic thinking",
-      "resource management",
-      "decision making",
-      "cost-benefit analysis",
-      "public speaking and presentation skills"
-    ],
-    "start_date": "2026-11-05T08:35:01.710Z",
-    "end_date": "2026-11-17T18:00:00+05:30",
-    "registration_deadline": "2026-11-12T00:50:16+05:30",
-    "problem_statement": "<p><strong>Overview</strong></p>\n<p>Think Strategically. Bid Wisely. Build Solutions.</p>\n<p>Can you solve a state's most pressing challenges with limited resources, strategic decisions, and economic reasoning?</p>\n<p><strong>State Craft Challenge</strong> is an economics-based case competition that puts participants in the role of policymakers responsible for addressing real-world challenges faced by Indian states. From managing resource constraints to making strategic investments, teams must think critically, allocate resources efficiently, and develop practical solutions under a limited budget.</p>\n<p>The competition combines economic knowledge, case-study analysis, auction-based resource allocation, teamwork, and presentation skills in an engaging simulation of policymaking.</p>\n<p><strong>Structure</strong></p>\n<p><strong>Round 1: The Economics Quiz</strong></p>\n<p><strong>Format: Online Quiz | Elimination Round</strong></p>\n<ul>\n<li>The competition begins with an economics quiz designed to test participants' understanding of economic concepts, current affairs, and their practical applications.</li>\n<li>Participants will be assessed on their conceptual clarity, analytical thinking, and ability to connect economic principles with real-world situations.</li>\n<li><strong>Objective:</strong> Identify the 12 qualifying teams that advance to the next round.</li>\n</ul>\n<p><strong>Round 2: The State Challenge</strong></p>\n<p><strong>Format: Case Study + Resource Auction + Presentation</strong></p>\n<ul>\n<li>The 12 qualifying teams will enter the main competition, where each team will be assigned an Indian state through a chit-based allocation system.</li>\n<li>Each team will receive a case study outlining a specific problem faced by its assigned state. The challenge could involve issues such as unemployment, inadequate infrastructure, agricultural distress, water scarcity, industrial development, or other socioeconomic concerns.</li>\n<li>Teams must analyse their case, identify the key challenges, and determine which resources are essential to developing an effective solution.</li>\n</ul>\n<p><strong>The Resource Auction</strong></p>\n<ul>\n<li>Participants will then compete in an auction to acquire the resources required to address their state's challenges. Working within a limited budget, teams must decide which resources to prioritise, how much to bid, and how to allocate their available funds efficiently.</li>\n<li>The auction will test strategic thinking, resource management, decision-making, and the ability to balance competing priorities.</li>\n</ul>\n<p><strong>The Solution Presentation</strong></p>\n<ul>\n<li>After the auction, each team will present its proposed solution, explaining how the resources acquired will be used to address the assigned problem.</li>\n<li>Teams should demonstrate the feasibility of their recommendations, justify their resource allocation decisions, and explain the expected economic and social impact on their state.</li>\n</ul>\n<p><strong>Prizes</strong></p>\n<ul>\n<li>\n<div>1st Prize: ₹4,000</div>\n</li>\n<li>\n<div>2nd Prize: ₹2,500</div>\n</li>\n<li>\n<div>3rd Prize: ₹1,000</div>\n</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/the-state-craft-challenge-shaheed-bhagat-singh-evening-college-sbsec-university-of-delhi-du-new-delhi-1770946",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.710Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1771653",
-    "title": "CaseCarnival 2.0",
-    "organizer": "National Institute of Technology (NIT), Rourkela",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-68f4f39796c28_case_carnival.png",
-    "mode": "offline",
-    "venue_city": "Rourkela",
-    "venue_address": "NIT Rourkela",
-    "latitude": 22.2604,
-    "longitude": 84.8536,
-    "themes": [
-      "teamwork",
-      "critical thinking",
-      "problem solving",
-      "presentation",
-      "analytical thinking",
-      "problem solving",
-      "critical thinking",
-      "business analytics",
-      "strategic thinking",
-      "public speaking and presentation skills"
-    ],
-    "start_date": "2026-11-05T08:35:01.710Z",
-    "end_date": "2026-11-15T23:59:52+05:30",
-    "registration_deadline": "2026-11-05T23:59:58+05:30",
-    "problem_statement": "<p><strong>Every business challenge has a story. Every problem has an opportunity. What sets great problem-solvers apart is their ability to connect the dots, challenge assumptions, and turn insights into impactful solutions.</strong></p>\n<p><strong>Case Carnival 2026</strong>, the flagship case competition hosted by the <strong>Analytics and Consulting Club (AnC), NIT Rourkela</strong>, invites aspiring strategists, consultants, and analytical thinkers from across India to put their problem-solving abilities to the test.</p>\n<p>Go beyond textbook frameworks, navigate real-world business challenges, and develop solutions that combine analytical rigour with strategic creativity. Whether your strength lies in data, business strategy, innovation, or critical thinking, this is your platform to challenge conventional perspectives and showcase your potential.</p>\n<p><strong>Case Carnival 2.0 will also serve as a platform for sophomore inductions into the Analytics and Consulting Club (AnC), NIT Rourkela.</strong> Undergraduate students at NIT Rourkela will have the opportunity to showcase their analytical thinking, problem-solving abilities, and strategic approach through the competition as part of the sophomore induction process.</p>\n<p><strong>Eligibility Criteria</strong></p>\n<ul>\n<li>Open to all undergraduate (UG) and postgraduate (PG) students from any discipline.</li>\n<li>Students from any college or university across India are eligible to participate.</li>\n<li>Teams must consist of <strong>1 to 4 members</strong>.</li>\n<li>Inter-college, cross-specialization, and cross-year teams are permitted.</li>\n<li>Each participant may register and participate in only one team.</li>\n<li>All team members must complete their registration together and comply with the competition guidelines.</li>\n</ul>\n<p><strong>Competition Format</strong></p>\n<p>Round 1: Preliminary Case Study Submission</p>\n<ul>\n<li><strong>Task:</strong> Analyze a real-world business problem and submit a concise case deck of <strong>3&ndash;5 pages</strong>, including the cover and concluding pages.</li>\n<li><strong>Evaluation Criteria:</strong>\n<ul>\n<li>Depth and quality of analysis</li>\n<li>Feasibility and effectiveness of proposed solutions</li>\n<li>Clarity of thought and logical reasoning</li>\n<li>Innovation and originality</li>\n</ul>\n</li>\n<li><strong>Outcome:</strong> The <strong>Top 30 teams</strong> will qualify for the final round.</li>\n</ul>\n<p><strong>Round 2: Final Case Presentation</strong></p>\n<ul>\n<li><strong>Format:</strong> Offline, in-person presentation</li>\n<li><strong>Presentation Duration:</strong> 5 minutes, followed by 5 minutes of Q&amp;A</li>\n<li><strong>Evaluation Parameters:</strong>\n<ul>\n<li>Understanding and interpretation of the business problem</li>\n<li>Feasibility, originality, and impact of the proposed solution</li>\n<li>Analytical reasoning and strategic approach</li>\n<li>Clarity of communication and presentation skills</li>\n<li>Ability to defend recommendations and respond to questions</li>\n</ul>\n</li>\n</ul>\n<p><strong>Rewards and Recognition</strong></p>\n<ul>\n<li><strong>Total Prize Pool:</strong> 5,000</li>\n<li>Prizes and certificates will be awarded to deserving participants and winners.</li>\n<li>Further details regarding prizes and distribution will be communicated by the organizing team.</li>\n</ul>\n<p><strong>The Challenge Awaits</strong></p>\n<p>Great ideas don't emerge from easy questions. They emerge when curiosity meets complexity and analysis leads to action.</p>\n<p>Bring your perspective. Challenge the status quo. Build solutions that make a difference.</p>\n<p><strong>Case Carnival 2026 &mdash; where sharp thinking meets strategic action.</strong></p>\n<p>Organized by the <strong>Analytics and Consulting Club (AnC), NIT Rourkela</strong>.</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/casecarnival-20-nit-rourkela-1771653",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.710Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1771594",
     "title": "Omnikon Bug Hunt 2026 - Web Security Challenge",
     "organizer": "Omnikon",
@@ -24877,51 +23732,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/know-your-mind-the-7-day-intelligence-streak-challenge-hirehelp-ai-1770710",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.710Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1770859",
-    "title": "When Lean Has No Slack: Axiom & Next Operations Case Challenge 2026",
-    "organizer": "Xavier School of Management (XLRI), Delhi",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/uploadedManual-6ad3393fdab52_whatsapp_image_2026-10-17_at_12_34_30.jpeg",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "inventory optimization",
-      "excel data analysis",
-      "data-driven decision making"
-    ],
-    "start_date": "2026-11-05T08:35:01.710Z",
-    "end_date": "2026-11-13T23:59:00+05:30",
-    "registration_deadline": "2026-11-06T12:59:00+05:30",
-    "problem_statement": "<p><strong>General Rules</strong></p>\n<ul>\n<li>A participant can belong to only one team. Team composition cannot be changed after registration.</li>\n<li>All work must be original. Copied content or unsourced figures may lead to disqualification.</li>\n<li>Only publicly available data may be used. Confidential company information is not allowed.</li>\n<li>The decisions of the organisers and judges are final.</li>\n<li>The organisers may change dates or rules, with updates communicated through Unstop.</li>\n</ul>\n<p><strong>Frequently Asked Questions (FAQs)</strong></p>\n<ul>\n<li>Do we need company data?\n<ul>\n<li>No. The case is based entirely on public data. Annex B lists the sources where the data can be found.</li>\n</ul>\n</li>\n<li>When will we receive the case?\n<ul>\n<li>The case PDF will be released to teams that qualify through the Stage 1 quiz on the day the results are announced.</li>\n</ul>\n</li>\n<li>Can we choose any industry for the buffer model?\n<ul>\n<li>No. Teams must choose one of the following industries: aviation, electric two-wheelers, passenger vehicles, or consumer electronics.</li>\n</ul>\n</li>\n<li>Is the Excel model compulsory?\n<ul>\n<li>No. However, judges may use it to verify your buffer model, so preparing it is recommended.</li>\n</ul>\n</li>\n<li>Can we use AI tools?\n<ul>\n<li>Yes. AI tools are permitted, provided their use is disclosed on the data trail slide. Every number must have a valid source.</li>\n</ul>\n</li>\n<li>Do slide limits include the cover and data trail slides?\n<ul>\n<li>No. The cover slide and data trail slide are excluded from the slide limit. Teams may also include up to three appendix slides.</li>\n</ul>\n</li>\n<li>Will the final round be online or offline?\n<ul>\n<li>The format of the final round will be confirmed and communicated later.</li>\n</ul>\n</li>\n<li>Whom should we contact if we have questions?\n<ul>\n<li>Contact details will be provided by the organisers.</li>\n</ul>\n</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/when-lean-has-no-slack-axiom-next-operations-case-challenge-2026-nova-exilaro26-xlri-delhi-1770859",
     "platform": "unstop",
     "created_at": "2026-11-05T08:35:01.710Z",
     "is_active": true
@@ -25397,53 +24207,6 @@
     "is_active": true
   },
   {
-    "id": "unstop-1769343",
-    "title": "Consulting: Strategy Under Pressure",
-    "organizer": "Masters' Union School of Business",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6ad6506984760_Masters_Union_Logo_Black_on_Transparent.png",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "business continuity planning (bcp)",
-      "strategic thinking",
-      "oil and gas industry knowledge",
-      "energy market analysis",
-      "scenario planning"
-    ],
-    "start_date": "2026-11-05T08:35:01.710Z",
-    "end_date": "2026-11-15T00:00:00+05:30",
-    "registration_deadline": "2026-11-15T00:00:00+05:30",
-    "problem_statement": "<p><strong>Overview</strong></p>\n<p>How do you prioritise when the consequences extend beyond a single business?</p>\n<p>The Consulting track at CaseUnion 4.0 presents two strategic challenges involving government resilience and long-term resource value.</p>\n<p><strong>Government Continuity</strong></p>\n<p>A Middle Eastern government is assessing how to maintain essential state functions during a catastrophic national security crisis.</p>\n<p>Develop a strategy for prioritising resilient infrastructure that supports leadership, communications, decision-making and public services during severe disruption.</p>\n<p><strong>Oil Sustainability</strong></p>\n<p>A Middle Eastern government wants to maximise the cumulative revenue generated from its remaining oil reserves while extending the resource&rsquo;s economic life.</p>\n<p>Develop a strategic recommendation that addresses finite reserves and a changing global energy landscape.</p>\n<p><strong>Submission Expectations</strong></p>\n<p>Define the problem, structure the analysis and explain your recommendation. Address implementation priorities, key assumptions and the consequences of your choices.</p>\n<p><strong>Rules</strong></p>\n<p>Treat the briefs as case scenarios. Clearly identify external evidence and additional assumptions. Support recommendations with relevant analysis.</p>\n<p><strong>Process, Format and Eligibility</strong></p>\n<p>The final case allocation or selection process, round structure, team size, eligibility, deadlines and submission requirements will be announced in the competition instructions.</p>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/consulting-strategy-under-pressure-caseunion-40-masters-union-school-of-business-1769343",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.710Z",
-    "is_active": true
-  },
-  {
     "id": "unstop-1769336",
     "title": "Quantico: The FinTech Risk Challenge",
     "organizer": "Masters' Union School of Business",
@@ -25486,53 +24249,6 @@
     ],
     "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
     "apply_url": "https://unstop.com/competitions/quantico-the-fintech-risk-challenge-caseunion-40-masters-union-school-of-business-1769336",
-    "platform": "unstop",
-    "created_at": "2026-11-05T08:35:01.710Z",
-    "is_active": true
-  },
-  {
-    "id": "unstop-1769347",
-    "title": "Marketing in the Age of AI",
-    "organizer": "Masters' Union School of Business",
-    "banner_image_url": "https://d8it4huxumps7.cloudfront.net/uploads/images/150x150/6ae335461a337_Masters_Union_Logo_Black_on_Transparent.png",
-    "mode": "online",
-    "venue_city": "India",
-    "venue_address": "India",
-    "latitude": null,
-    "longitude": null,
-    "themes": [
-      "brand strategy",
-      "artificial intelligence (ai)",
-      "consumer behavior analysis",
-      "product positioning",
-      "strategic thinking"
-    ],
-    "start_date": "2026-11-05T08:35:01.710Z",
-    "end_date": "2026-11-17T00:00:00+05:30",
-    "registration_deadline": "2026-11-15T00:00:00+05:30",
-    "problem_statement": "<p><strong>Case Union 2026 &ndash; The Strategy</strong></p>\n<p>In a world where everyone can create more with AI, what can a brand truly own?</p>\n<p><strong>Case Union 2026</strong>, The Marketing Society&rsquo;s flagship national case competition hosted by Masters&rsquo; Union, challenges participants to build an AI-first marketing strategy for an iconic Indian brand that strengthens its differentiation, consumer relationships and long-term competitive advantage.</p>\n<p><strong>The Challenge</strong></p>\n<ul>\n<li>Identify how AI is reshaping the brand&rsquo;s competitive landscape and where it is vulnerable to imitation.</li>\n<li>Uncover authentic consumer insights and brand truths through primary research.</li>\n<li>Develop a distinctive, repeatable brand experience, ritual, cultural property or community that competitors cannot easily replicate.</li>\n<li>Define where AI should contribute and where human judgment must remain in control.</li>\n<li>Build a feasible, measurable and commercially viable strategy with clear costs, returns and success metric.</li>\n</ul>\n<div>\n<div>\n<div>\n<div>\n<div>\n<div>\n<div>\n<div>\n<div>\n<p><strong>Round 1: Mastermind Quiz</strong></p>\n<ul>\n<li>A 15-minute online quiz comprising 20 multiple-choice questions testing marketing fundamentals, brand knowledge, consumer psychology, AI concepts and real-world application. The round carries 20 marks, with one mark per correct answer and no negative marking.</li>\n</ul>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n<p><strong>Round 2: The Strategy</strong></p>\n<p>Shortlisted teams have five days (120 hours) to submit a strategy package comprising:</p>\n<ul>\n<li><strong>Core Deck:</strong> 4&ndash;5 slides covering the complete strategy.</li>\n<li><strong>Executive Summary:</strong> A one-page overview of the recommendation, differentiation strategy, AI boundaries and expected business outcomes.</li>\n<li><strong>Financial Sheet:</strong> Costs, projected value, assumptions and base, upside and downside scenarios.</li>\n<li><strong>Research Appendix:</strong> Primary research findings, methodology, sample and supporting sources.</li>\n<li><strong>AI-Use Disclosure:</strong> Details of AI tools used and how outputs were validated.</li>\n</ul>\n<p>Primary research through surveys, interviews, observation or social listening is mandatory.</p>\n<p><strong>Round 3: The Brand Room</strong></p>\n<ul>\n<li>The top six teams will present their strategies offline at Masters&rsquo; Union, followed by an 8-minute presentation and 7-minute jury Q&amp;A. Teams will be evaluated on strategic distinctiveness, consumer insight, positioning, responsible AI use, execution and commercial viability.</li>\n</ul>\n<p><strong>Rules</strong></p>\n<ul>\n<li>Teams must comprise 2&ndash;4 students from the same college, with one submission per team. All sources must be cited, AI use must be disclosed, and all work must be original. Misrepresentation of data or evidence may lead to disqualification. Teams must not share their work publicly before results are announced.</li>\n</ul>\n<p><strong>Eligibility and Submission</strong></p>\n<ul>\n<li>Open to teams of 2&ndash;4 students from the same college. Round 2 submissions must follow the prescribed formats and submission instructions. The deadline, submission link and other logistical details will be communicated separately.</li>\n</ul>",
-    "rounds_description": [
-      {
-        "round_num": 1,
-        "name": "Round 1: Screening & Idea Submission",
-        "date": "Stage 1",
-        "details": "Submit concept notes, presentation, and team details."
-      },
-      {
-        "round_num": 2,
-        "name": "Round 2: Prototype & Solution Development",
-        "date": "Stage 2",
-        "details": "Build working prototype and deliver project walkthrough."
-      },
-      {
-        "round_num": 3,
-        "name": "Grand Finale & Jury Review",
-        "date": "Grand Finale",
-        "details": "Live pitching, evaluation by panel, and cash award ceremony."
-      }
-    ],
-    "prizes_summary": "Cash prizes, certificates, official mentorship, and PPI hiring opportunities.",
-    "apply_url": "https://unstop.com/competitions/marketing-in-the-age-of-ai-caseunion-40-masters-union-school-of-business-1769347",
     "platform": "unstop",
     "created_at": "2026-11-05T08:35:01.710Z",
     "is_active": true
