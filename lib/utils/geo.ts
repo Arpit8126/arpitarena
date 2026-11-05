@@ -35,6 +35,9 @@ export const INDIAN_CITIES_COORDINATES: Record<string, Coordinates> = {
   bhubaneswar: { latitude: 20.2961, longitude: 85.8245 },
   goa: { latitude: 15.2993, longitude: 74.1240 },
   nagpur: { latitude: 21.1458, longitude: 79.0882 },
+  rourkela: { latitude: 22.2604, longitude: 84.8536 },
+  mangaluru: { latitude: 12.9141, longitude: 74.8560 },
+  mangalore: { latitude: 12.9141, longitude: 74.8560 },
 };
 
 /**
@@ -77,4 +80,3 @@ export function calculateHaversineDistance(
 function deg2rad(deg: number): number {
   return deg * (Math.PI / 180);
 }
-

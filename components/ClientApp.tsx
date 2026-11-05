@@ -27,7 +27,7 @@ export function ClientApp({
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex flex-col font-sans selection:bg-blue-500/20 selection:text-[#1c69d4]">
+    <div className="min-h-screen bg-[#0b0f19] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-950/20 via-[#0b0f19] to-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-blue-500/20 selection:text-blue-400">
       {/* 1. Top Brand Header (Scrolls naturally with page) */}
       <TopHeader />
 
@@ -70,7 +70,7 @@ export function ClientApp({
         )}
       </main>
 
-      {/* 5. Detail Modal (Exact Unstop Stages & Timelines Design + Scroll Lock) */}
+      {/* 5. Detail Modal */}
       <DetailModal
         type={selectedHackathon ? 'hackathon' : selectedOpportunity ? 'job' : null}
         item={selectedHackathon || selectedOpportunity}
@@ -80,20 +80,20 @@ export function ClientApp({
         }}
       />
 
-      {/* 6. Modern Clean Footer */}
-      <footer className="bg-white border-t border-slate-200 py-12 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 mt-12">
+      {/* 6. Modern Dark Cyber Footer */}
+      <footer className="bg-[#070a12] border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 text-xs text-slate-400 mt-12">
         <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-800/80">
             <div className="space-y-1">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#1c69d4] to-[#0ea5e9] text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 text-white flex items-center justify-center font-bold text-xs shadow-md">
                   DP
                 </div>
-                <span className="font-extrabold text-sm text-slate-900 uppercase tracking-wide">
+                <span className="font-extrabold text-sm text-white uppercase tracking-wide">
                   DevPulse Platform
                 </span>
               </div>
-              <p className="text-slate-500 text-xs font-normal max-w-xl">
+              <p className="text-slate-400 text-xs font-normal max-w-xl">
                 Real-time technology opportunities aggregator connecting Indian student builders with verified hackathons, internships, and engineering careers.
               </p>
             </div>
@@ -103,14 +103,14 @@ export function ClientApp({
                 href="https://www.instagram.com/arpitcodecraft/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-800 hover:text-[#1c69d4] font-semibold transition-colors"
+                className="text-white hover:text-blue-400 font-semibold transition-colors"
               >
                 Developer: Arpit Pandey (@arpitcodecraft) ›
               </a>
 
               <a
                 href="mailto:contact@devpulse.local?subject=Listing%20Inquiry"
-                className="text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1"
+                className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
               >
                 <Mail className="w-3.5 h-3.5" />
                 <span>Contact / Inquiry</span>
@@ -118,7 +118,7 @@ export function ClientApp({
 
               <Link
                 href="/admin-sync"
-                className="text-slate-400 hover:text-slate-900 transition-colors flex items-center gap-1 font-mono text-[11px]"
+                className="text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-1 font-mono text-[11px]"
                 title="Hidden Local Admin Sync Dashboard"
               >
                 <Terminal className="w-3.5 h-3.5" />
@@ -127,11 +127,11 @@ export function ClientApp({
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-slate-400 font-normal">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-slate-500 font-normal">
             <p>
-              Direct Attribution Disclaimer: All hackathons, company names, logos, trademarks, and job postings belong to their respective organizers and platforms (Devfolio, Devpost, Unstop). DevPulse aggregates official public listings and redirects directly to official endpoints.
+              Direct Attribution Disclaimer: All hackathons, company names, logos, trademarks, and job postings belong to their respective organizers and platforms (Devfolio, Devpost, Unstop, Greenhouse). DevPulse aggregates official public listings and redirects directly to official endpoints.
             </p>
-            <div className="shrink-0 text-slate-600 font-medium">
+            <div className="shrink-0 text-slate-400 font-medium">
               Engineered by Arpit Pandey
             </div>
           </div>
