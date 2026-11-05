@@ -21,6 +21,51 @@ interface HackathonFeedProps {
   onSelectHackathon: (hackathon: Hackathon) => void;
 }
 
+// Intelligent theme-based banner selector for hackathons without wide banner photography
+function getHackathonCoverBanner(hackathon: Hackathon): string {
+  const url = hackathon.banner_image_url || '';
+  const isLogoOnly =
+    url.includes('150x150') ||
+    url.includes('uploadedManual') ||
+    url.includes('organisation_image') ||
+    url.includes('svg/unstop-logo');
+
+  // If it's already a real wide banner (Devfolio, Devpost, or high-res cover), use it
+  if (!isLogoOnly && url && url.startsWith('http')) {
+    return url;
+  }
+
+  const text = (hackathon.title + ' ' + (hackathon.themes || []).join(' ') + ' ' + hackathon.organizer).toLowerCase();
+
+  if (text.includes('ai') || text.includes('genai') || text.includes('machine learning') || text.includes('deep learning') || text.includes('gpt')) {
+    return 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('web3') || text.includes('blockchain') || text.includes('crypto') || text.includes('defi')) {
+    return 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('robot') || text.includes('drone') || text.includes('hardware') || text.includes('iot') || text.includes('embedded')) {
+    return 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('cyber') || text.includes('security') || text.includes('ctf') || text.includes('protocol') || text.includes('defense')) {
+    return 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('cloud') || text.includes('devops') || text.includes('azure') || text.includes('aws') || text.includes('network')) {
+    return 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('case') || text.includes('strategy') || text.includes('econo') || text.includes('business') || text.includes('state craft') || text.includes('carnival')) {
+    return 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('health') || text.includes('med') || text.includes('bio') || text.includes('care')) {
+    return 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80';
+  }
+  if (text.includes('code') || text.includes('coding') || text.includes('software') || text.includes('developer') || text.includes('hack') || text.includes('vibe')) {
+    return 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80';
+  }
+
+  // Inspiring hackathon teams collaboration cover
+  return 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80';
+}
+
 export function HackathonFeed({
   hackathons,
   searchQuery,
@@ -149,7 +194,7 @@ export function HackathonFeed({
 
   return (
     <div className="space-y-6">
-      {/* Modern Unstop-Style Filters Panel */}
+      {/* Modern Filter Panel */}
       <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           {/* Mode Filter Chips */}
@@ -251,7 +296,7 @@ export function HackathonFeed({
         )}
       </div>
 
-      {/* Grid: Modern Unstop-Style Rounded Cards (3 columns) */}
+      {/* Grid: Vibrant Modern Hackathon Cards (3 columns) */}
       {filteredHackathons.length === 0 ? (
         <div className="bg-white border border-slate-200 rounded-2xl p-16 text-center space-y-3 shadow-xs">
           <Globe className="w-12 h-12 text-slate-300 mx-auto" />
@@ -264,48 +309,33 @@ export function HackathonFeed({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredHackathons.map((hackathon) => {
             const isDeadlinePassed = (hackathon as any).days_remaining <= 0;
-            const isThumb =
-              hackathon.banner_image_url?.includes('150x150') ||
-              hackathon.banner_image_url?.includes('uploadedManual') ||
-              hackathon.platform === 'unstop';
+            const coverImage = getHackathonCoverBanner(hackathon);
+            const hasOrganizerLogo = Boolean(hackathon.banner_image_url && hackathon.banner_image_url.startsWith('http'));
 
             return (
               <div
                 key={hackathon.id}
-                className="bg-white border border-slate-200/90 hover:border-blue-400 rounded-2xl overflow-hidden shadow-xs hover:shadow-lg hover:-translate-y-1 flex flex-col justify-between transition-all duration-200 group"
+                className="bg-white border border-slate-200/90 hover:border-blue-400 rounded-2xl overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between transition-all duration-200 group"
               >
-                {/* Visual Header */}
-                <div className="relative aspect-[16/9] w-full bg-[#0f172a] overflow-hidden flex items-center justify-center">
-                  {isThumb ? (
-                    <div className="flex flex-col items-center justify-center p-6 text-center">
-                      <div className="w-20 h-20 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-                        <img
-                          src={hackathon.banner_image_url}
-                          alt={hackathon.organizer}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span className="text-[11px] font-semibold text-white/80 uppercase tracking-wider mt-2.5 truncate max-w-[240px]">
-                        {hackathon.organizer}
-                      </span>
-                    </div>
-                  ) : (
-                    <img
-                      src={hackathon.banner_image_url}
-                      alt={hackathon.title}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src =
-                          'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80';
-                      }}
-                      className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  )}
+                {/* Visual Banner Header with Gradient Overlay & Floating Logo Avatar */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-900">
+                  <img
+                    src={coverImage}
+                    alt={hackathon.title}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80';
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+
+                  {/* Gradient Overlay for high-contrast badge legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-black/20 to-black/40" />
 
                   {/* Mode Pill */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-900/90 text-white backdrop-blur-sm shadow-xs">
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-900/90 text-white backdrop-blur-md shadow-xs border border-white/10">
                       {hackathon.mode === 'offline' ? 'In-Person' : hackathon.mode === 'hybrid' ? 'Hybrid' : 'Online'}
                     </span>
                     {hackathon.distance_km !== undefined && (
@@ -316,20 +346,35 @@ export function HackathonFeed({
                   </div>
 
                   {/* Platform & Days Badge */}
-                  <div className="absolute top-3 right-3 flex items-center gap-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/95 text-slate-800 shadow-xs border border-white/50 backdrop-blur-sm">
+                  <div className="absolute top-3 right-3 flex items-center gap-1 z-10">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/95 text-slate-800 shadow-xs border border-white/50 backdrop-blur-md">
                       {isDeadlinePassed ? 'Closed' : `${(hackathon as any).days_remaining}d Left`}
                     </span>
                   </div>
+
+                  {/* Organizer Logo Avatar floating on bottom-left */}
+                  {hasOrganizerLogo && (
+                    <div className="absolute bottom-2.5 left-3.5 z-10 flex items-center gap-2">
+                      <div className="w-10 h-10 rounded-xl bg-white p-1 shadow-md border border-white/80 flex items-center justify-center shrink-0">
+                        <img
+                          src={hackathon.banner_image_url}
+                          alt={hackathon.organizer}
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      </div>
+                      <span className="text-xs font-bold text-white drop-shadow-md truncate max-w-[200px]">
+                        {hackathon.organizer}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Card Content */}
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-[#1c69d4] truncate">
-                      {hackathon.organizer}
-                    </div>
-
                     <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#1c69d4] transition-colors line-clamp-2 leading-snug">
                       {hackathon.title}
                     </h3>
@@ -364,7 +409,7 @@ export function HackathonFeed({
                     </div>
                   </div>
 
-                  {/* Action Buttons: Modern Rounded Buttons */}
+                  {/* Action Buttons */}
                   <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2.5">
                     <button
                       onClick={() => onSelectHackathon(hackathon)}

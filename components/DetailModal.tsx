@@ -18,6 +18,43 @@ import {
   CheckCircle,
 } from 'lucide-react';
 
+// Intelligent theme-based banner selector
+function getHackathonCoverBanner(hackathon: Hackathon): string {
+  const url = hackathon.banner_image_url || '';
+  const isLogoOnly =
+    url.includes('150x150') ||
+    url.includes('uploadedManual') ||
+    url.includes('organisation_image') ||
+    url.includes('svg/unstop-logo');
+
+  if (!isLogoOnly && url && url.startsWith('http')) {
+    return url;
+  }
+
+  const text = (hackathon.title + ' ' + (hackathon.themes || []).join(' ') + ' ' + hackathon.organizer).toLowerCase();
+
+  if (text.includes('ai') || text.includes('genai') || text.includes('machine learning') || text.includes('deep learning')) {
+    return 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80';
+  }
+  if (text.includes('web3') || text.includes('blockchain') || text.includes('crypto')) {
+    return 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80';
+  }
+  if (text.includes('robot') || text.includes('hardware') || text.includes('iot')) {
+    return 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80';
+  }
+  if (text.includes('cyber') || text.includes('security') || text.includes('ctf')) {
+    return 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80';
+  }
+  if (text.includes('case') || text.includes('strategy') || text.includes('econo') || text.includes('business')) {
+    return 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80';
+  }
+  if (text.includes('code') || text.includes('coding') || text.includes('software')) {
+    return 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80';
+  }
+
+  return 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80';
+}
+
 interface DetailModalProps {
   type: 'hackathon' | 'job' | null;
   item: Hackathon | Opportunity | null;
@@ -145,38 +182,40 @@ export function DetailModal({ type, item, onClose }: DetailModalProps) {
           {isHackathon && hackathon ? (
             /* =================== HACKATHON DETAILS =================== */
             <div className="space-y-8">
-              {/* Header Hero Plate: Clean rounded container */}
-              <div className="relative w-full rounded-2xl overflow-hidden bg-[#0f172a] min-h-[220px] sm:min-h-[260px] flex items-center justify-center shadow-xs">
-                {isThumbnailLogo ? (
-                  <div className="flex flex-col items-center justify-center p-8 text-center space-y-3">
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/20 flex items-center justify-center shadow-lg">
-                      <img
-                        src={hackathon.banner_image_url}
-                        alt={hackathon.organizer}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div className="text-white text-xs font-bold tracking-wider uppercase">
-                      {hackathon.organizer}
-                    </div>
-                  </div>
-                ) : (
-                  <img
-                    src={hackathon.banner_image_url}
-                    alt={hackathon.title}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80';
-                    }}
-                    className="w-full h-full object-cover max-h-[340px]"
-                  />
-                )}
+              {/* Header Hero Banner Plate */}
+              <div className="relative w-full rounded-2xl overflow-hidden bg-slate-900 min-h-[220px] sm:min-h-[260px] shadow-sm">
+                <img
+                  src={getHackathonCoverBanner(hackathon)}
+                  alt={hackathon.title}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80';
+                  }}
+                  className="w-full h-full object-cover max-h-[340px]"
+                />
 
-                <div className="absolute top-3.5 right-3.5">
-                  <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900/90 text-white backdrop-blur-sm shadow-xs">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-black/20 to-black/30" />
+
+                <div className="absolute top-3.5 right-3.5 z-10">
+                  <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900/90 text-white backdrop-blur-md shadow-xs border border-white/10">
                     {hackathon.platform}
                   </span>
                 </div>
+
+                {hackathon.banner_image_url && hackathon.banner_image_url.startsWith('http') && (
+                  <div className="absolute bottom-3 left-4 z-10 flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-xl bg-white p-1.5 shadow-lg border border-white/80 flex items-center justify-center shrink-0">
+                      <img
+                        src={hackathon.banner_image_url}
+                        alt={hackathon.organizer}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    </div>
+                    <span className="text-sm font-bold text-white drop-shadow-md">
+                      {hackathon.organizer}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Title & Organization Header */}
