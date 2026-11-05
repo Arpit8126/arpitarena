@@ -27,7 +27,7 @@ export function ClientApp({
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-950/20 via-[#0b0f19] to-[#0b0f19] text-slate-100 flex flex-col font-sans selection:bg-blue-500/20 selection:text-blue-400">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col font-sans selection:bg-blue-100 selection:text-blue-800">
       {/* 1. Top Brand Header (Scrolls naturally with page) */}
       <TopHeader />
 
@@ -80,60 +80,47 @@ export function ClientApp({
         }}
       />
 
-      {/* 6. Modern Dark Cyber Footer */}
-      <footer className="bg-[#070a12] border-t border-slate-800/80 py-12 px-4 sm:px-6 lg:px-8 text-xs text-slate-400 mt-12">
+      {/* 6. Clean Light Modern Footer */}
+      <footer className="bg-white border-t border-slate-200 py-10 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 mt-12">
         <div className="max-w-7xl mx-auto space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-800/80">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
             <div className="space-y-1">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#0073e6] to-[#00a3ff] text-white flex items-center justify-center font-bold text-xs shadow-xs">
                   DP
                 </div>
-                <span className="font-extrabold text-sm text-white uppercase tracking-wide">
+                <span className="font-extrabold text-sm text-slate-900 uppercase tracking-wide">
                   DevPulse Platform
                 </span>
               </div>
-              <p className="text-slate-400 text-xs font-normal max-w-xl">
+              <p className="text-slate-500 text-xs font-normal max-w-xl">
                 Real-time technology opportunities aggregator connecting Indian student builders with verified hackathons, internships, and engineering careers.
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs">
+            <div className="flex items-center gap-4 text-xs font-medium text-slate-600">
+              <Link href="/privacy" className="hover:text-slate-900 transition-colors">
+                Privacy
+              </Link>
+              <span>•</span>
+              <Link href="/terms" className="hover:text-slate-900 transition-colors">
+                Terms
+              </Link>
+              <span>•</span>
               <a
                 href="https://www.instagram.com/arpitcodecraft/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 font-semibold transition-colors"
+                className="hover:text-[#0073e6] transition-colors"
               >
-                Developer: Arpit Pandey (@arpitcodecraft) ›
+                @arpitcodecraft
               </a>
-
-              <a
-                href="mailto:contact@devpulse.local?subject=Listing%20Inquiry"
-                className="text-slate-400 hover:text-white transition-colors flex items-center gap-1"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                <span>Contact / Inquiry</span>
-              </a>
-
-              <Link
-                href="/admin-sync"
-                className="text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-1 font-mono text-[11px]"
-                title="Hidden Local Admin Sync Dashboard"
-              >
-                <Terminal className="w-3.5 h-3.5" />
-                <span>Sync Console</span>
-              </Link>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-slate-500 font-normal">
-            <p>
-              Direct Attribution Disclaimer: All hackathons, company names, logos, trademarks, and job postings belong to their respective organizers and platforms (Devfolio, Devpost, Unstop, Greenhouse). DevPulse aggregates official public listings and redirects directly to official endpoints.
-            </p>
-            <div className="shrink-0 text-slate-400 font-medium">
-              Engineered by Arpit Pandey
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-[11px]">
+            <span>© {new Date().getFullYear()} DevPulse. Engineered for Indian Developers.</span>
+            <span>Direct official application links. Verified opportunities.</span>
           </div>
         </div>
       </footer>

@@ -12,6 +12,7 @@ import {
   AlertCircle,
   Building,
   Sparkles,
+  ExternalLink,
 } from 'lucide-react';
 
 interface HackathonFeedProps {
@@ -65,7 +66,6 @@ export function HackathonFeed({
       let distance_km: number | undefined = undefined;
       // Only calculate distance if the hackathon has valid coordinates AND is not online
       if (userLocation && hack.latitude && hack.longitude && hack.mode !== 'online') {
-        // Guard against zero / null
         if (Math.abs(hack.latitude) > 0.1 && Math.abs(hack.longitude) > 0.1) {
           distance_km = calculateHaversineDistance(
             userLocation.latitude,
@@ -129,7 +129,6 @@ export function HackathonFeed({
 
     if (selectedSort === 'nearest') {
       list.sort((a, b) => {
-        // Items with real calculated distance come first
         if (a.distance_km !== undefined && b.distance_km !== undefined) {
           return a.distance_km - b.distance_km;
         }
@@ -153,12 +152,12 @@ export function HackathonFeed({
 
   return (
     <div className="space-y-6">
-      {/* Modern Sleek Dark Filter Panel */}
-      <div className="bg-[#111827]/90 border border-slate-800/90 rounded-2xl p-4 sm:p-5 shadow-lg backdrop-blur-md space-y-4">
+      {/* Modern Clean Light Filter Panel */}
+      <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-xs space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           {/* Mode Filter Chips */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
               Mode:
             </span>
             {['all', 'online', 'offline', 'hybrid'].map((mode) => (
@@ -167,27 +166,31 @@ export function HackathonFeed({
                 onClick={() => setSelectedMode(mode)}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-full border transition-all ${
                   selectedMode === mode
-                    ? 'bg-[#1c69d4] text-white border-[#1c69d4] shadow-sm shadow-blue-500/20'
-                    : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700/80'
+                    ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
+                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                 }`}
               >
-                {mode === 'all' ? 'All Modes' : mode === 'offline' ? 'In-Person' : mode.charAt(0).toUpperCase() + mode.slice(1)}
+                {mode === 'all'
+                  ? 'All Modes'
+                  : mode === 'offline'
+                  ? 'In-Person'
+                  : mode.charAt(0).toUpperCase() + mode.slice(1)}
               </button>
             ))}
           </div>
 
           {/* Sort Buttons & GPS Trigger */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
               Sort:
             </span>
 
             <button
               onClick={() => setSelectedSort('latest')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-full border transition-all ${
                 selectedSort === 'latest'
-                  ? 'bg-blue-600 text-white border-blue-500 shadow-sm'
-                  : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700'
+                  ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
+                  : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
               }`}
             >
               Latest
@@ -195,10 +198,10 @@ export function HackathonFeed({
 
             <button
               onClick={() => setSelectedSort('deadline')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-full border transition-all ${
                 selectedSort === 'deadline'
-                  ? 'bg-blue-600 text-white border-blue-500 shadow-sm'
-                  : 'bg-slate-800/80 text-slate-300 border-slate-700/80 hover:bg-slate-700'
+                  ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
+                  : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
               }`}
             >
               Deadline Soonest
@@ -208,10 +211,10 @@ export function HackathonFeed({
             <button
               onClick={handleFindNearMe}
               disabled={isLocating}
-              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-full border transition-all ${
                 selectedSort === 'nearest'
-                  ? 'bg-[#1c69d4] text-white shadow-sm'
-                  : 'bg-blue-950/60 text-blue-400 border border-blue-700/60 hover:bg-blue-900/60'
+                  ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs'
+                  : 'bg-blue-50 text-[#0073e6] border-blue-200 hover:bg-blue-100'
               }`}
             >
               <Navigation className={`w-3.5 h-3.5 ${isLocating ? 'animate-spin' : ''}`} />
@@ -221,8 +224,8 @@ export function HackathonFeed({
         </div>
 
         {/* Themes Filter Row */}
-        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-800">
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-400 mr-1">
+        <div className="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500 mr-1">
             Themes:
           </span>
           {[
@@ -238,8 +241,8 @@ export function HackathonFeed({
               onClick={() => setSelectedTheme(theme.id)}
               className={`px-3 py-1 text-xs font-medium rounded-full border transition-all ${
                 selectedTheme === theme.id
-                  ? 'bg-blue-600 text-white border-blue-500 shadow-sm font-semibold'
-                  : 'bg-slate-800/80 text-slate-400 border-slate-700/80 hover:bg-slate-700 hover:text-slate-200'
+                  ? 'bg-[#0073e6] text-white border-[#0073e6] shadow-xs font-semibold'
+                  : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
               }`}
             >
               {theme.label}
@@ -248,66 +251,59 @@ export function HackathonFeed({
         </div>
 
         {locationError && (
-          <div className="flex items-center gap-2 p-3 bg-red-950/60 border border-red-800 text-red-300 text-xs rounded-xl">
+          <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{locationError}</span>
           </div>
         )}
       </div>
 
-      {/* Grid: 3-column Layout with Real Scraped Images */}
+      {/* Grid: 3-column Layout with Real Authentic Images */}
       {filteredHackathons.length === 0 ? (
-        <div className="bg-[#111827]/90 border border-slate-800 rounded-2xl p-16 text-center space-y-3 shadow-lg">
-          <Globe className="w-12 h-12 text-slate-600 mx-auto" />
-          <h3 className="text-xl font-bold text-white">No hackathons match your criteria</h3>
-          <p className="text-sm text-slate-400 font-normal max-w-md mx-auto">
-            Try adjusting your theme or mode filters to explore more active hackathons.
+        <div className="bg-white border border-slate-200 rounded-2xl p-16 text-center space-y-3 shadow-xs">
+          <Globe className="w-12 h-12 text-slate-400 mx-auto" />
+          <h3 className="text-xl font-bold text-slate-900">No hackathons match your criteria</h3>
+          <p className="text-sm text-slate-500 font-normal max-w-md mx-auto">
+            Try adjusting your theme or mode filters to explore more active Indian hackathons.
           </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredHackathons.map((hackathon) => {
             const isDeadlinePassed = (hackathon as any).days_remaining <= 0;
-            const realScrapedImage = hackathon.banner_image_url || 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80';
+            const realScrapedImage = hackathon.banner_image_url || '';
 
             return (
               <div
                 key={hackathon.id}
-                className="bg-[#111827]/90 border border-slate-800/90 hover:border-blue-500/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1 flex flex-col justify-between transition-all duration-300 group"
+                className="bg-white border border-slate-200/90 hover:border-blue-400 rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between transition-all duration-200 group"
               >
-                {/* Visual Header displaying the REAL Scraped Image */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-950 flex items-center justify-center">
-                  {/* Blurred ambient background of the exact same image to ensure perfect aspect ratio fit */}
-                  <img
-                    src={realScrapedImage}
-                    alt=""
-                    aria-hidden="true"
-                    className="absolute inset-0 w-full h-full object-cover blur-md opacity-40 scale-110 pointer-events-none"
-                    loading="lazy"
-                  />
+                {/* Visual Header displaying the REAL Scraped Image cleanly */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50 border-b border-slate-100 flex items-center justify-center p-3">
+                  {realScrapedImage ? (
+                    <img
+                      src={realScrapedImage}
+                      alt={hackathon.title}
+                      onError={(e) => {
+                        // If image fails, fallback to clean organizer avatar representation
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
+                      className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#0073e6] border border-blue-100 flex items-center justify-center font-bold text-xl">
+                      {hackathon.organizer.slice(0, 2).toUpperCase()}
+                    </div>
+                  )}
 
-                  {/* Foreground real scraped image */}
-                  <img
-                    src={realScrapedImage}
-                    alt={hackathon.title}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src =
-                        'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80';
-                    }}
-                    className="relative w-full h-full object-contain group-hover:scale-103 transition-transform duration-300 p-2"
-                    loading="lazy"
-                  />
-
-                  {/* Gradient Overlay for high-contrast badge legibility */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30 pointer-events-none" />
-
-                  {/* Mode Pill */}
+                  {/* Mode Pill Badge */}
                   <div className="absolute top-3 left-3 flex items-center gap-1.5 z-10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-900/90 text-white backdrop-blur-md shadow-xs border border-white/10">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/95 text-slate-800 shadow-xs border border-slate-200/80 backdrop-blur-xs">
                       {hackathon.mode === 'offline' ? 'In-Person' : hackathon.mode === 'hybrid' ? 'Hybrid' : 'Online'}
                     </span>
                     {hackathon.distance_km !== undefined && (
-                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#1c69d4] text-white shadow-xs">
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#0073e6] text-white shadow-xs">
                         📍 {hackathon.distance_km} KM
                       </span>
                     )}
@@ -315,7 +311,7 @@ export function HackathonFeed({
 
                   {/* Platform & Days Badge */}
                   <div className="absolute top-3 right-3 flex items-center gap-1 z-10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-900/90 text-slate-200 shadow-xs border border-white/10 backdrop-blur-md">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-white/95 text-slate-700 shadow-xs border border-slate-200/80 backdrop-blur-xs">
                       {isDeadlinePassed ? 'Closed' : `${(hackathon as any).days_remaining}d Left`}
                     </span>
                   </div>
@@ -324,22 +320,22 @@ export function HackathonFeed({
                 {/* Card Content */}
                 <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div className="space-y-2">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-blue-400 truncate">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[#0073e6] truncate">
                       {hackathon.organizer}
                     </div>
 
-                    <h3 className="font-bold text-base sm:text-lg text-white group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
+                    <h3 className="font-bold text-base sm:text-lg text-slate-900 group-hover:text-[#0073e6] transition-colors line-clamp-2 leading-snug">
                       {hackathon.title}
                     </h3>
 
-                    <div className="space-y-1.5 text-xs text-slate-400 font-normal pt-1">
+                    <div className="space-y-1.5 text-xs text-slate-500 font-normal pt-1">
                       <div className="flex items-center gap-1.5 truncate">
-                        <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                        <span>{hackathon.venue_city || 'Online'}</span>
+                        <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <span className="text-slate-700">{hackathon.venue_city || 'Online'}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                        <span>
+                        <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        <span className="text-slate-700">
                           Deadline: {new Date(hackathon.registration_deadline).toLocaleDateString('en-IN', {
                             day: 'numeric',
                             month: 'short',
@@ -354,7 +350,7 @@ export function HackathonFeed({
                       {hackathon.themes && hackathon.themes.slice(0, 3).map((theme, i) => (
                         <span
                           key={i}
-                          className="text-[11px] font-medium uppercase px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700/60"
+                          className="text-[11px] font-medium uppercase px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200/60"
                         >
                           {theme}
                         </span>
@@ -362,11 +358,11 @@ export function HackathonFeed({
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-2.5">
+                  {/* Action Buttons: Improved Prominent Buttons matching user request */}
+                  <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2.5">
                     <button
                       onClick={() => onSelectHackathon(hackathon)}
-                      className="py-2.5 px-3 text-center bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold rounded-xl transition-all"
+                      className="py-2.5 px-3 text-center bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 hover:border-slate-400 text-xs font-semibold rounded-xl shadow-2xs transition-all active:scale-98"
                     >
                       Details ›
                     </button>
@@ -375,9 +371,10 @@ export function HackathonFeed({
                       href={hackathon.apply_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-2.5 px-3 text-center bg-[#1c69d4] hover:bg-[#0284c7] text-white text-xs font-semibold rounded-xl shadow-md shadow-blue-600/30 hover:shadow-blue-500/50 transition-all"
+                      className="py-2.5 px-3 text-center bg-[#0073e6] hover:bg-[#005bb5] text-white text-xs font-bold rounded-xl shadow-xs hover:shadow transition-all active:scale-98 flex items-center justify-center gap-1"
                     >
-                      Register ›
+                      <span>Register</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>

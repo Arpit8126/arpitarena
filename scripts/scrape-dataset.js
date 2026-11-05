@@ -40,19 +40,22 @@ const CITY_COORDS = {
   singapore: { lat: 1.3521, lng: 103.8198, city: 'Singapore' },
 };
 
-function geocodeLocation(locString = '') {
-  if (!locString) return { lat: null, lng: null, city: 'Online / Remote' };
-  const lower = locString.toLowerCase();
-  for (const [key, val] of Object.entries(CITY_COORDS)) {
-    if (lower.includes(key)) {
-      return { lat: val.lat, lng: val.lng, city: val.city };
-    }
+function isIndianLocation(city = '', address = '', mode = '') {
+  if (mode === 'online') return true;
+  const str = (city + ' ' + address).toLowerCase();
+  if (str.includes('usa') || str.includes('united states') || str.includes('uk') || str.includes('london') ||
+      str.includes('dublin') || str.includes('san francisco') || str.includes('new york') || str.includes('emea') ||
+      str.includes('germany') || str.includes('canada') || str.includes('hall') || str.includes('pennsylvania') ||
+      str.includes('singapore') || str.includes('europe') || str.includes('australia')) {
+    return false;
   }
-  // Check if US/foreign address
-  if (lower.includes('usa') || lower.includes('united states') || lower.includes('canada') || lower.includes('hall') || lower.includes('campus')) {
-    return { lat: 39.9526, lng: -75.1652, city: locString.split(',')[0].trim() || 'Global Campus' };
-  }
-  return { lat: null, lng: null, city: locString.split(',')[0].trim() || 'Online' };
+  const indianKeywords = [
+    'bengaluru', 'bangalore', 'delhi', 'new delhi', 'delhi ncr', 'noida', 'gurgaon', 'gurugram',
+    'mumbai', 'pune', 'hyderabad', 'chennai', 'kolkata', 'ahmedabad', 'jaipur', 'bhopal', 'indore',
+    'lucknow', 'chandigarh', 'kochi', 'coimbatore', 'rourkela', 'mangaluru', 'mangalore', 'vadodara',
+    'remote', 'india', 'hybrid', 'online'
+  ];
+  return indianKeywords.some(k => str.includes(k));
 }
 
 function classifyTechRole(title = '') {
@@ -165,7 +168,18 @@ async function scrapeAll() {
       ];
       for (const item of raw) {
         if (!item.name || !item.slug) continue;
-        const banner = item.settings?.featured_cover_img || 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80';
+        let banner = item.settings?.featured_cover_img || item.settings?.cover_img;
+        if (!banner) {
+          try {
+            const subRes = await fetch(`https://${item.slug}.devfolio.co`, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+            if (subRes.ok) {
+              const subHtml = await subRes.text();
+              const sub$ = cheerio.load(subHtml);
+              banner = sub$('meta[property="og:image"]').attr('content') || sub$('meta[name="twitter:image"]').attr('content');
+            }
+          } catch { }
+        }
+        if (!banner) banner = `https://assets.devfolio.co/hackathons/${item.uuid}/assets/cover/968.jpeg`;
         devfolioHacks.push({
           id: `devfolio-${item.slug}`,
           title: item.name,
@@ -207,7 +221,7 @@ async function scrapeAll() {
       const list = data.hackathons || [];
       if (list.length === 0) break;
       for (const item of list) {
-        let banner = item.thumbnail_url || 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80';
+        let banner = item.thumbnail_url || 'https://assets.devpost.com/assets/shared/misc/generic-hackathon-thumbnail.png';
         if (banner.startsWith('//')) banner = 'https:' + banner;
         const locationStr = item.displayed_location?.location || 'Online';
         const isOffline = locationStr.toLowerCase().includes('in-person') || (!locationStr.toLowerCase().includes('online') && locationStr.length > 2);
@@ -263,7 +277,7 @@ async function scrapeAll() {
           const cityRaw = item.address_with_country_logo?.city || (mode === 'offline' ? 'Bengaluru' : 'India');
           const geo = geocodeLocation(cityRaw);
           // Preserve the authentic scraped image from Unstop!
-          const banner = item.logoUrl2 || item.thumb || item.organisation?.logoUrl2 || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80';
+          const banner = item.logoUrl2 || item.thumb || item.organisation?.logoUrl2 || 'https://d8it4huxumps7.cloudfront.net/images/unstop-logo-icon.png';
           const deadline = item.regnRequirements?.end_regn_dt || item.end_date || new Date(Date.now() + 21 * 86400000).toISOString();
           const applyUrl = item.seo_url || (item.public_url ? `https://unstop.com/${item.public_url}` : `https://unstop.com/hackathons/${item.id}`);
 
